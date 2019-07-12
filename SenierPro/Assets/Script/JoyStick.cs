@@ -27,7 +27,7 @@ public class JoyStick : MonoBehaviour {
 
     void Update()
     {
-        if (MovePlag)
+        if (MovePlag && Player != null)
             Player.transform.Translate(Vector3.forward * Time.deltaTime * 1f);
         
     }
@@ -35,6 +35,9 @@ public class JoyStick : MonoBehaviour {
     // 드래그
     public void Drag(BaseEventData _Data)
     {
+        if (Player == null)
+            return;
+
         MovePlag = true;
         PointerEventData Data = _Data as PointerEventData;
         Vector3 Pos = Data.position;

@@ -84,6 +84,7 @@ public class PartSelectionController : MonoBehaviour
             kneeKeys.AddRange(collections.kneeObjects.Keys);
             armPartsKeys.AddRange(collections.armParts.Keys);
             legPartsKeys.AddRange(collections.legParts.Keys);
+
             // Change parts to make parts object active
             ChangeHeadPart();
             ChangeHairPart();
@@ -96,6 +97,7 @@ public class PartSelectionController : MonoBehaviour
         }
     }
 
+    // UI 업데이트
     void Update()
     {
         if (headIndexText != null)

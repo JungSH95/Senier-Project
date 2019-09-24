@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class FadeManager : MonoBehaviour
 {
     public Image black;
-    public Image white;
     private Color color;
 
     private WaitForSeconds waitTime = new WaitForSeconds(0.01f);

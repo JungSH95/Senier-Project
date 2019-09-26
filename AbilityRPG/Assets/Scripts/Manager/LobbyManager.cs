@@ -22,6 +22,6 @@ public class LobbyManager : MonoBehaviour
     {
         fadeManager.FadeOut();
         yield return new WaitForSeconds(1f);
-        SceneLoadManager._sceneManagerInstance.LoadScene("1_CharacterInit");
+        SceneLoadManager.Instance.LoadScene("1_CharacterInit");
     }
 }

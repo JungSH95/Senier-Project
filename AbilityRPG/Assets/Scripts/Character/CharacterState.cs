@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class CharacterState : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // 캐릭터 행동에 관한 것들 !
+
+	// 상태 (대기, 이동, 전투, 사망)
 }

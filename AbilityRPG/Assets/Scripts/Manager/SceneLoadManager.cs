@@ -3,25 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoadManager : MonoBehaviour
+public class SceneLoadManager : Singleton<SceneLoadManager>
 {
-    public static SceneLoadManager _sceneManagerInstance;
     public string nextScene;
-
-    private void Awake()
-    {
-        //싱글톤 화
-        if (_sceneManagerInstance == null)
-        {
-            _sceneManagerInstance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
 
     public void LoadScene(string sceneName)
     {

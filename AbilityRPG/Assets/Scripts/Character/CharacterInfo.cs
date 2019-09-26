@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class CharacterInfo : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // 캐릭터의 필요 정보들 !
+
+	// 체력, 공격력, 스탯(체력, 힘, 민첩, 지능)
 }

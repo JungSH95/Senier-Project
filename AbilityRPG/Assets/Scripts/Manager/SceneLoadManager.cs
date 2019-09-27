@@ -7,6 +7,11 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
 {
     public string nextScene;
 
+    public void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+    
     public void LoadScene(string sceneName)
     {
         nextScene = sceneName;

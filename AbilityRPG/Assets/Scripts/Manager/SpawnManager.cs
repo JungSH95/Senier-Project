@@ -7,11 +7,12 @@ public class SpawnManager : MonoBehaviour
     public Transform[] points;
 
     public GameObject monsterPrefab;
+    public string monsterName;
 
     public float createTime;
 
-    private int maxMonster = 10;
-    private int nowMonster = 0;
+    private int maxMonsterCount = 10;
+    private int nowMonsterCount = 0;
 
     public bool isGameOver = false;
 
@@ -40,17 +41,19 @@ public class SpawnManager : MonoBehaviour
     {
         while(!isGameOver)
         {
-            if(maxMonster > nowMonster)
+            if(maxMonsterCount > nowMonsterCount)
             {
                 yield return new WaitForSeconds(1f);
 
                 int idx = Random.Range(1, points.Length);
-                
-                // 오브젝트 풀로 교체해야 하는 부분
-                GameObject newMonster = Instantiate(monsterPrefab, points[idx].position, points[idx].rotation);
-                newMonster.transform.parent = points[idx].transform;
 
-                nowMonster++;
+                // 오브젝트 풀로 교체해야 하는 부분
+                //GameObject newMonster = Instantiate(monsterPrefab, points[idx].position, points[idx].rotation);
+                GameObject newMonster = ObjectPool.Instance.PopFromPool(monsterName);
+                //newMonster.transform.parent = points[idx].transform;
+                newMonster.SetActive(true);
+
+                nowMonsterCount++;
             }
             else
                 yield return null;

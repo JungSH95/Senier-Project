@@ -28,7 +28,7 @@ public class JoyStick : MonoBehaviour {
     void Update()
     {
         if (MovePlag && Player != null)
-            Player.transform.Translate(Vector3.forward * Time.deltaTime * 1f);
+            Player.transform.Translate(Vector3.forward * Time.deltaTime * 2f);
         
     }
 

@@ -42,6 +42,9 @@ public class JoyStick : MonoBehaviour {
         PointerEventData Data = _Data as PointerEventData;
         Vector3 Pos = Data.position;
 
+        // 임시
+        Player.GetComponent<CharacterAnimation>().setAnimation(15);
+
         // 조이스틱을 이동시킬 방향을 구함.(오른쪽,왼쪽,위,아래)
         JoyVec = (Pos - StickFirstPos).normalized;
 
@@ -64,5 +67,8 @@ public class JoyStick : MonoBehaviour {
         Stick.position = StickFirstPos; // 스틱을 원래의 위치로.
         JoyVec = Vector3.zero;          // 방향을 0으로.
         MovePlag = false;
+
+        // 임시
+        Player.GetComponent<CharacterAnimation>().setAnimation(1);
     }
 }

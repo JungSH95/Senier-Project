@@ -10,7 +10,7 @@ public class LobbyManager : MonoBehaviour
     
     void Start()
     {
-        fadeManager = GameObject.Find("FadeManager").GetComponent<FadeManager>();
+        fadeManager = GameObject.Find("FadeCanvas").GetComponent<FadeManager>();
     }
 
     public void CharacterInitButton()

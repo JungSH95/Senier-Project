@@ -8,10 +8,13 @@ public class JoyStick : MonoBehaviour {
     public Transform Player;        // 플레이어
     public Transform Stick;         // 조이스틱.
 
-    private Vector3 StickFirstPos;  // 조이스틱의 처음 위치.
+    public Vector3 StickFirstPos;  // 조이스틱의 처음 위치.
     private Vector3 JoyVec;         // 조이스틱의 벡터(방향)
     private float Radius;           // 조이스틱 배경의 반 지름.
     private bool MovePlag;          // 플레이어 움직임 스위치
+
+    private Transform Vec;          // 카메라 벡터
+    private Vector3 MovePos;    // 플레이어 움직임에 대한 변수.
 
     void Start()
     {
@@ -23,13 +26,15 @@ public class JoyStick : MonoBehaviour {
         Radius *= Can;
 
         MovePlag = false;
+
+        Vec = GameObject.Find("CameraVector").transform;
+        MovePos = Vector3.zero;
     }
 
     void Update()
     {
         if (MovePlag && Player != null)
             Player.transform.Translate(Vector3.forward * Time.deltaTime * 2f);
-        
     }
 
     // 드래그

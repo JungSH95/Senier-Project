@@ -16,7 +16,7 @@ public class CameraMan : MonoBehaviour {
         MoveSpeed = 0.1f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Pos = transform.position;
         transform.position += (Target.position - Pos) * MoveSpeed;

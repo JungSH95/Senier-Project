@@ -9,17 +9,27 @@ public class CharacterControl : MonoBehaviour
     protected Joystick joystick;
     protected Joybutton joybutton;
 
+    private Rigidbody rigidbody;
+
     void Start()
     {
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<Joybutton>();
+
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    
-    public void Update()
+
+    public void FixedUpdate()
     {
-        float x = joystick.Horizontal;
-        float z = joystick.Vertical;
-        transform.Translate(new Vector3(x, transform.position.y, z) * Time.deltaTime * Speed);
+        if (joystick.Vertical != 0 || joystick.Horizontal != 0)
+        {
+            transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+            //Vector3 vector3 = Vector3.zero;
+            //vector3.Set(joystick.Horizontal, 0, joystick.Vertical);
+            //vector3 = vector3.normalized * Speed * Time.deltaTime;
+            //rigidbody.MovePosition(transform.position + vector3);
+            transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg, 0f);
+        }
     }
 }

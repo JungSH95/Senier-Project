@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MonsterSpawn1
+  - Monster
   layers:
   - Default
   - TransparentFX

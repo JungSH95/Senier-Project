@@ -11,7 +11,7 @@ public class SpawnManager : MonoBehaviour
 
     public float createTime;
 
-    private int maxMonsterCount = 10;
+    private int maxMonsterCount = 1;
     private int nowMonsterCount = 0;
 
     public bool isGameOver = false;

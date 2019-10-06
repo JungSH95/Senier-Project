@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     public float Speed = 2.0f;         // 움직이는 스피드.
     

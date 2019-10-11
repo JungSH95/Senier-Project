@@ -368,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922658437079802, guid: a99eeed56bfa7fb4c8a0a523be6d0864, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.08399999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4922658437079802, guid: a99eeed56bfa7fb4c8a0a523be6d0864, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2607,7 +2607,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858051774}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
   m_Speed: 1
@@ -2629,7 +2629,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858051774}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50f6e533ffe4fb347988fb09a2366c49, type: 3}
   m_Name: 
@@ -2637,9 +2637,12 @@ MonoBehaviour:
   maxHp: 100
   currentHp: 100
   damage: 10
+  playerRealizeRange: 2
+  distance: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
   currentState: 0
-  player: {fileID: 1138526427}
-  navAgent: {fileID: 0}
 --- !u!136 &858051781
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4011,7 +4014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922658437079802, guid: a99eeed56bfa7fb4c8a0a523be6d0864, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.08399999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4922658437079802, guid: a99eeed56bfa7fb4c8a0a523be6d0864, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4074,7 +4077,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431543909}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50f6e533ffe4fb347988fb09a2366c49, type: 3}
   m_Name: 
@@ -4082,9 +4085,12 @@ MonoBehaviour:
   maxHp: 100
   currentHp: 100
   damage: 10
+  playerRealizeRange: 2
+  distance: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
   currentState: 0
-  player: {fileID: 1138526427}
-  navAgent: {fileID: 0}
 --- !u!195 &1431543911
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4092,7 +4098,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431543909}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
   m_Speed: 1
@@ -6386,7 +6392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922658437079802, guid: a99eeed56bfa7fb4c8a0a523be6d0864, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.08399999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4922658437079802, guid: a99eeed56bfa7fb4c8a0a523be6d0864, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6449,7 +6455,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127419545}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50f6e533ffe4fb347988fb09a2366c49, type: 3}
   m_Name: 
@@ -6457,9 +6463,12 @@ MonoBehaviour:
   maxHp: 100
   currentHp: 100
   damage: 10
+  playerRealizeRange: 2
+  distance: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
   currentState: 0
-  player: {fileID: 1138526427}
-  navAgent: {fileID: 0}
 --- !u!195 &2127419547
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6467,7 +6476,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127419545}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
   m_Speed: 1

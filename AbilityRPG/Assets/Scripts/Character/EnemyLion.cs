@@ -5,9 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyLion : EnemyFSM
 {
-    public GameObject player;
-    public NavMeshAgent navAgent;
-
     // 사거리 표시
     private void OnDrawGizmosSelected()
     {
@@ -19,12 +16,10 @@ public class EnemyLion : EnemyFSM
 
     void Start()
     {
-        navAgent = GetComponent<NavMeshAgent>();
-    }
+        base.Start();
 
-    private void Update()
-    {
-        navAgent.SetDestination(player.transform.position);
+        playerRealizeRange = 3f;
+        navAgent.stoppingDistance = 0.45f;
     }
 
     // 몬스터 능력치 조정
@@ -32,5 +27,11 @@ public class EnemyLion : EnemyFSM
     {
         maxHp = 100f;
         currentHp = maxHp;
+    }
+
+    // 공격 받은 거 처리
+    private void OnCollisionEnter(Collision collision)
+    {
+
     }
 }

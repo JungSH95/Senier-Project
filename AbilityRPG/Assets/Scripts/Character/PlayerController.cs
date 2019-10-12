@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     protected Joybutton joybutton;
 
     private Rigidbody rigidbody;
-    private Animator animator;
+    public Animator animator;
 
     void Start()
     {
@@ -24,14 +24,30 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        animator.SetBool("MOVE", false);
-
-        if (joystick.Vertical != 0 || joystick.Horizontal != 0)
+        if (isPlayerMoving())
         {
-            animator.SetBool("MOVE", true);
-
             transform.Translate(Vector3.forward * Speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg, 0f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Monster"))
+            Debug.Log("몬스터로 공격 받음");
+    }
+
+    public bool isPlayerMoving()
+    {
+        if (joystick.Vertical != 0 || joystick.Horizontal != 0)
+        {
+            Debug.Log("이동중");
+            return true;
+        }
+        else
+        {
+            Debug.Log("이동중 아님");
+            return false;
         }
     }
 }

@@ -20,6 +20,9 @@ public class EnemyLion : EnemyFSM
 
         playerRealizeRange = 3f;
         navAgent.stoppingDistance = 0.45f;
+
+        attackCoolTime = 1f;
+        attackCoolTimeCacl = 1f;
     }
 
     // 몬스터 능력치 조정

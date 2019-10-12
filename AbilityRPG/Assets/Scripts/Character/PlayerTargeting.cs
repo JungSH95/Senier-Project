@@ -18,6 +18,8 @@ public class PlayerTargeting : MonoBehaviour
 
     public LayerMask layerMask;
 
+    private PlayerController playerController;
+
     // 시각적 표현 (에디터에서)
     private void OnDrawGizmos()
     {
@@ -40,7 +42,18 @@ public class PlayerTargeting : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
+
     void Update()
+    {
+        SetTarget();
+        AtkTarget();
+    }
+
+    void SetTarget()
     {
         if (monsterList.Count != 0)
         {
@@ -83,6 +96,52 @@ public class PlayerTargeting : MonoBehaviour
             closetDist = 100f;
             targetDist = 100f;
             getTarget = true;
+        }
+    }
+
+    void AtkTarget()
+    {
+        // 타겟 없을 경우
+        if (targetIndex == -1 || monsterList.Count == 0)  // 추가 
+        {
+            playerController.animator.SetBool("ATTACK", false);
+            return;
+        }
+
+        // 
+        if (getTarget && !playerController.isPlayerMoving() && monsterList.Count != 0)
+        {
+            //Debug.Log ( "lookat : " + MonsterList[TargetIndex].transform.GetChild ( 0 ) );  // 변경
+            transform.LookAt(monsterList[targetIndex].transform);     // 변경
+
+            //if (playerController.animator.GetCurrentAnimatorStateInfo(0).IsName("IDLE"))
+            {
+                Debug.Log("타겟있는데 공격 애니메이션 실행");
+
+                playerController.animator.SetBool("ATTACK", true);
+                playerController.animator.SetBool("IDLE", false);
+                playerController.animator.SetBool("MOVE", false);
+            }
+
+        }
+        else if (playerController.isPlayerMoving())
+        {
+            if (!playerController.animator.GetCurrentAnimatorStateInfo(0).IsName("MOVE"))
+            {
+                Debug.Log("이동중 애니메이션 실행");
+
+                playerController.animator.SetBool("ATTACK", false);
+                playerController.animator.SetBool("IDLE", false);
+                playerController.animator.SetBool("MOVE", true);
+            }
+        }
+        else
+        {
+            Debug.Log("아이들");
+
+            playerController.animator.SetBool("ATTACK", false);
+            playerController.animator.SetBool("IDLE", true);
+            playerController.animator.SetBool("MOVE", false);
         }
     }
 }

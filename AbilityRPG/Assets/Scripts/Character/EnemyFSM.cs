@@ -24,7 +24,6 @@ public class EnemyFSM : EnemyBase
 
         while(true)
         {
-            Debug.Log(currentState.ToString());
             yield return StartCoroutine(currentState.ToString());
         }
     }

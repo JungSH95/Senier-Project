@@ -9,8 +9,7 @@ public class PlayerHpBar : MonoBehaviour
     public Slider hpBar;
     public float maxHp;
     public float currentHp;
-
-    // Update is called once per frame
+    
     void Update()
     {
         transform.position = player.position;

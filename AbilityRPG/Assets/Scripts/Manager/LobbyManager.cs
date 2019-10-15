@@ -15,7 +15,7 @@ public class LobbyManager : MonoBehaviour
 
     public void CharacterInitButton()
     {
-        StartCoroutine(CoCharacterInit());
+        //StartCoroutine(CoCharacterInit());
     }
 
     IEnumerator CoCharacterInit()

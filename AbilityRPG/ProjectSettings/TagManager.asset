@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MonsterSpawn1
   - Monster
+  - NPC
   layers:
   - Default
   - TransparentFX

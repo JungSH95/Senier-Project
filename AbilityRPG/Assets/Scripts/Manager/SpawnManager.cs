@@ -45,7 +45,7 @@ public class SpawnManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(1f);
 
-                int idx = Random.Range(1, points.Length);
+                //int idx = Random.Range(1, points.Length);
 
                 // 오브젝트 풀로 교체해야 하는 부분
                 //GameObject newMonster = Instantiate(monsterPrefab, points[idx].position, points[idx].rotation);

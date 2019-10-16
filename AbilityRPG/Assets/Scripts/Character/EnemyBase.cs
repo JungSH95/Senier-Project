@@ -26,7 +26,7 @@ public class EnemyBase : MonoBehaviour {
     protected NavMeshAgent navAgent;
 
     protected Animator animator;
-    protected Rigidbody rigidbody;
+    //protected Rigidbody rigidbody;
 
     public LayerMask layerMask;
 
@@ -36,7 +36,7 @@ public class EnemyBase : MonoBehaviour {
 
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
+        //rigidbody = GetComponent<Rigidbody>();
 
         StartCoroutine(CoCoolTime());
     }

@@ -6,7 +6,7 @@ public class ObjectPool : Singleton<ObjectPool>
 {
     public List<PooledObject> lObjectPool = new List<PooledObject>();
 
-    private new void Awake()
+    private void Awake()
     {
         for(int i = 0; i < lObjectPool.Count; ++i)
         {

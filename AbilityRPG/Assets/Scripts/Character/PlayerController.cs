@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     protected Joystick joystick;
     protected Joybutton joybutton;
 
-    private Rigidbody rigidbody;
+    //private Rigidbody rigidbody;
     public Animator animator;
 
     protected NavMeshAgent navAgent;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<Joybutton>();
 
-        rigidbody = GetComponent<Rigidbody>();
+        //rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
         navAgent = GetComponent<NavMeshAgent>();

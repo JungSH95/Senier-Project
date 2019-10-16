@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// https://www.youtube.com/watch?v=_nRzoTzeyxU      다이얼로그 시스템 만드는법
 // https://keidy.tistory.com/205
-// https://www.youtube.com/watch?v=mjnTPQipkcU
+// https://www.youtube.com/watch?v=mjnTPQipkcU      게임이 망했다 플레이 영상
 public class NPC : MonoBehaviour
 {
     public Transform Atransform;

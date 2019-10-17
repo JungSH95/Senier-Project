@@ -8,9 +8,11 @@ public class DialogueTrigger : MonoBehaviour
 
     public Transform dialogueTransform;
     public GameObject dialogueBox;
+    
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(bool isAutoDialogue)
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, dialogueTransform);
+        //FindObjectOfType<DialogueManager>().StartDialogue(dialogue, dialogueTransform, isAutoDialogue);
+        dialogueBox.GetComponent<DialogueManager>().StartDialogue(dialogue, dialogueTransform, isAutoDialogue);
     }
 }

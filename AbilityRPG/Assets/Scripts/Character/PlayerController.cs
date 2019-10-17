@@ -17,9 +17,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
 
     private bool isNpcTarget = false;
+    public bool isTalk = false;
     private Transform targetNPC;
 
-    void Start()
+    void Awake()
     {
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<Joybutton>();
@@ -34,6 +35,10 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
+        // 팝업창이 떠있으면 이동 불가능?
+        if (isTalk)
+            return;
+
         if (isPlayerMoving())
         {
             isNpcTarget = false;
@@ -57,6 +62,8 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("npc 앞 도착");
 
                 // 대화 진행
+                isNpcTarget = false;
+                isTalk = true;
             }
         }
         else

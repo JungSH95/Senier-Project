@@ -7,9 +7,6 @@ using TMPro;
 // https://www.youtube.com/watch?v=_nRzoTzeyxU      다이얼로그 시스템 만드는법
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
-
     public TextMeshPro text;
     public GameObject quad;
 
@@ -21,12 +18,11 @@ public class DialogueManager : MonoBehaviour
     }
 
     // 다이얼로그, 내용 출력 처음부터 시작
-    public void StartDialogue(Dialogue dialogue, Transform dialoguePos)
+    public void StartDialogue(Dialogue dialogue, Transform dialoguePos, bool isAutoDialogue)
     {
         transform.position = dialoguePos.position;
 
         Debug.Log("Starting conversation with " + dialogue.name);   // 다이얼로그의 이름
-        nameText.text = dialogue.name;
 
         sentences.Clear();                                          // 기존 내용 비우기
 
@@ -36,7 +32,27 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        DisplayNextSentence(dialoguePos);
+        // 자동으로 대사를 할 것인지
+        if (isAutoDialogue)
+        {
+            StopAllCoroutines();
+            StartCoroutine(CoAutoSentence(dialoguePos));
+        }
+        else
+            DisplayNextSentence(dialoguePos);
+    }
+
+    IEnumerator CoAutoSentence(Transform dialoguePos)
+    {
+        yield return null;
+
+        while(sentences.Count > 0)
+        {
+            string sentence = sentences.Dequeue();
+
+            StartCoroutine(CoTypeSentence(sentence, dialoguePos));
+            yield return new WaitForSeconds(2f);
+        }
     }
 
     // 다음 내용으로
@@ -59,16 +75,14 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator CoTypeSentence(string sentence, Transform dialoguePos)
     {
-        dialogueText.text = "";
         text.text = "";
 
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter;
             text.text += letter;
 
             DialogueBoxSizeSetting();
-            transform.position = new Vector2(dialoguePos.position.x, dialoguePos.position.y + text.preferredHeight / 2f);
+            transform.position = new Vector3(dialoguePos.position.x, 1f, dialoguePos.position.z + text.preferredHeight / 2f);
             yield return null;
         }
     }

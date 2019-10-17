@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("MOVE", false);
                 Debug.Log("npc 앞 도착");
+
+                // 대화 진행
             }
         }
         else
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
                 {
                     isNpcTarget = true;
                     targetNPC = hitInfo.transform;
+                    transform.LookAt(hitInfo.transform);
                     navAgent.SetDestination(hitInfo.transform.position);
                 }
             }

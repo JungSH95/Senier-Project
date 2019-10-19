@@ -23,20 +23,16 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
     {
         SceneManager.LoadScene("0_Lobby");
     }
-    //캐릭터 생성 씬 로드
-    public void CharacterInitScene()
-    {
-        SceneManager.LoadScene("1_CharacterInit");
-    }
+
     //월드맵 로드
     public void WorldMapScene()
     {
-        SceneManager.LoadScene("2_MainField");
+        SceneManager.LoadScene("1_MainField");
     }
     //배틀 씬 로드
     public void BattleScene()
     {
-        SceneManager.LoadScene("3_BattleField");
+        SceneManager.LoadScene("2_BattleField");
     }
 
     IEnumerator CoLoadScene()

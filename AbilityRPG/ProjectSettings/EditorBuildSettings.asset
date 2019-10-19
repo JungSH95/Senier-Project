@@ -9,12 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/0_Lobby.unity
     guid: 198605e46d4ccbf45bb810a8c8f7ca8a
   - enabled: 1
-    path: Assets/Scenes/1_CharacterInit.unity
-    guid: 68e2be65928a71f48ac7e438123f209d
+    path: Assets/Scenes/1_MainField.unity
+    guid: 1857c21c0d501b147bf30c1fb5f4f424
   - enabled: 1
-    path: Assets/Scenes/2_MainField.unity
-    guid: dcb9fe228a6ca924db1b8b53f0ec517d
-  - enabled: 1
-    path: Assets/Scenes/3_BattleField.unity
+    path: Assets/Scenes/2_BattleField.unity
     guid: ca995d85bd79334458ddd8cd11d46986
   m_configObjects: {}

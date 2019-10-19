@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.stoppingDistance = 0.7f;
+        navAgent.speed = Speed;
     }
 
 

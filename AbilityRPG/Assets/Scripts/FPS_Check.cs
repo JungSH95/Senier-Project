@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//https://dydvn.tistory.com/37
 public class FPS_Check : MonoBehaviour {
 
     [Range(1, 100)]
     public int fFont_Size;
+    [Range(0, 1)]
+    public float Red, Green, Blue;
 
     float deltaTime = 0.0f;
 
@@ -26,6 +29,7 @@ public class FPS_Check : MonoBehaviour {
         Rect rect = new Rect(0, 0, w, h * 2 / 100);
         style.alignment = TextAnchor.UpperLeft;
         style.fontSize = h * 2 / fFont_Size;
+        style.normal.textColor = new Color(Red, Green, Blue, 1.0f);
 
         float msec = deltaTime * 1000.0f;
         float fps = 1.0f / deltaTime;

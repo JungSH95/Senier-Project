@@ -9,9 +9,29 @@ public class DungeonInitManager : MonoBehaviour
 {
     // 던전 렙에 따라서 방의 수가 정해짐
     public int dungeonLevel;
+    public int fieldCount;
 
-    // 보유한 필드 오브젝트 리스트
-    public List<GameObject> fieldObjectList;
+    // 필드 종류 T:Top, B:Bottom, L:Left, R:Right
+    public GameObject Start_Field;
+
+    public GameObject T_Field;
+    public GameObject B_Field;
+    public GameObject L_Field;
+    public GameObject R_Field;
+
+    public GameObject TL_Field;
+    public GameObject TR_Field;
+    public GameObject TB_Field;
+    public GameObject LR_Field;
+    public GameObject LB_Field;
+    public GameObject RB_Field;
+
+    public GameObject LTR_Field;
+    public GameObject LTB_Field;
+    public GameObject LBR_Field;
+    public GameObject TRB_Field;
+
+    public GameObject LTRB_Field;
 
     /*
      *  1. 각 필드에는 포탈이 존재
@@ -36,8 +56,30 @@ public class DungeonInitManager : MonoBehaviour
      *  4. 던전 맵 제작을 할 것인가?
      */
 
-    void Start()
+    private void Awake()
     {
-        
+        dungeonLevel = 1;
+        fieldCount = dungeonLevel * 3;
     }
+
+    public void DungeonInit()
+    {
+        // Start 방 생성
+        fieldCount--;
+
+        while(fieldCount != 0)
+        {
+            if(fieldCount == 1)
+            {
+                // 문 1개 생성 -> 이전방의 포탈 위치 연결작업
+                fieldCount--;
+            }
+            else if(fieldCount == 2)
+            {
+                // 문 2개 생성
+            }
+        }
+    }
+
+    // 포탈 연결 과정은 어떻게?
 }

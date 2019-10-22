@@ -787,6 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dungeonLevel: 0
+  fieldCount: 0
   Start_Field: {fileID: 0}
   T_Field: {fileID: 0}
   B_Field: {fileID: 0}
@@ -858,7 +859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1303067697
 Transform:
   m_ObjectHideFlags: 0
@@ -1495,7 +1496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1940037543
 Transform:
   m_ObjectHideFlags: 0

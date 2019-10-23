@@ -100,7 +100,7 @@ NavMeshSettings:
     agentRadius: 0.13
     agentHeight: 2
     agentSlope: 35
-    agentClimb: 0.4
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: f82a849c107df6440aba02871185b4c9, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: bd3d3cb8a8f85774da6a224f72ee9fe5, type: 2}
 --- !u!1 &16701020
 GameObject:
   m_ObjectHideFlags: 0

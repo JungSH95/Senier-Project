@@ -206,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0444f898935cc040adb500fc5be3d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorPosList: 00000000
 --- !u!1 &1184685379326125209
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +965,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1353371977026676350
 Transform:
@@ -1049,6 +1048,10 @@ PrefabInstance:
     - target: {fileID: 1935039790392146, guid: ba7e7b47e14ac404fbe09194158fbf80, type: 3}
       propertyPath: m_Name
       value: ForestBridgeWide
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935039790392146, guid: ba7e7b47e14ac404fbe09194158fbf80, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4306493040582690, guid: ba7e7b47e14ac404fbe09194158fbf80, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14191,6 +14194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForestCastleDoorL_Red
       objectReference: {fileID: 0}
+    - target: {fileID: 1432977942592268, guid: c44928e7737eb974695c038f3bff9fda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4600501338861520, guid: c44928e7737eb974695c038f3bff9fda, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.21
@@ -14265,6 +14272,10 @@ PrefabInstance:
     - target: {fileID: 1811052026734980, guid: 8460a569480840d449cb9dd635c1b06c, type: 3}
       propertyPath: m_Name
       value: ForestCastleDoorR_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811052026734980, guid: 8460a569480840d449cb9dd635c1b06c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4887337042900772, guid: 8460a569480840d449cb9dd635c1b06c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14341,6 +14352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForestBrazzierRed
       objectReference: {fileID: 0}
+    - target: {fileID: 1685134394710758, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4278446812860420, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -14408,6 +14423,14 @@ PrefabInstance:
     - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070377292080218, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356270737979150, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
@@ -14683,6 +14706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForestBrazzierRed (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1685134394710758, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4278446812860420, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -14750,6 +14777,14 @@ PrefabInstance:
     - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070377292080218, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356270737979150, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}

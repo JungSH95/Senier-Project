@@ -20,9 +20,6 @@ public class DungeonInitManager : MonoBehaviour
     public List<GameObject> L_Field;
     public List<GameObject> R_Field;
 
-    public GameObject LTRB_Field;
-
-
     private void Awake()
     {
         dungeonLevel = 1;
@@ -41,7 +38,7 @@ public class DungeonInitManager : MonoBehaviour
 
     public void DungeonInit()
     {
-        
+        FieldManager nowField = Start_Field.GetComponent<FieldManager>();
     }
 
     // 포탈 연결 과정은 어떻게?

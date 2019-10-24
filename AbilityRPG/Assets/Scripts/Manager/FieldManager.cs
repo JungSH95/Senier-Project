@@ -5,12 +5,7 @@ using UnityEngine;
 // 현재 필드에서의 포탈 관리 및 몬스터 스폰 관리?
 public class FieldManager : MonoBehaviour
 {
-    public enum DoorPos { TOP, RIGHT, BOTTOM, LEFT};
-
-    public struct FieldInfo
-    {
-        DoorPos doorPos;
-    }
+    public PortalManager portalManager;
 
     private void Awake()
     {

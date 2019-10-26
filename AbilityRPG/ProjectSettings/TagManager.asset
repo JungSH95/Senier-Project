@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - MonsterSpawn1
   - Monster
   - NPC
+  - NextField
+  - FadeCanvas
+  - MonsterSpawn
+  - NextScene
   layers:
   - Default
   - TransparentFX

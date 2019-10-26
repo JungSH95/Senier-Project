@@ -18,7 +18,7 @@ public class EnemyLion : EnemyFSM
     {
         base.Start();
 
-        playerRealizeRange = 3f;
+        playerRealizeRange = 2f;
         navAgent.stoppingDistance = 0.45f;
 
         attackCoolTime = 1f;

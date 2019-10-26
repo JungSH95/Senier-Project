@@ -73,12 +73,6 @@ public class PlayerController : MonoBehaviour
         NpcTargeting();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.CompareTag("Monster"))
-            Debug.Log("몬스터로 공격 받음");
-    }
-
     public bool isPlayerMoving()
     {
         if (joystick.Vertical != 0 || joystick.Horizontal != 0)
@@ -105,6 +99,28 @@ public class PlayerController : MonoBehaviour
                     navAgent.SetDestination(hitInfo.transform.position);
                 }
             }
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Monster"))
+            Debug.Log("몬스터로 공격 받음");
+
+        if (other.transform.CompareTag("NextField"))
+        {
+            Debug.Log("포탈 들어옴");
+
+            FieldManager.Instance.NextField();
+            // 1. 페이드 아웃
+            // 2. 다음 지역 이동
+            // 3. 페이드 인
+        }
+
+        if(other.transform.CompareTag("NextScene"))
+        {
+            SceneLoadManager.Instance.LoadScene("99_Test");
         }
     }
 }

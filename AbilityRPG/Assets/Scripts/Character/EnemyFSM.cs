@@ -57,13 +57,17 @@ public class EnemyFSM : EnemyBase
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
             animator.SetInteger("animation", 15);
 
-        
+
         if (CanAtkState() && canAtk)
             currentState = State.Attack;
         else if (distance > playerRealizeRange)             // 플레이어 거리가 인식 거리보다 멀 경우 앞으로 직진
-            navAgent.SetDestination(transform.position - Vector3.forward * 1f);
+            //navAgent.SetDestination(transform.position - Vector3.forward * 0f);
+            ;
         else
+        {
             navAgent.SetDestination(Player.transform.position);
+            transform.LookAt(Player.transform);
+        }
     }
 
     protected virtual IEnumerator Attack()

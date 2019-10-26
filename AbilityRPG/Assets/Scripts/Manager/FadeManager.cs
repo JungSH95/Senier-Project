@@ -10,7 +10,7 @@ public class FadeManager : MonoBehaviour
 
     private WaitForSeconds waitTime = new WaitForSeconds(0.01f);
 
-    public void FadeOut(float _speed = 0.02f)
+    public void FadeOut(float _speed = 0.04f)
     {
         StopAllCoroutines();
         StartCoroutine(FadeOutCoroutine(_speed));
@@ -28,7 +28,7 @@ public class FadeManager : MonoBehaviour
         }
     }
 
-    public void FadeIn(float _speed = 0.02f)
+    public void FadeIn(float _speed = 0.04f)
     {
         StopAllCoroutines();
         StartCoroutine(FadeInCoroutine(_speed));

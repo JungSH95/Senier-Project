@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// https://ronniej.sfuh.tk/%EC%9C%A0%EB%8B%88%ED%8B%B0%EC%97%90%EC%84%9C-%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8-%ED%92%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-object-pool/
 public class ObjectPool : Singleton<ObjectPool>
 {
     public List<PooledObject> lObjectPool = new List<PooledObject>();

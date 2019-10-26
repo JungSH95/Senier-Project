@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public Transform[] points;
+    public Transform spawnTransform;
+
+    public List<Transform> points;
+    public List<GameObject> monsterList;
 
     public GameObject monsterPrefab;
     public string monsterName;
 
     public float createTime;
 
-    private int maxMonsterCount = 1;
-    private int nowMonsterCount = 0;
+    private int maxMonsterCount;
+    private int nowMonsterCount;
 
+    public bool isSpawnEnd;
     public bool isGameOver = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        points = GameObject.Find("MonsterSpawnField").GetComponentsInChildren<Transform>();
+        //this.gameObject.GetComponentsInChildren<Transform>(points);
+        spawnTransform.GetComponentsInChildren<Transform>(points);
+        // GetComponentsInChildren<>() 함수는 부모까지 포함하여 리스트에 넣어준다.
+        points.RemoveAt(0);
 
-        if (points.Length > 0)
-            StartCoroutine(CreateMonster());
+        isSpawnEnd = false;
+        maxMonsterCount = points.Count;
+        nowMonsterCount = 0;
     }
 
     /* 
@@ -37,20 +45,30 @@ public class SpawnManager : MonoBehaviour
     
     */
 
+    public void SpawnStart()
+    {
+        Debug.Log("스폰 시작");
+
+        isSpawnEnd = false;
+
+        StartCoroutine(CreateMonster());
+    }
+
     IEnumerator CreateMonster()
     {
+        /*
         while(!isGameOver)
         {
             if(maxMonsterCount > nowMonsterCount)
             {
                 yield return new WaitForSeconds(1f);
 
-                //int idx = Random.Range(1, points.Length);
+                //int idx = Random.Range(1, points.Count);
 
                 // 오브젝트 풀로 교체해야 하는 부분
-                //GameObject newMonster = Instantiate(monsterPrefab, points[idx].position, points[idx].rotation);
-                GameObject newMonster = ObjectPool.Instance.PopFromPool(monsterName);
-                //newMonster.transform.parent = points[idx].transform;
+                GameObject newMonster = Instantiate(monsterPrefab, points[nowMonsterCount].position, points[nowMonsterCount].rotation);
+                //GameObject newMonster = ObjectPool.Instance.PopFromPool(monsterName);
+                newMonster.transform.parent = points[nowMonsterCount].transform;
                 newMonster.SetActive(true);
 
                 nowMonsterCount++;
@@ -58,7 +76,37 @@ public class SpawnManager : MonoBehaviour
             else
                 yield return null;
         }
+        */
+
+        //yield return new WaitForSeconds(0.5f);
+        /*
+        while(points.Count == 0)
+        {
+            Debug.Log("스폰 포인트 0");
+            yield return new WaitForSeconds(0.1f);
+        }
+        */
+        
+        maxMonsterCount = points.Count;
+        nowMonsterCount = 0;
+
+        while (nowMonsterCount < maxMonsterCount)
+        {
+            GameObject newMonster = Instantiate(monsterPrefab, points[nowMonsterCount].position, points[nowMonsterCount].rotation);
+            newMonster.transform.parent = points[nowMonsterCount++].transform;
+            monsterList.Add(newMonster);
+
+            Debug.Log("몬스터 수 : " + monsterList.Count);
+        }
+
+        isSpawnEnd = true;
 
         yield return null;
+    }
+
+    public void MonsterAllSetActive()
+    {
+        for (int i = 0; i < monsterList.Count; i++)
+            monsterList[i].SetActive(true);
     }
 }

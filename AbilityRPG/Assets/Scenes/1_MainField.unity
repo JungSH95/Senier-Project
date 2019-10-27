@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.438467, g: 0.48655176, b: 0.56682515, a: 1}
+  m_IndirectSpecularColor: {r: 0.43846667, g: 0.48655158, b: 0.5668247, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fFont_Size: 0
-  Red: 0
+  Red: 1
   Green: 0
   Blue: 0
 --- !u!4 &249565273
@@ -786,7 +786,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 54000010926324258, guid: afe131fb1bd32fb439456224ff8d0638, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: afe131fb1bd32fb439456224ff8d0638, type: 3}
 --- !u!4 &529536973 stripped
 Transform:
@@ -2573,7 +2574,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 54000013762085312, guid: ca1fa120a4312074faed60c78fe450bc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca1fa120a4312074faed60c78fe450bc, type: 3}
 --- !u!4 &1799762824 stripped
 Transform:
@@ -2728,7 +2730,8 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 54467145967458838, guid: 31675aac7504ad046bb1dcbb653d975a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31675aac7504ad046bb1dcbb653d975a, type: 3}
 --- !u!1 &1818553120
 GameObject:
@@ -4014,6 +4017,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TownField
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842033036356401115, guid: 23486164129823948a7a3a313b722f44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4842033036356401112, guid: 23486164129823948a7a3a313b722f44,
         type: 3}

@@ -9,8 +9,7 @@ public class PlayerController : MonoBehaviour
     
     protected Joystick joystick;
     protected Joybutton joybutton;
-
-    //private Rigidbody rigidbody;
+    
     public Animator animator;
 
     protected NavMeshAgent navAgent;
@@ -24,8 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         joystick = FindObjectOfType<Joystick>();
         joybutton = FindObjectOfType<Joybutton>();
-
-        //rigidbody = GetComponent<Rigidbody>();
+        
         animator = GetComponent<Animator>();
 
         navAgent = GetComponent<NavMeshAgent>();
@@ -60,7 +58,6 @@ public class PlayerController : MonoBehaviour
             if (navAgent.stoppingDistance >= dist)
             {
                 animator.SetBool("MOVE", false);
-                Debug.Log("npc 앞 도착");
 
                 // 대화 진행
                 isNpcTarget = false;
@@ -109,18 +106,9 @@ public class PlayerController : MonoBehaviour
             Debug.Log("몬스터로 공격 받음");
 
         if (other.transform.CompareTag("NextField"))
-        {
-            Debug.Log("포탈 들어옴");
-
             FieldManager.Instance.NextField();
-            // 1. 페이드 아웃
-            // 2. 다음 지역 이동
-            // 3. 페이드 인
-        }
 
         if(other.transform.CompareTag("NextScene"))
-        {
             SceneLoadManager.Instance.LoadScene("99_Test");
-        }
     }
 }

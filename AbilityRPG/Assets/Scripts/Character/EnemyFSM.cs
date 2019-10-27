@@ -24,6 +24,21 @@ public class EnemyFSM : EnemyBase
 
         while(true)
         {
+            yield return new WaitForSeconds(0.1f);
+            
+            if(currentHp <= 0)
+            {
+                animator.SetInteger("animation", 6);
+                yield return new WaitForSeconds(5f);
+
+                Debug.Log("사망");
+
+                // 오브젝트 풀에 반환해야함 및 스폰 매니저 처리 및 플레이어의 몬스터리스트 제거
+                this.gameObject.SetActive(false);
+
+                break;
+            }
+
             yield return StartCoroutine(currentState.ToString());
         }
     }
@@ -35,7 +50,7 @@ public class EnemyFSM : EnemyBase
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
             animator.SetInteger("animation", 1);
 
-        // 공격 가능 상태 (사거리 내에 몬스터 있음)
+        // 공격 가능 상태 (사거리 내에 플레이어 있음)
         if (CanAtkState())
         {
             if (canAtk)
@@ -62,8 +77,8 @@ public class EnemyFSM : EnemyBase
             currentState = State.Attack;
         else if (distance > playerRealizeRange)             // 플레이어 거리가 인식 거리보다 멀 경우 앞으로 직진
             //navAgent.SetDestination(transform.position - Vector3.forward * 0f);
-            ;
-        else
+            currentState = State.Idle;
+        else                                                // 추적 상태
         {
             navAgent.SetDestination(Player.transform.position);
             transform.LookAt(Player.transform);

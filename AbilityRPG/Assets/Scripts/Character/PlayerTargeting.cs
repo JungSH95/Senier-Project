@@ -95,6 +95,7 @@ public class PlayerTargeting : MonoBehaviour
             // 초기화
             closetDist = 100f;
             targetDist = 100f;
+
             getTarget = true;
         }
     }
@@ -143,5 +144,21 @@ public class PlayerTargeting : MonoBehaviour
             playerController.animator.SetBool("IDLE", true);
             playerController.animator.SetBool("MOVE", false);
         }
+    }
+
+    void MonsterATK()
+    {
+        Debug.Log("몬스터가 맞았습니다.");
+
+        monsterList[targetIndex].GetComponent<EnemyLion>().currentHp -= 50;
+
+        // 이런식으로 함수 처리할 경우에 장애물이 있는 것은 어떻게 처리 할 것인가?.
+        
+        // 이 방법은 애니메이션 이벤트를 사용한 방법
+
+        // 다른 방법 2. 온트리거를 사용하여 충돌 체크하여 충돌시 플레이어가 가지고 있는
+        // 무기 오브젝트에 맞으면? 이것도 이상함
+        // 처리 방법 -> 무기 오브젝트에 맞고 이펙트 발생까지 원만히 처리 된 경우에
+        // 데미지 처리
     }
 }

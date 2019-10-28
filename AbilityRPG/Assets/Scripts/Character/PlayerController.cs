@@ -110,5 +110,8 @@ public class PlayerController : MonoBehaviour
 
         if(other.transform.CompareTag("NextScene"))
             SceneLoadManager.Instance.LoadScene("99_Test");
+
+        if (other.transform.CompareTag("BattleStart"))
+            FieldManager.Instance.BattleStart();
     }
 }

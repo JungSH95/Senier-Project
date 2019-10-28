@@ -8,22 +8,13 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public List<Transform> points;
     public List<GameObject> monsterList;
-
-    public GameObject monsterPrefab;
+    
     public string monsterName;
-
-    public float createTime;
 
     private int maxMonsterCount;
     private int nowMonsterCount;
 
     public bool isSpawnEnd;
-    public bool isGameOver = false;
-
-    /* 
-    추가 해야하는 기능
-    1. Instantiate()가 아닌 오브젝트 풀을 사용하여 몬스터를 Pos 지역에 Spawn
-    */
 
     public void SetSpawnTransform(GameObject fieldObj)
     {
@@ -45,22 +36,6 @@ public class SpawnManager : Singleton<SpawnManager>
 
     IEnumerator CreateMonster()
     {
-        /*
-            if(maxMonsterCount > nowMonsterCount)
-            {
-                yield return new WaitForSeconds(1f);
-
-                // 오브젝트 풀로 교체해야 하는 부분
-                //GameObject newMonster = ObjectPool.Instance.PopFromPool(monsterName);
-                newMonster.transform.parent = points[nowMonsterCount].transform;
-                newMonster.SetActive(true);
-
-                nowMonsterCount++;
-            }
-            else
-                yield return null;
-        */
-
         maxMonsterCount = points.Count;
         nowMonsterCount = 0;
 
@@ -84,12 +59,19 @@ public class SpawnManager : Singleton<SpawnManager>
             monsterList[i].SetActive(true);
     }
 
+    public void MonsterAIStart()
+    {
+        for (int i = 0; i < monsterList.Count; i++)
+            monsterList[i].GetComponent<EnemyFSM>().MonsterCoroutineStart();
+    }
+
     public void MonsterDie(GameObject monster)
     {
         Debug.Log(monster.transform.parent);
         monsterList.Remove(monster);
 
-        // 오브젝트 풀에 반납해야함
-        
+        // 남아있는 몬스터의 수가 없을 경우 다음 필드로 이동하기 위한 포탈 생성
+        if (monsterList.Count == 0)
+            FieldManager.Instance.FieldClear();
     }
 }

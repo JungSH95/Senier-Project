@@ -7,6 +7,7 @@ public class PlayerHpBar : MonoBehaviour
 {
     public Transform player;
     public Slider hpBar;
+
     public float maxHp;
     public float currentHp;
     

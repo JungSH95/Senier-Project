@@ -30,6 +30,8 @@ public class EnemyLion : EnemyFSM
     {
         maxHp = 100f;
         currentHp = maxHp;
+
+        Debug.Log("몬스터 초기화");
     }
 
     // 공격 받은 거 처리

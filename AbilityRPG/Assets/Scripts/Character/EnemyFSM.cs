@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyFSM : EnemyBase
 {
@@ -10,8 +11,6 @@ public class EnemyFSM : EnemyBase
     protected void Start()
     {
         base.Start();
-
-        StartCoroutine(FSM());
     }
 
     protected virtual void InitMonster() { }
@@ -23,9 +22,7 @@ public class EnemyFSM : EnemyBase
         InitMonster();
 
         while(true)
-        {
-            yield return new WaitForSeconds(0.1f);
-
+        {            
             if (currentHp <= 0)
                 currentState = State.Dead;
 
@@ -67,7 +64,7 @@ public class EnemyFSM : EnemyBase
             currentState = State.Attack;
         else if (distance > playerRealizeRange)             // 플레이어 거리가 인식 거리보다 멀 경우 앞으로 직진
             //navAgent.SetDestination(transform.position - Vector3.forward * 0f);
-            currentState = State.Idle;
+            navAgent.SetDestination(transform.position);
         else                                                // 추적 상태
         {
             navAgent.SetDestination(Player.transform.position);
@@ -84,7 +81,7 @@ public class EnemyFSM : EnemyBase
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ATK1"))
             animator.SetInteger("animation", 11);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
 
         currentState = State.Idle;
     }
@@ -93,12 +90,24 @@ public class EnemyFSM : EnemyBase
     {
         animator.SetInteger("animation", 7);
         SpawnManager.Instance.MonsterDie(this.gameObject);
+        this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
         yield return new WaitForSeconds(5f);
 
         this.gameObject.SetActive(false);
         ObjectPool.Instance.PushToPool("Monster2", this.gameObject);        // 오브젝트 풀에 반환
 
+        StopAllCoroutines();
         yield return null;
+    }
+
+    public void MonsterCoroutineStart()
+    {
+        currentState = State.Idle;
+        this.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+
+        StartCoroutine(FSM());
     }
 }

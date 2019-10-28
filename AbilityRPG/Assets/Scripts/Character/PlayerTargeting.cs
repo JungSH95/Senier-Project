@@ -117,7 +117,7 @@ public class PlayerTargeting : MonoBehaviour
 
             //if (playerController.animator.GetCurrentAnimatorStateInfo(0).IsName("IDLE"))
             {
-                Debug.Log("타겟있는데 공격 애니메이션 실행");
+                //Debug.Log("타겟있는데 공격 애니메이션 실행");
 
                 playerController.animator.SetBool("ATTACK", true);
                 playerController.animator.SetBool("IDLE", false);
@@ -129,7 +129,7 @@ public class PlayerTargeting : MonoBehaviour
         {
             if (!playerController.animator.GetCurrentAnimatorStateInfo(0).IsName("MOVE"))
             {
-                Debug.Log("이동중 애니메이션 실행");
+                //Debug.Log("이동중 애니메이션 실행");
 
                 playerController.animator.SetBool("ATTACK", false);
                 playerController.animator.SetBool("IDLE", false);
@@ -138,7 +138,7 @@ public class PlayerTargeting : MonoBehaviour
         }
         else
         {
-            Debug.Log("아이들");
+            //Debug.Log("아이들");
 
             playerController.animator.SetBool("ATTACK", false);
             playerController.animator.SetBool("IDLE", true);
@@ -148,7 +148,7 @@ public class PlayerTargeting : MonoBehaviour
 
     void MonsterATK()
     {
-        Debug.Log("몬스터가 맞았습니다.");
+        //Debug.Log("몬스터가 맞았습니다.");
 
         monsterList[targetIndex].GetComponent<EnemyLion>().currentHp -= 50;
 

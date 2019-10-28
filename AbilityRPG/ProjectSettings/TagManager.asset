@@ -10,6 +10,7 @@ TagManager:
   - FadeCanvas
   - MonsterSpawn
   - NextScene
+  - BattleStart
   layers:
   - Default
   - TransparentFX

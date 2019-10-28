@@ -47,7 +47,7 @@ public class PooledObject
     //사용할 오브젝트를 풀에서 꺼낸다.
     public GameObject PopObject(Transform parent = null)
     {
-        //풀이 비어있으면 null 반환한다.
+        //풀이 비어있으면 null 반환한다. -> 생성
         if (poolList.Count == 0)
         {
             poolList.Add(CreateObject(parent));

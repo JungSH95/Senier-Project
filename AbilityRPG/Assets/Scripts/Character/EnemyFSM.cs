@@ -25,19 +25,9 @@ public class EnemyFSM : EnemyBase
         while(true)
         {
             yield return new WaitForSeconds(0.1f);
-            
-            if(currentHp <= 0)
-            {
-                animator.SetInteger("animation", 6);
-                yield return new WaitForSeconds(5f);
 
-                Debug.Log("사망");
-
-                // 오브젝트 풀에 반환해야함 및 스폰 매니저 처리 및 플레이어의 몬스터리스트 제거
-                this.gameObject.SetActive(false);
-
-                break;
-            }
+            if (currentHp <= 0)
+                currentState = State.Dead;
 
             yield return StartCoroutine(currentState.ToString());
         }
@@ -101,6 +91,14 @@ public class EnemyFSM : EnemyBase
 
     protected virtual IEnumerator Dead()
     {
+        animator.SetInteger("animation", 7);
+        SpawnManager.Instance.MonsterDie(this.gameObject);
+
+        yield return new WaitForSeconds(5f);
+
+        this.gameObject.SetActive(false);
+        ObjectPool.Instance.PushToPool("Monster2", this.gameObject);        // 오브젝트 풀에 반환
+
         yield return null;
     }
 }

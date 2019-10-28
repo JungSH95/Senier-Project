@@ -60,24 +60,23 @@ public class FieldManager : Singleton<FieldManager>
         player.transform.position = startPosList[randomIndex].position;
         startPosList.RemoveAt(randomIndex);
 
-        Debug.Log(nowField.name);
-        SpawnManager spawnManager = nowField.GetComponent<SpawnManager>();
-        spawnManager.SpawnStart();
+        // 스폰 위치 설정 및 스폰 시작
+        SpawnManager.Instance.SetSpawnTransform(nowField);
+        SpawnManager.Instance.SpawnStart();
 
         // 몬스터 생성이 끝날때까지 대기
-        while(spawnManager.isSpawnEnd != true)
+        while (SpawnManager.Instance.isSpawnEnd != true)
         {
-            Debug.Log(nowField.name);
-
             yield return new WaitForSeconds(0.01f);
         }
 
         player.SetActive(true);
 
         fadeManager.FadeIn();
-        spawnManager.MonsterAllSetActive();
+        SpawnManager.Instance.MonsterAllSetActive();
 
         // 나중에 전투 지역으로 들어갔을 경우에 몬스터 리스트를 받아오게 끔 변경
-        player.GetComponent<PlayerTargeting>().monsterList = spawnManager.monsterList;
+        // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.
+        player.GetComponent<PlayerTargeting>().monsterList = SpawnManager.Instance.monsterList;
     }
 }

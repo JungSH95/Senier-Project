@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657576, g: 0.49641305, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.446576, g: 0.49641335, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,33 +437,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 150974198}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &150974200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4383320880410899954, guid: 5912fed28451a20418d65234dd47451b,
-    type: 3}
-  m_PrefabInstance: {fileID: 150974198}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &150974201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150974200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd31e08f715ceac4e8f67671a94568e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTransform: {fileID: 1633115112}
-  points: []
-  monsterList: []
-  monsterPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
-    type: 3}
-  monsterName: 
-  createTime: 0
-  isSpawnEnd: 0
-  isGameOver: 0
 --- !u!4 &150974202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498061019339657492, guid: 5912fed28451a20418d65234dd47451b,
@@ -1438,33 +1411,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 413284279}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &413284281 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4383320880410899954, guid: 5912fed28451a20418d65234dd47451b,
-    type: 3}
-  m_PrefabInstance: {fileID: 413284279}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &413284282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413284281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd31e08f715ceac4e8f67671a94568e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTransform: {fileID: 346616870}
-  points: []
-  monsterList: []
-  monsterPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
-    type: 3}
-  monsterName: 
-  createTime: 0
-  isSpawnEnd: 0
-  isGameOver: 0
 --- !u!4 &413284283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498061019339657492, guid: 5912fed28451a20418d65234dd47451b,
@@ -1788,33 +1734,6 @@ Transform:
   m_Father: {fileID: 1606164920}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &522187731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4383320880410899954, guid: 5912fed28451a20418d65234dd47451b,
-    type: 3}
-  m_PrefabInstance: {fileID: 4498061018899201367}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &522187732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522187731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd31e08f715ceac4e8f67671a94568e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTransform: {fileID: 1652762611}
-  points: []
-  monsterList: []
-  monsterPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
-    type: 3}
-  monsterName: 
-  createTime: 0
-  isSpawnEnd: 0
-  isGameOver: 0
 --- !u!1 &522426693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,7 +2168,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   isTalk: 0
 --- !u!114 &605999303
 MonoBehaviour:
@@ -3050,6 +2969,62 @@ Transform:
   m_Father: {fileID: 1624200139}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &835162636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835162637}
+  - component: {fileID: 835162638}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &835162637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835162636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 941035340}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835162638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835162636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d7ca6ecb1ff3a40b71e67aa3e71402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lObjectPool:
+  - strPoolName: Monster1
+    gPrefab: {fileID: 5381658143524003440, guid: 728110f602f68d44c8925d1e932be593,
+      type: 3}
+    nPoolCount: 3
+    poolList: []
+    tfParent: {fileID: 0}
+  - strPoolName: Monster2
+    gPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
+      type: 3}
+    nPoolCount: 3
+    poolList: []
+    tfParent: {fileID: 0}
 --- !u!1 &852561288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3305,6 +3280,7 @@ GameObject:
   - component: {fileID: 941035340}
   - component: {fileID: 941035339}
   - component: {fileID: 941035341}
+  - component: {fileID: 941035342}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3338,7 +3314,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 835162637}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3365,6 +3342,27 @@ MonoBehaviour:
   currentField: 0
   lastField: 0
   isClear: 0
+--- !u!114 &941035342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941035338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd31e08f715ceac4e8f67671a94568e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTransform: {fileID: 0}
+  points: []
+  monsterList: []
+  monsterPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
+    type: 3}
+  monsterName: 
+  createTime: 0
+  isSpawnEnd: 0
+  isGameOver: 0
 --- !u!1 &945849715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4716,33 +4714,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1437372943}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1437372945 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4383320880410899954, guid: 5912fed28451a20418d65234dd47451b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1437372943}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1437372946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437372945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd31e08f715ceac4e8f67671a94568e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTransform: {fileID: 1624200139}
-  points: []
-  monsterList: []
-  monsterPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
-    type: 3}
-  monsterName: 
-  createTime: 0
-  isSpawnEnd: 0
-  isGameOver: 0
 --- !u!4 &1437372947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498061019339657492, guid: 5912fed28451a20418d65234dd47451b,
@@ -4936,33 +4907,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1511304964}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1511304966 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4383320880410899954, guid: 5912fed28451a20418d65234dd47451b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1511304964}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1511304967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511304966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd31e08f715ceac4e8f67671a94568e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnTransform: {fileID: 2094018994}
-  points: []
-  monsterList: []
-  monsterPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
-    type: 3}
-  monsterName: 
-  createTime: 0
-  isSpawnEnd: 0
-  isGameOver: 0
 --- !u!4 &1511304968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498061019339657492, guid: 5912fed28451a20418d65234dd47451b,

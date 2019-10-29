@@ -31,6 +31,17 @@ public class PlayerController : MonoBehaviour
         navAgent.speed = Speed;
     }
 
+    public void PlayerSetting()
+    {
+        joystick = FindObjectOfType<Joystick>();
+        joybutton = FindObjectOfType<Joybutton>();
+
+        animator = GetComponent<Animator>();
+
+        navAgent = GetComponent<NavMeshAgent>();
+        navAgent.stoppingDistance = 0.7f;
+        navAgent.speed = Speed;
+    }
 
     public void FixedUpdate()
     {
@@ -72,6 +83,12 @@ public class PlayerController : MonoBehaviour
 
     public bool isPlayerMoving()
     {
+        if(joystick == null)
+        {
+            Debug.Log("조이스틱이 없음.");
+            return false;
+        }
+
         if (joystick.Vertical != 0 || joystick.Horizontal != 0)
             return true;
         else

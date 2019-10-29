@@ -640,8 +640,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 605999298}
   - {fileID: 1309830195}
+  - {fileID: 605999298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2097,7 +2097,7 @@ Transform:
   m_Children:
   - {fileID: 1458051348}
   m_Father: {fileID: 275626915}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &605999299
 NavMeshAgent:
@@ -3338,7 +3338,8 @@ MonoBehaviour:
   - {fileID: 1437372947}
   - {fileID: 413284283}
   - {fileID: 150974202}
-  player: {fileID: 605999297}
+  player: {fileID: 0}
+  portal: {fileID: 0}
   currentField: 0
   lastField: 0
   isClear: 0
@@ -3357,12 +3358,8 @@ MonoBehaviour:
   spawnTransform: {fileID: 0}
   points: []
   monsterList: []
-  monsterPrefab: {fileID: 7887342653185007722, guid: 26210d9d5efbd0842936fba33ef526a2,
-    type: 3}
   monsterName: 
-  createTime: 0
   isSpawnEnd: 0
-  isGameOver: 0
 --- !u!1 &945849715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4241,7 +4238,7 @@ RectTransform:
   m_Children:
   - {fileID: 867616056}
   m_Father: {fileID: 275626915}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

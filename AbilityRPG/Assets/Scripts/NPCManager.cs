@@ -8,11 +8,19 @@ using UnityEngine;
 public class NPCManager : MonoBehaviour
 {
     private DialogueTrigger dialogueTrigger;
+
     public bool isAutoSentence;
+    public bool isChangeCharacter;
+
+    public Vector3 startRotation;
+
+    public GameObject popupWindow;
 
     private void Awake()
     {
         dialogueTrigger = GetComponent<DialogueTrigger>();
+
+        startRotation = transform.rotation.eulerAngles;
     }
 
     private void OnTriggerStay(Collider other)
@@ -26,12 +34,20 @@ public class NPCManager : MonoBehaviour
             {
                 dialogueTrigger.TriggerDialogue(isAutoSentence);
                 other.GetComponent<PlayerController>().isTalk = false;
+
+                if (isChangeCharacter)
+                {
+                    popupWindow.SetActive(true);
+                    Joystick joystick = FindObjectOfType<Joystick>();
+                    joystick.gameObject.SetActive(false);
+                }
+
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        transform.rotation = Quaternion.Euler(startRotation);
     }
 }

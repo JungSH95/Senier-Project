@@ -38,7 +38,7 @@ public class DungeonInitManager : MonoBehaviour
 
     public void DungeonInit()
     {
-        FieldManager nowField = Start_Field.GetComponent<FieldManager>();
+        //FieldManager nowField = Start_Field.GetComponent<FieldManager>();
     }
 
     // 포탈 연결 과정은 어떻게?

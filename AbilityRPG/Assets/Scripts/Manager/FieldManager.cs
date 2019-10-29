@@ -49,7 +49,7 @@ public class FieldManager : Singleton<FieldManager>
         
         nowField.SetActive(false);
         player.SetActive(false);    // 조이스틱 이동과 중복 되서 위치 이동 이상하게 됌 그래서 추가
-        player.GetComponent<PlayerTargeting>().monsterList.Clear();
+        player.GetComponent<PlayerTargeting>().monsterList = null;
 
         yield return new WaitForSeconds(0.5f);      // 시각적으로 보이는 것 때문에 일부로 딜레이
 
@@ -84,6 +84,7 @@ public class FieldManager : Singleton<FieldManager>
     // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.
     public void BattleStart()
     {
+        Debug.Log("전투 시작");
         SpawnManager.Instance.MonsterAIStart();
         player.GetComponent<PlayerTargeting>().monsterList = SpawnManager.Instance.monsterList;
 

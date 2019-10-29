@@ -23,6 +23,9 @@ public class PlayerTargeting : MonoBehaviour
     // 시각적 표현 (에디터에서)
     private void OnDrawGizmos()
     {
+        if (monsterList == null)
+            return;
+
         for (int i = 0; i < monsterList.Count; i++)
         {
             RaycastHit hit;
@@ -55,6 +58,9 @@ public class PlayerTargeting : MonoBehaviour
 
     void SetTarget()
     {
+        if (monsterList == null)
+            return;
+
         if (monsterList.Count != 0)
         {
             currentDist = 0f;
@@ -102,6 +108,9 @@ public class PlayerTargeting : MonoBehaviour
 
     void AtkTarget()
     {
+        if (monsterList == null)
+            return;
+
         // 타겟 없을 경우
         if (targetIndex == -1 || monsterList.Count == 0)  // 추가 
         {

@@ -13,15 +13,16 @@ public class LobbyManager : MonoBehaviour
         fadeManager = GameObject.Find("FadeCanvas").GetComponent<FadeManager>();
     }
 
-    public void CharacterInitButton()
+    private void Update()
     {
-        //StartCoroutine(CoCharacterInit());
-    }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("게임 시작");
+            SceneLoadManager.Instance.WorldMapScene();
+        }
 
-    IEnumerator CoCharacterInit()
-    {
-        fadeManager.FadeOut();
-        yield return new WaitForSeconds(1f);
-        SceneLoadManager.Instance.LoadScene("1_CharacterInit");
+        if (Application.platform == RuntimePlatform.Android)
+            if (Input.GetKey(KeyCode.Escape))
+                Application.Quit();
     }
 }

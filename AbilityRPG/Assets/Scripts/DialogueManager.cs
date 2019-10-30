@@ -35,9 +35,9 @@ public class DialogueManager : MonoBehaviour
         // 자동으로 대사를 할 것인지
         if (isAutoDialogue)
         {
-            StopAllCoroutines();
-            //StartCoroutine(CoAutoSentence(dialoguePos));
-            DisplayNextSentence(dialoguePos);
+            // 코루틴으로 시작해버리면 자리 잡는 부분에서 딜레이 생김
+            DisplayNextSentence(dialoguePos);       
+            StartCoroutine(CoAutoSentence(dialoguePos));
         }
         else
             DisplayNextSentence(dialoguePos);
@@ -45,15 +45,14 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator CoAutoSentence(Transform dialoguePos)
     {
-        yield return null;
+        yield return new WaitForSeconds(1.5f);
 
-        //while(sentences.Count > 0)
+        while (sentences.Count > 0)
         {
-            Debug.Log("대화 실행 중");
-            //string sentence = sentences.Dequeue();
-            //DisplayNextSentence(dialoguePos);
-            //StartCoroutine(CoTypeSentence(sentence, dialoguePos));
-            yield return new WaitForSeconds(2f);
+            string sentence = sentences.Dequeue();
+            StartCoroutine(CoTypeSentence(sentence, dialoguePos));
+
+            yield return new WaitForSeconds(1.5f);
         }
     }
 

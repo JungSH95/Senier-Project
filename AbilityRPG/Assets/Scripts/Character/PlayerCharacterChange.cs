@@ -21,32 +21,33 @@ public class PlayerCharacterChange : MonoBehaviour
         joystick = FindObjectOfType<Joystick>();
     }
 
-    // 카메라 연결 해줘야함.
-    private void Start()
-    {
-        if (Camera.main.GetComponent<CameraMovement>().Player != null)
-        {
-            Debug.Log("카메라 접근 테스트");
-            Debug.Log(Camera.main.transform.position);
-        }
-    }
-
     public void CharacterChange(int number)
     {
         if (characterList.Count == 0 || number < 0 || characterList.Count <= number)
             return;
 
+        StartCoroutine(CoCharacterChange(number));
+    }
+
+    IEnumerator CoCharacterChange(int number)
+    {
+        fadeManager.FadeOut();
+
+        yield return new WaitForSeconds(0.5f);
+
         nowPlayer.SetActive(false);
 
+        // 변경 해야하는 대상 NPC 비활성화
+        // 현재 캐릭터에 해당하는 대상 NPC 활성화
+
         joystick.gameObject.SetActive(true);
-        GameObject newPlayer = Instantiate(characterList[number], nowPlayer.transform.position, nowPlayer.transform.rotation);
+        GameObject newPlayer = Instantiate(characterList[number]);
         newPlayer.GetComponent<PlayerController>().PlayerSetting();
         Camera.main.GetComponent<CameraMovement>().Player = newPlayer;
         nowPlayer = newPlayer;
-    }
+        
+        fadeManager.FadeIn();
 
-    public void test()
-    {
-        Debug.Log("qwer");
+        yield return null;
     }
 }

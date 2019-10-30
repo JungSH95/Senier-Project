@@ -10,11 +10,13 @@ public class NPCManager : MonoBehaviour
     private DialogueTrigger dialogueTrigger;
 
     public bool isAutoSentence;
+
+    public int characterNumber;
     public bool isChangeCharacter;
 
     public Vector3 startRotation;
 
-    public GameObject popupWindow;
+    public PlayerChangePopup popupWindow;
 
     private void Awake()
     {
@@ -35,12 +37,9 @@ public class NPCManager : MonoBehaviour
                 dialogueTrigger.TriggerDialogue(isAutoSentence);
                 other.GetComponent<PlayerController>().isTalk = false;
 
-                if (isChangeCharacter)
-                {
-                    popupWindow.SetActive(true);
-                    Joystick joystick = FindObjectOfType<Joystick>();
-                    joystick.gameObject.SetActive(false);
-                }
+                // 캐릭터 변경 가능 NPC일 경우
+                if (isChangeCharacter && characterNumber >= 0)
+                    popupWindow.OpenPopupWindows(dialogueTrigger.dialogue.name);
 
             }
         }

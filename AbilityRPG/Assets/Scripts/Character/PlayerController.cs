@@ -17,18 +17,12 @@ public class PlayerController : MonoBehaviour
 
     private bool isNpcTarget = false;
     public bool isTalk = false;
+    public bool isPopup = false;
     private Transform targetNPC;
 
     void Awake()
     {
-        joystick = FindObjectOfType<Joystick>();
-        joybutton = FindObjectOfType<Joybutton>();
-        
-        animator = GetComponent<Animator>();
-
-        navAgent = GetComponent<NavMeshAgent>();
-        navAgent.stoppingDistance = 0.7f;
-        navAgent.speed = Speed;
+        PlayerSetting();
     }
 
     public void PlayerSetting()
@@ -45,8 +39,8 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        // 팝업창이 떠있으면 이동 불가능?
-        if (isTalk)
+        // 팝업창이 떠있는 경우
+        if (isPopup)
             return;
 
         if (isPlayerMoving())

@@ -36,7 +36,8 @@ public class DialogueManager : MonoBehaviour
         if (isAutoDialogue)
         {
             StopAllCoroutines();
-            StartCoroutine(CoAutoSentence(dialoguePos));
+            //StartCoroutine(CoAutoSentence(dialoguePos));
+            DisplayNextSentence(dialoguePos);
         }
         else
             DisplayNextSentence(dialoguePos);
@@ -46,11 +47,12 @@ public class DialogueManager : MonoBehaviour
     {
         yield return null;
 
-        while(sentences.Count > 0)
+        //while(sentences.Count > 0)
         {
-            string sentence = sentences.Dequeue();
-
-            StartCoroutine(CoTypeSentence(sentence, dialoguePos));
+            Debug.Log("대화 실행 중");
+            //string sentence = sentences.Dequeue();
+            //DisplayNextSentence(dialoguePos);
+            //StartCoroutine(CoTypeSentence(sentence, dialoguePos));
             yield return new WaitForSeconds(2f);
         }
     }
@@ -58,7 +60,7 @@ public class DialogueManager : MonoBehaviour
     // 다음 내용으로
     public void DisplayNextSentence(Transform dialoguePos)
     {
-        if(sentences.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -66,13 +68,11 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
 
-        //Debug.Log(sentence);
-        //dialogueText.text = sentence;
-
         StopAllCoroutines();
         StartCoroutine(CoTypeSentence(sentence, dialoguePos));
     }
 
+    // 대사 출력 코루틴
     IEnumerator CoTypeSentence(string sentence, Transform dialoguePos)
     {
         text.text = "";
@@ -92,6 +92,8 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of conversation");
     }
 
+
+    // 창 사이즈 조절
     void DialogueBoxSizeSetting()
     {
         float x = text.preferredWidth;

@@ -11,4 +11,6 @@ public class EffectSet : Singleton<EffectSet>
     [Header("Monster")]
     public GameObject LionAtkEffect;
     public GameObject LionDmgEffect;
+
+    public GameObject PortalEffect;
 }

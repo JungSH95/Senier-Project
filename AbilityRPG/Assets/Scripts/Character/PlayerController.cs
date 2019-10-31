@@ -122,9 +122,6 @@ public class PlayerController : MonoBehaviour
         if (other.transform.CompareTag("Monster"))
             Debug.Log("몬스터로 공격 받음");
 
-        if (other.transform.CompareTag("NextField"))
-            FieldManager.Instance.NextField();
-
         if(other.transform.CompareTag("NextScene"))
             SceneLoadManager.Instance.LoadScene("99_Test");
 

@@ -159,7 +159,7 @@ public class PlayerTargeting : MonoBehaviour
     {
         //Debug.Log("몬스터가 맞았습니다.");
 
-        monsterList[targetIndex].GetComponent<EnemyLion>().currentHp -= 50;
+        monsterList[targetIndex].GetComponent<EnemyLion>().hitPlayerAttack(50f);
 
         // 이런식으로 함수 처리할 경우에 장애물이 있는 것은 어떻게 처리 할 것인가?.
         

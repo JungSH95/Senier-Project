@@ -30,11 +30,19 @@ public class EnemyLion : EnemyFSM
     {
         maxHp = 100f;
         currentHp = maxHp;
+
+        Debug.Log("몬스터 생성");
     }
 
     // 공격 받은 거 처리
     private void OnCollisionEnter(Collision collision)
     {
 
+    }
+
+    public void hitPlayerAttack(float atk)
+    {
+        currentHp -= atk;
+        enemyHpBar.Dmg(atk);
     }
 }

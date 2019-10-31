@@ -90,13 +90,14 @@ public class EnemyFSM : EnemyBase
     {
         animator.SetInteger("animation", 7);
         SpawnManager.Instance.MonsterDie(this.gameObject);
-        this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        navAgent.enabled = false;
+        enemyHpBar.gameObject.SetActive(false);
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
         yield return new WaitForSeconds(5f);
 
-        this.gameObject.SetActive(false);
-        ObjectPool.Instance.PushToPool("Monster2", this.gameObject);        // 오브젝트 풀에 반환
+        this.gameObject.transform.parent.gameObject.SetActive(false);
+        ObjectPool.Instance.PushToPool("Monster2", this.gameObject.transform.parent.gameObject);        // 오브젝트 풀에 반환
 
         StopAllCoroutines();
         yield return null;
@@ -105,7 +106,9 @@ public class EnemyFSM : EnemyBase
     public void MonsterCoroutineStart()
     {
         currentState = State.Idle;
-        this.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        navAgent.enabled = true;
+        enemyHpBar.gameObject.SetActive(true);
+        enemyHpBar.SetSlider();
         this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
 
         StartCoroutine(FSM());

@@ -23,9 +23,10 @@ public class EnemyBase : MonoBehaviour {
     protected float distance;
 
     protected GameObject Player;
-    protected NavMeshAgent navAgent;
 
+    protected NavMeshAgent navAgent;
     protected Animator animator;
+    protected EnemyHpBar enemyHpBar;
 
     public LayerMask layerMask;
 
@@ -35,6 +36,7 @@ public class EnemyBase : MonoBehaviour {
 
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        enemyHpBar = gameObject.transform.parent.Find("Canvas").GetComponent<EnemyHpBar>();
 
         StartCoroutine(CoCoolTime());
     }

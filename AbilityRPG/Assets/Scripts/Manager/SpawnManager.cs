@@ -45,7 +45,9 @@ public class SpawnManager : Singleton<SpawnManager>
             GameObject newMonster = ObjectPool.Instance.PopFromPool("Monster2");
             newMonster.transform.parent = points[nowMonsterCount].transform;
             newMonster.transform.position = points[nowMonsterCount++].position;
-            monsterList.Add(newMonster);
+            newMonster.transform.Find("Character").gameObject.transform.position = newMonster.transform.position;
+
+            monsterList.Add(newMonster.transform.Find("Character").gameObject);
         }
 
         isSpawnEnd = true;
@@ -56,7 +58,7 @@ public class SpawnManager : Singleton<SpawnManager>
     public void MonsterAllSetActive()
     {
         for (int i = 0; i < monsterList.Count; i++)
-            monsterList[i].SetActive(true);
+            monsterList[i].transform.parent.gameObject.SetActive(true);
     }
 
     public void MonsterAIStart()
@@ -67,7 +69,6 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public void MonsterDie(GameObject monster)
     {
-        Debug.Log(monster.transform.parent);
         monsterList.Remove(monster);
 
         // 남아있는 몬스터의 수가 없을 경우 다음 필드로 이동하기 위한 포탈 생성

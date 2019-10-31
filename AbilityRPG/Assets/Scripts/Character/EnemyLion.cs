@@ -40,7 +40,7 @@ public class EnemyLion : EnemyFSM
 
     }
 
-    public void hitPlayerAttack(float atk)
+    public void HitPlayerAttack(float atk)
     {
         currentHp -= atk;
         enemyHpBar.Dmg(atk);

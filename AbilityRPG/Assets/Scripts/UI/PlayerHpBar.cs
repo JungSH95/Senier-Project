@@ -14,6 +14,11 @@ public class PlayerHpBar : MonoBehaviour
     public float maxHp = 100f;
     public float currentHp = 100f;
 
+    private void Start()
+    {
+        SetSlider();
+    }
+
     void Update()
     {
         transform.position = player.position;
@@ -31,9 +36,16 @@ public class PlayerHpBar : MonoBehaviour
         }
     }
 
-    public void Dmg()
+    public void SetSlider()
     {
-        currentHp -= 50f;
+        //maxHp = player.gameObject.GetComponent<EnemyLion>().maxHp;
+        maxHp = 100f;
+        currentHp = maxHp;
+    }
+
+    public void Dmg(float atk)
+    {
+        currentHp -= atk;
         Invoke("BackHpStart", 0.5f);
     }
 

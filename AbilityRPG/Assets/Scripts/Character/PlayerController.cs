@@ -15,10 +15,13 @@ public class PlayerController : MonoBehaviour
     protected NavMeshAgent navAgent;
     public LayerMask layerMask;
 
+    private Transform targetNPC;
     private bool isNpcTarget = false;
     public bool isTalk = false;
     public bool isPopup = false;
-    private Transform targetNPC;
+
+    // 임시로 플레이어 체력 감소 테스트용
+    public PlayerHpBar playerHpBar;
 
     void Awake()
     {
@@ -35,6 +38,9 @@ public class PlayerController : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.stoppingDistance = 0.7f;
         navAgent.speed = Speed;
+
+        // 임시로 플레이어 체력 감소 테스트용
+        playerHpBar = gameObject.transform.parent.transform.Find("Canvas").GetComponent<PlayerHpBar>();
     }
 
     public void FixedUpdate()

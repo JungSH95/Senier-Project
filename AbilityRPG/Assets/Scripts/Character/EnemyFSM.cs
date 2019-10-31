@@ -83,6 +83,9 @@ public class EnemyFSM : EnemyBase
 
         yield return new WaitForSeconds(0.4f);
 
+        // 임시로 플레이어 체력 감소 테스트
+        Player.GetComponent<PlayerController>().playerHpBar.Dmg(10f);
+
         currentState = State.Idle;
     }
 

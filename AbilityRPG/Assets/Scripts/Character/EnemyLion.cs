@@ -35,7 +35,12 @@ public class EnemyLion : EnemyFSM
     // 공격 받은 거 처리
     private void OnCollisionEnter(Collision collision)
     {
-
+        if (collision.transform.CompareTag("Weapon0"))
+        {
+            enemyHpBar.Dmg(30f);
+            currentHp -= 30f;
+            Instantiate(EffectSet.Instance.LionDmgEffect, collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
+        }
     }
 
     public void HitPlayerAttack(float atk)

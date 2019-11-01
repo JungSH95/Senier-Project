@@ -1316,10 +1316,11 @@ GameObject:
   - component: {fileID: 2974572595084214568}
   - component: {fileID: 3419109250873398147}
   - component: {fileID: 576909727314113910}
-  - component: {fileID: 1418364145612001489}
   - component: {fileID: 8186819604092754829}
+  - component: {fileID: 1418364145612001489}
+  - component: {fileID: 4759109335634515291}
   m_Layer: 0
-  m_Name: Character2
+  m_Name: Character1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1420,24 +1421,6 @@ CapsuleCollider:
   m_Height: 0.6209929
   m_Direction: 1
   m_Center: {x: 0, y: 0.21049643, z: 0}
---- !u!114 &1418364145612001489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2941204486920549296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cb909e5edcbec488b05e61eb71484c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 2
-  animator: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  isTalk: 0
 --- !u!195 &8186819604092754829
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1460,6 +1443,43 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
+--- !u!114 &1418364145612001489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941204486920549296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96cb909e5edcbec488b05e61eb71484c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 2
+  animator: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  isTalk: 0
+  isPopup: 0
+  playerHpBar: {fileID: 0}
+--- !u!114 &4759109335634515291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941204486920549296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7e95fe5627e964c8b4e2a83300e4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterList: []
+  getTarget: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &2941204486923005816
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,12 @@ public class PlayerTargeting : MonoBehaviour
 
     private PlayerController playerController;
 
+    // 총알 발사 관련
+    public GameObject playerBullet;
+    public Transform attackPoint;
+
+    public string weapon = "Weapon0";
+
     // 시각적 표현 (에디터에서)
     private void OnDrawGizmos()
     {
@@ -115,7 +121,7 @@ public class PlayerTargeting : MonoBehaviour
         // 타겟 없을 경우
         if (targetIndex == -1 || monsterList.Count == 0)  // 추가 
         {
-            playerController.animator.SetBool("ATTACK", false);
+            playerController.animator.SetBool("THROW", false);
             return;
         }
 
@@ -129,7 +135,7 @@ public class PlayerTargeting : MonoBehaviour
             {
                 //Debug.Log("타겟있는데 공격 애니메이션 실행");
 
-                playerController.animator.SetBool("ATTACK", true);
+                playerController.animator.SetBool("THROW", true);
                 playerController.animator.SetBool("IDLE", false);
                 playerController.animator.SetBool("MOVE", false);
             }
@@ -141,7 +147,7 @@ public class PlayerTargeting : MonoBehaviour
             {
                 //Debug.Log("이동중 애니메이션 실행");
 
-                playerController.animator.SetBool("ATTACK", false);
+                playerController.animator.SetBool("THROW", false);
                 playerController.animator.SetBool("IDLE", false);
                 playerController.animator.SetBool("MOVE", true);
             }
@@ -150,7 +156,7 @@ public class PlayerTargeting : MonoBehaviour
         {
             //Debug.Log("아이들");
 
-            playerController.animator.SetBool("ATTACK", false);
+            playerController.animator.SetBool("THROW", false);
             playerController.animator.SetBool("IDLE", true);
             playerController.animator.SetBool("MOVE", false);
         }
@@ -170,5 +176,14 @@ public class PlayerTargeting : MonoBehaviour
         // 무기 오브젝트에 맞으면? 이것도 이상함
         // 처리 방법 -> 무기 오브젝트에 맞고 이펙트 발생까지 원만히 처리 된 경우에
         // 데미지 처리
+    }
+
+    void BulletATK()
+    {
+        GameObject bullet = ObjectPool.Instance.PopFromPool(weapon);
+        bullet.transform.position = attackPoint.position;
+        bullet.transform.rotation = transform.rotation;
+        bullet.SetActive(true);
+        bullet.GetComponent<PlayerWeapon>().Shoot();
     }
 }

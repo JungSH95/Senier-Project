@@ -11,6 +11,11 @@ public class CameraMovement : MonoBehaviour
 
     Vector3 cameraPosition;
 
+    private void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     private void LateUpdate()
     {
         if (Player == null)

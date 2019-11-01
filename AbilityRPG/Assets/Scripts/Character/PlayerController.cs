@@ -52,7 +52,11 @@ public class PlayerController : MonoBehaviour
         if (isPlayerMoving())
         {
             isNpcTarget = false;
+
             animator.SetBool("MOVE", true);
+            animator.SetBool("THROW", false);
+            animator.SetBool("IDLE", false);
+
             navAgent.SetDestination(this.transform.position);
 
             transform.Translate(Vector3.forward * Speed * Time.deltaTime);
@@ -116,14 +120,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Monster"))
             Debug.Log("몬스터로 공격 받음");
 
         if(other.transform.CompareTag("NextScene"))
-            SceneLoadManager.Instance.LoadScene("99_Test");
+            SceneLoadManager.Instance.LoadScene("2_BattleField");
 
         if (other.transform.CompareTag("BattleStart"))
             FieldManager.Instance.BattleStart();

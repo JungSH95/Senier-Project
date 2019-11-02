@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1_MainField.unity
     guid: 1857c21c0d501b147bf30c1fb5f4f424
-  - enabled: 0
-    path: Assets/Scenes/2_BattleField.unity
-    guid: ca995d85bd79334458ddd8cd11d46986
   - enabled: 1
     path: Assets/Scenes/2_BattleField.unity
     guid: 227fd6799796b5b4090b4c954cae1161

@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
         navAgent.speed = Speed;
 
         // 임시로 플레이어 체력 감소 테스트용
-        playerHpBar = gameObject.transform.parent.transform.Find("Canvas").GetComponent<PlayerHpBar>();
+        if (gameObject.transform.parent != null)
+            playerHpBar = gameObject.transform.parent.transform.Find("Canvas").GetComponent<PlayerHpBar>();
     }
 
     public void FixedUpdate()
@@ -57,6 +58,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("THROW", false);
             animator.SetBool("IDLE", false);
 
+            if (!SoundManager.Instance.effectAudio.isPlaying)
+                SoundManager.Instance.effectAudio.Play();
+
             navAgent.SetDestination(this.transform.position);
 
             transform.Translate(Vector3.forward * Speed * Time.deltaTime);
@@ -68,6 +72,9 @@ public class PlayerController : MonoBehaviour
 
             // 거리 측정
             float dist = Vector3.Distance(transform.position, targetNPC.position);
+
+            if (!SoundManager.Instance.effectAudio.isPlaying)
+                SoundManager.Instance.effectAudio.Play();
 
             // 도착
             if (navAgent.stoppingDistance >= dist)

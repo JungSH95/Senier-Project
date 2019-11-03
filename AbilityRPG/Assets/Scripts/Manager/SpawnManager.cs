@@ -34,6 +34,7 @@ public class SpawnManager : Singleton<SpawnManager>
         StartCoroutine(CreateMonster());
     }
 
+    // 여기서 몬스터를 꺼내오기 때문에 몬스터의 종류를 어떻게 정해서 꺼내올 것인가?
     IEnumerator CreateMonster()
     {
         maxMonsterCount = points.Count;
@@ -41,7 +42,6 @@ public class SpawnManager : Singleton<SpawnManager>
 
         while (nowMonsterCount < maxMonsterCount)
         {
-            //GameObject newMonster = Instantiate(monsterPrefab, points[nowMonsterCount].position, points[nowMonsterCount].rotation);
             GameObject newMonster = ObjectPool.Instance.PopFromPool("Monster2");
             newMonster.transform.parent = points[nowMonsterCount].transform;
             newMonster.transform.position = points[nowMonsterCount++].position;

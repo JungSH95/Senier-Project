@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     // 임시로 플레이어 체력 감소 테스트용
     public PlayerHpBar playerHpBar;
+    public bool isDead;
 
     void Awake()
     {
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
         navAgent.stoppingDistance = 0.7f;
         navAgent.speed = Speed;
 
+        isDead = false;
+
         // 임시로 플레이어 체력 감소 테스트용
         if (gameObject.transform.parent != null)
             playerHpBar = gameObject.transform.parent.transform.Find("Canvas").GetComponent<PlayerHpBar>();
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour
         if (isPlayerMoving())
         {
             isNpcTarget = false;
+            this.gameObject.GetComponent<PlayerTargeting>().getTarget = false;
 
             animator.SetBool("MOVE", true);
             animator.SetBool("THROW", false);
@@ -66,7 +70,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector3.forward * Speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg, 0f);
         }
-        else if(isNpcTarget)
+        else if (isNpcTarget)
         {
             animator.SetBool("MOVE", true);
 
@@ -87,7 +91,11 @@ public class PlayerController : MonoBehaviour
             }
         }
         else
+        {
             animator.SetBool("MOVE", false);
+            animator.SetBool("THROW", false);
+            animator.SetBool("IDLE", true);
+        }
 
         NpcTargeting();
     }
@@ -137,5 +145,25 @@ public class PlayerController : MonoBehaviour
 
         if (other.transform.CompareTag("BattleStart"))
             FieldManager.Instance.BattleStart();
+
+        if(other.transform.CompareTag("MonsterAtk"))
+        {
+            // 공격 받은거 처리
+            Debug.Log("플레이어 데미지 받음");
+            other.gameObject.SetActive(false);
+            
+            // 몬스터 공격력으로 적용해야 함
+            playerHpBar.Dmg(10f);
+            
+            if(playerHpBar.currentHp <= 0)
+            {
+                animator.SetBool("MOVE", false);
+                animator.SetBool("THROW", false);
+                animator.SetBool("IDLE", false);
+                animator.SetBool("DEAD", true);
+
+                joystick.gameObject.SetActive(false);
+            }
+        }
     }
 }

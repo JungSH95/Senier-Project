@@ -229,8 +229,8 @@ GameObject:
   - component: {fileID: 6050331380010988257}
   - component: {fileID: 6402617842926480271}
   - component: {fileID: 2011807678689389258}
-  - component: {fileID: 3575889981078954197}
   - component: {fileID: 3332124396268720908}
+  - component: {fileID: 4572212787152153101}
   - component: {fileID: 6517902066914786998}
   m_Layer: 0
   m_Name: Character
@@ -251,6 +251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6482872310127122242}
+  - {fileID: 4647778138952273931}
   m_Father: {fileID: 8679042612386150449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,7 +288,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &2011807678689389258
 MonoBehaviour:
@@ -320,20 +321,6 @@ MonoBehaviour:
   leftKnee: {fileID: 2920869080544740216}
   rightSideScaleXMinusOne: 1
   leftSideScaleXMinusOne: 0
---- !u!136 &3575889981078954197
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935131646148428825}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.1846888
-  m_Height: 0.5125158
-  m_Direction: 1
-  m_Center: {x: -0, y: 0.23378801, z: 0}
 --- !u!195 &3332124396268720908
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -356,6 +343,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
+--- !u!136 &4572212787152153101
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935131646148428825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1846888
+  m_Height: 0.5125158
+  m_Direction: 1
+  m_Center: {x: -0, y: 0.23378801, z: 0}
 --- !u!114 &6517902066914786998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +374,7 @@ MonoBehaviour:
   damage: 10
   playerRealizeRange: 2
   distance: 0
+  monsterAtkSphere: {fileID: 2644546572597485349}
   layerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -781,6 +783,50 @@ Transform:
   m_Father: {fileID: 8053541804976473418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2644546572597485349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4647778138952273931}
+  - component: {fileID: 1701913755651337016}
+  m_Layer: 0
+  m_Name: MonsterATK
+  m_TagString: MonsterAtk
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4647778138952273931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644546572597485349}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8679042611655221767}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1701913755651337016
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2644546572597485349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0.24, z: 0.05}
 --- !u!1 &2692930684884406368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,7 +3049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8679042612386150449}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Monster1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

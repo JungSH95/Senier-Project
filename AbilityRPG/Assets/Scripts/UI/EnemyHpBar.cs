@@ -38,7 +38,7 @@ public class EnemyHpBar : MonoBehaviour
 
     public void SetSlider()
     {
-        maxHp = enemy.gameObject.GetComponent<EnemyLion>().maxHp;
+        maxHp = enemy.gameObject.GetComponent<EnemyBase>().maxHp;
         currentHp = maxHp;
     }
 

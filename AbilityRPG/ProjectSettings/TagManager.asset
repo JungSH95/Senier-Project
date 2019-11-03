@@ -11,10 +11,12 @@ TagManager:
   - MonsterSpawn
   - NextScene
   - BattleStart
-  - FxTemporaire
   - MonsterSpawn1
   - Wall
   - Weapon0
+  - Weapon1
+  - Weapon2
+  - MonsterAtk
   layers:
   - Default
   - TransparentFX

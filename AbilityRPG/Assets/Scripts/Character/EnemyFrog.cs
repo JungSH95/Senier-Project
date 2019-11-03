@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyLion : EnemyFSM
+public class EnemyFrog : EnemyFSM
 {
     // 사거리 표시
     private void OnDrawGizmosSelected()

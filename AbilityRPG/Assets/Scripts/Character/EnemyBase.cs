@@ -22,6 +22,8 @@ public class EnemyBase : MonoBehaviour {
     [SerializeField]
     protected float distance;
 
+    public GameObject monsterAtkSphere;
+
     protected GameObject Player;
 
     protected NavMeshAgent navAgent;

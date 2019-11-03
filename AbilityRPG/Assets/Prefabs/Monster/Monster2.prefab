@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1776602770034884041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415064820290729265}
+  - component: {fileID: 8563152736096406784}
+  m_Layer: 0
+  m_Name: MonsterATK
+  m_TagString: MonsterAtk
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &415064820290729265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776602770034884041}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7526388073560498813}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8563152736096406784
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776602770034884041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0.24, z: -0.09}
 --- !u!1 &7263631056001720157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,9 +3407,9 @@ GameObject:
   - component: {fileID: 7526388075003998361}
   - component: {fileID: 7526388075003998362}
   - component: {fileID: 7526388075003998363}
-  - component: {fileID: 7526388075003998364}
   - component: {fileID: 7526388075003998365}
-  - component: {fileID: 7526388075003998366}
+  - component: {fileID: 1504250381226417515}
+  - component: {fileID: 7732153558269825735}
   m_Layer: 0
   m_Name: Character
   m_TagString: Monster
@@ -3385,6 +3429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7526388073764688594}
+  - {fileID: 415064820290729265}
   m_Father: {fileID: 7263631057677163613}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -3421,7 +3466,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &7526388075003998363
 MonoBehaviour:
@@ -3454,20 +3499,6 @@ MonoBehaviour:
   leftKnee: {fileID: 7526388074781760753}
   rightSideScaleXMinusOne: 1
   leftSideScaleXMinusOne: 0
---- !u!136 &7526388075003998364
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526388075003998367}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.1846888
-  m_Height: 0.5125158
-  m_Direction: 1
-  m_Center: {x: -0, y: 0.23378801, z: 0}
 --- !u!195 &7526388075003998365
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3490,7 +3521,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
---- !u!114 &7526388075003998366
+--- !u!136 &1504250381226417515
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526388075003998367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1846888
+  m_Height: 0.5125158
+  m_Direction: 1
+  m_Center: {x: -0, y: 0.23378801, z: 0}
+--- !u!114 &7732153558269825735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3499,7 +3544,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7526388075003998367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50f6e533ffe4fb347988fb09a2366c49, type: 3}
+  m_Script: {fileID: 11500000, guid: effae5534ef5d0f4789a666f3b849f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
@@ -3507,6 +3552,7 @@ MonoBehaviour:
   damage: 10
   playerRealizeRange: 2
   distance: 0
+  monsterAtkSphere: {fileID: 1776602770034884041}
   layerMask:
     serializedVersion: 2
     m_Bits: 1

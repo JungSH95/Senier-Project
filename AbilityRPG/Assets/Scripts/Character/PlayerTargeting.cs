@@ -58,9 +58,11 @@ public class PlayerTargeting : MonoBehaviour
 
     void Update()
     {
-        // 현재 원거리일 경우.
-        SetTarget();
-        AtkTarget();
+        if (!playerController.isDead)
+        {
+            SetTarget();
+            AtkTarget();
+        }
     }
 
     void SetTarget()
@@ -128,13 +130,11 @@ public class PlayerTargeting : MonoBehaviour
         // 
         if (getTarget && !playerController.isPlayerMoving() && monsterList.Count != 0)
         {
-            //Debug.Log ( "lookat : " + MonsterList[TargetIndex].transform.GetChild ( 0 ) );  // 변경
             transform.LookAt(monsterList[targetIndex].transform);     // 변경
 
             //if (playerController.animator.GetCurrentAnimatorStateInfo(0).IsName("IDLE"))
             {
                 //Debug.Log("타겟있는데 공격 애니메이션 실행");
-
                 playerController.animator.SetBool("THROW", true);
                 playerController.animator.SetBool("IDLE", false);
                 playerController.animator.SetBool("MOVE", false);
@@ -155,27 +155,10 @@ public class PlayerTargeting : MonoBehaviour
         else
         {
             //Debug.Log("아이들");
-
             playerController.animator.SetBool("THROW", false);
             playerController.animator.SetBool("IDLE", true);
             playerController.animator.SetBool("MOVE", false);
         }
-    }
-
-    void MonsterATK()
-    {
-        //Debug.Log("몬스터가 맞았습니다.");
-
-        monsterList[targetIndex].GetComponent<EnemyLion>().HitPlayerAttack(50f);
-
-        // 이런식으로 함수 처리할 경우에 장애물이 있는 것은 어떻게 처리 할 것인가?.
-        
-        // 이 방법은 애니메이션 이벤트를 사용한 방법
-
-        // 다른 방법 2. 온트리거를 사용하여 충돌 체크하여 충돌시 플레이어가 가지고 있는
-        // 무기 오브젝트에 맞으면? 이것도 이상함
-        // 처리 방법 -> 무기 오브젝트에 맞고 이펙트 발생까지 원만히 처리 된 경우에
-        // 데미지 처리
     }
 
     void BulletATK()

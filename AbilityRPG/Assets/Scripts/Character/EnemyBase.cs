@@ -91,7 +91,7 @@ public class EnemyBase : MonoBehaviour {
             enemyHpBar.Dmg(30f);
             currentHp -= 30f;
             Instantiate(EffectSet.Instance.MonsterDmgEffect[0], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
-            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[2]);
+            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[2]);
         }
 
         if (collision.transform.CompareTag("Weapon1"))
@@ -99,7 +99,7 @@ public class EnemyBase : MonoBehaviour {
             enemyHpBar.Dmg(30f);
             currentHp -= 30f;
             Instantiate(EffectSet.Instance.MonsterDmgEffect[1], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
-            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[3]);
+            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[3]);
         }
 
         if (collision.transform.CompareTag("Weapon2"))
@@ -107,7 +107,7 @@ public class EnemyBase : MonoBehaviour {
             enemyHpBar.Dmg(30f);
             currentHp -= 30f;
             Instantiate(EffectSet.Instance.MonsterDmgEffect[2], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
-            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[4]);
+            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[4]);
         }
     }
 }

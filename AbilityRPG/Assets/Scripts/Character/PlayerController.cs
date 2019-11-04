@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerTargeting playerTargeting;
 
+    // 임시
+    public GameObject endUI;
+
     void Awake()
     {
         PlayerSetting();
@@ -54,7 +57,7 @@ public class PlayerController : MonoBehaviour
     public void FixedUpdate()
     {
         // 팝업창이 떠있는 경우
-        if (isPopup)
+        if (isPopup || isDead)
             return;
 
         if (isPlayerMoving())
@@ -114,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerWalkSound()
     {
-        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[0]);
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[0]);
     }
 
     // npc 클릭시 npc 한테 이동
@@ -155,7 +158,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("플레이어 데미지 받음");
             other.gameObject.SetActive(false);
             Instantiate(EffectSet.Instance.PlayerDmgEffect, playerTargeting.attackPoint.position, Quaternion.Euler(90, 0, 0));
-            
+            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.MonsterEFXSounds);
+
             // 몬스터 공격력으로 적용해야 함
             playerHpBar.Dmg(10f);
             
@@ -166,7 +170,11 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IDLE", false);
                 animator.SetBool("DEAD", true);
 
+                // 나중에 게임 매니저에서 처리해야 함
                 joystick.gameObject.SetActive(false);
+                endUI.SetActive(true);
+
+                isDead = true;
             }
         }
     }

@@ -8,7 +8,9 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource effectAudio;
 
     public AudioClip[] BGMSounds;
-    public AudioClip[] EFXSounds;
+
+    public AudioClip[] PlayerEFXSounds;
+    public AudioClip MonsterEFXSounds;
 
     public void BackGoundPlay(AudioClip clip)
     {

@@ -819,10 +819,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e59139d8dc3eb64daa3cc04be537995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerAtkEffect: {fileID: 100000, guid: e5fc231405ff35a4c9ff5dc13ebb264e, type: 3}
+  PlayerAtkEffect: []
   PlayerDmgEffect: {fileID: 0}
-  LionAtkEffect: {fileID: 0}
-  LionDmgEffect: {fileID: 100000, guid: e5fc231405ff35a4c9ff5dc13ebb264e, type: 3}
+  MonsterAtkEffect: {fileID: 0}
+  MonsterDmgEffect:
+  - {fileID: 100000, guid: e5fc231405ff35a4c9ff5dc13ebb264e, type: 3}
+  - {fileID: 1134129239631916, guid: 8289ba1cfe3bf51459e8c550a15875c7, type: 3}
+  - {fileID: 1462327970484030, guid: f6ad472077321ff44bd73ea2748db83b, type: 3}
   PortalEffect: {fileID: 1965343156803978, guid: 899228122cc8c15419f1a441507694f6,
     type: 3}
 --- !u!4 &420927085
@@ -3886,6 +3889,9 @@ MonoBehaviour:
   EFXSounds:
   - {fileID: 8300000, guid: 3966c3a876666eb4b9b2f0435203ea2f, type: 3}
   - {fileID: 8300000, guid: 29956d98121d24a418aaa4cad95edae6, type: 3}
+  - {fileID: 8300000, guid: 0e6e0c8f7569c7c43afd8cb6fbaf0fc7, type: 3}
+  - {fileID: 8300000, guid: 15abc3489a0ddf3459065486de96f712, type: 3}
+  - {fileID: 8300000, guid: 4cb39e5547f771046ab4cb9256195f1f, type: 3}
 --- !u!82 &2046535493
 AudioSource:
   m_ObjectHideFlags: 0

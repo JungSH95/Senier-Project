@@ -5,12 +5,13 @@ using UnityEngine;
 public class EffectSet : Singleton<EffectSet>
 {
     [Header("Player")]
-    public GameObject PlayerAtkEffect;
+    public List<GameObject> PlayerAtkEffect;
     public GameObject PlayerDmgEffect;
 
     [Header("Monster")]
-    public GameObject LionAtkEffect;
-    public GameObject LionDmgEffect;
+    public GameObject MonsterAtkEffect;
+    public List<GameObject> MonsterDmgEffect;
 
+    [Header("Portal")]
     public GameObject PortalEffect;
 }

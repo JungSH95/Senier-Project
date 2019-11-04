@@ -62,9 +62,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("THROW", false);
             animator.SetBool("IDLE", false);
 
-            if (!SoundManager.Instance.effectAudio.isPlaying)
-                SoundManager.Instance.effectAudio.Play();
-
             navAgent.SetDestination(this.transform.position);
 
             transform.Translate(Vector3.forward * Speed * Time.deltaTime);
@@ -76,9 +73,6 @@ public class PlayerController : MonoBehaviour
 
             // 거리 측정
             float dist = Vector3.Distance(transform.position, targetNPC.position);
-
-            if (!SoundManager.Instance.effectAudio.isPlaying)
-                SoundManager.Instance.effectAudio.Play();
 
             // 도착
             if (navAgent.stoppingDistance >= dist)
@@ -112,6 +106,11 @@ public class PlayerController : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void PlayerWalkSound()
+    {
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[0]);
     }
 
     // npc 클릭시 npc 한테 이동

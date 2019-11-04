@@ -82,4 +82,32 @@ public class EnemyBase : MonoBehaviour {
             }
         }
     }
+
+    // 공격 받은 거 처리
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Weapon0"))
+        {
+            enemyHpBar.Dmg(30f);
+            currentHp -= 30f;
+            Instantiate(EffectSet.Instance.MonsterDmgEffect[0], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
+            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[2]);
+        }
+
+        if (collision.transform.CompareTag("Weapon1"))
+        {
+            enemyHpBar.Dmg(30f);
+            currentHp -= 30f;
+            Instantiate(EffectSet.Instance.MonsterDmgEffect[1], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
+            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[3]);
+        }
+
+        if (collision.transform.CompareTag("Weapon2"))
+        {
+            enemyHpBar.Dmg(30f);
+            currentHp -= 30f;
+            Instantiate(EffectSet.Instance.MonsterDmgEffect[2], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
+            SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.EFXSounds[4]);
+        }
+    }
 }

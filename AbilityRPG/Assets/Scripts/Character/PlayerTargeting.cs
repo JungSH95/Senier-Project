@@ -24,7 +24,7 @@ public class PlayerTargeting : MonoBehaviour
     public GameObject playerBullet;
     public Transform attackPoint;
 
-    public string weapon = "Weapon0";
+    private string weapon = "Weapon0";
 
     // 시각적 표현 (에디터에서)
     private void OnDrawGizmos()

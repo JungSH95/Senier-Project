@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public PlayerHpBar playerHpBar;
     public bool isDead;
 
+    public PlayerTargeting playerTargeting;
+
     void Awake()
     {
         PlayerSetting();
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour
         // 임시로 플레이어 체력 감소 테스트용
         if (gameObject.transform.parent != null)
             playerHpBar = gameObject.transform.parent.transform.Find("Canvas").GetComponent<PlayerHpBar>();
+
+        playerTargeting = GetComponent<PlayerTargeting>();
     }
 
     public void FixedUpdate()
@@ -150,6 +154,7 @@ public class PlayerController : MonoBehaviour
             // 공격 받은거 처리
             Debug.Log("플레이어 데미지 받음");
             other.gameObject.SetActive(false);
+            Instantiate(EffectSet.Instance.PlayerDmgEffect, playerTargeting.attackPoint.position, Quaternion.Euler(90, 0, 0));
             
             // 몬스터 공격력으로 적용해야 함
             playerHpBar.Dmg(10f);

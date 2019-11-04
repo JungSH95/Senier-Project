@@ -21,7 +21,6 @@ public class PlayerTargeting : MonoBehaviour
     private PlayerController playerController;
 
     // 총알 발사 관련
-    public GameObject playerBullet;
     public Transform attackPoint;
 
     private string weapon = "Weapon0";

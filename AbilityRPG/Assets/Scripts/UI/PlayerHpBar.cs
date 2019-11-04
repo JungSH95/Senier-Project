@@ -21,6 +21,9 @@ public class PlayerHpBar : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+            player = GameObject.FindWithTag("Player").transform;
+
         transform.position = player.position;
         hpSlider.value = Mathf.Lerp(hpSlider.value, currentHp / maxHp, Time.deltaTime * 5f);
 

@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // 캐릭터 기본 정보들 !
+    public float maxHp = 100f;
+    public float currentHp = 100f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float damage = 10f;
+
+    protected float moveSpeed = 2f;
+
+    private string weapon = "Weapon0";
 }

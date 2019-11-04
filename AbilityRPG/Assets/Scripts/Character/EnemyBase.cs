@@ -88,24 +88,30 @@ public class EnemyBase : MonoBehaviour {
     {
         if (collision.transform.CompareTag("Weapon0"))
         {
-            enemyHpBar.Dmg(30f);
-            currentHp -= 30f;
+            float Damage = collision.gameObject.GetComponent<PlayerWeapon>().damage;
+            enemyHpBar.Dmg(Damage);
+            currentHp -= Damage;
+
             Instantiate(EffectSet.Instance.MonsterDmgEffect[0], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
             SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[2]);
         }
 
         if (collision.transform.CompareTag("Weapon1"))
         {
-            enemyHpBar.Dmg(30f);
-            currentHp -= 30f;
+            float Damage = collision.gameObject.GetComponent<PlayerWeapon>().damage;
+            enemyHpBar.Dmg(Damage);
+            currentHp -= Damage;
+
             Instantiate(EffectSet.Instance.MonsterDmgEffect[1], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
             SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[3]);
         }
 
         if (collision.transform.CompareTag("Weapon2"))
         {
-            enemyHpBar.Dmg(30f);
-            currentHp -= 30f;
+            float Damage = collision.gameObject.GetComponent<PlayerWeapon>().damage;
+            enemyHpBar.Dmg(Damage);
+            currentHp -= Damage;
+
             Instantiate(EffectSet.Instance.MonsterDmgEffect[2], collision.contacts[0].point, Quaternion.Euler(90, 0, 0));
             SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[4]);
         }

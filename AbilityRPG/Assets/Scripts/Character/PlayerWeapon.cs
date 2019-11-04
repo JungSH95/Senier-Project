@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
     private Rigidbody rigidbody;
+    public float damage;
 
-    public void Shoot()
+    public void Shoot(float dmg = 1f)
     {
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.velocity = transform.forward * 5f;
+        damage = dmg;
     }
 
     private void OnCollisionEnter(Collision collision)

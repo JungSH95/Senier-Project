@@ -104,10 +104,7 @@ public class PlayerController : MonoBehaviour
     public bool isPlayerMoving()
     {
         if(joystick == null)
-        {
-            Debug.Log("조이스틱이 없음.");
             return false;
-        }
 
         if (joystick.Vertical != 0 || joystick.Horizontal != 0)
             return true;
@@ -161,7 +158,7 @@ public class PlayerController : MonoBehaviour
             SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.MonsterEFXSounds);
 
             // 몬스터 공격력으로 적용해야 함
-            playerHpBar.Dmg(10f);
+            playerHpBar.Dmg(other.GetComponent<EnemyBase>().damage);
             
             if(playerHpBar.currentHp <= 0)
             {

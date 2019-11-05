@@ -15,8 +15,8 @@ public class PlayerChangePopup : MonoBehaviour
 
     // 변경 할 캐릭터의 정보
     public RawImage characterImg;
-    public TextMeshProUGUI name;
-    public TextMeshProUGUI status;
+    public TextMeshProUGUI characterName;
+    public TextMeshProUGUI characterStatus;
 
     protected int characterNumber;
 
@@ -34,7 +34,7 @@ public class PlayerChangePopup : MonoBehaviour
         noButton.onClick.AddListener(NoClick);
     }
 
-    public void OpenPopupWindows(string characterName)
+    public void OpenPopupWindows(string name)
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerController.isPopup = true;
@@ -42,24 +42,24 @@ public class PlayerChangePopup : MonoBehaviour
 
         characterNumber = -1;
 
-        switch (characterName)
+        switch (name)
         {
             case "토순":
                 characterNumber = 0;
-                status.text = "원거리 타입";
+                characterStatus.text = "무기 : 당근 바구니";
                 break;
             case "펭수":
                 characterNumber = 1;
-                status.text = "원거리 타입";
+                characterStatus.text = "무기 : 폭탄";
                 break;
             case "럭부":
                 characterNumber = 2;
-                status.text = "원거리 타입";
+                characterStatus.text = "무기 : 럭비공";
                 break;
         }
 
         characterImg.texture = characterSprite[characterNumber].texture;
-        name.text = characterName;
+        characterName.text = name;
 
         popupWindow.SetActive(true);
     }

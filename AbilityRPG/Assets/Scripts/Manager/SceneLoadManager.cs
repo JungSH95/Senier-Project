@@ -9,9 +9,9 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
 
     public void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
-    
+
     public void LoadScene(string sceneName)
     {
         nextScene = sceneName;

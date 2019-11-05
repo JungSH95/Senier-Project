@@ -5,7 +5,7 @@ using UnityEngine;
 // https://keidy.tistory.com/205
 // https://www.youtube.com/watch?v=mjnTPQipkcU      게임이 망했다 플레이 영상
 
-public class NPCManager : MonoBehaviour
+public class NPCBase : MonoBehaviour
 {
     private DialogueTrigger dialogueTrigger;
 

@@ -4,7 +4,8 @@ using UnityEngine;
 using System.IO;
 using LitJson;
 using System.Text;
-using UnityEngine.UI;
+
+// https://wergia.tistory.com/164
 
 [System.Serializable]
 public class PlayerData
@@ -13,9 +14,7 @@ public class PlayerData
     public int characterNumber;             
 
     // 사용이 가능한 캐릭터인지
-    public bool character0;
-    public bool character1;
-    public bool character2;
+    public bool[] characterUsed;
 
     public PlayerData() { }
 
@@ -25,9 +24,7 @@ public class PlayerData
         {
             characterNumber = 0;
 
-            character0 = true;
-            character1 = true;
-            character2 = true;
+            characterUsed = new bool[] { true, false, true };
         }
     }
 
@@ -35,9 +32,10 @@ public class PlayerData
     {
         Debug.Log("Number = " + characterNumber);
 
-        Debug.Log("character0 = " + character0);
-        Debug.Log("character1 = " + character1);
-        Debug.Log("character2 = " + character2);
+        for (int i = 0; i < 3; i++)
+        {
+            Debug.Log(string.Format("characterUsed[{0}] = {1}", i, characterUsed[i]));
+        }
     }
 }
 
@@ -52,6 +50,11 @@ public class JsonManager : Singleton<JsonManager>
 {
     public PlayerData playerData;
     public OptionData optionData;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {

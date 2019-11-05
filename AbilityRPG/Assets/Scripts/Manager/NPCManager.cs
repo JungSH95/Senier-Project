@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCManager : MonoBehaviour
+public class NPCManager : Singleton<NPCManager>
 {
     public List<GameObject> npcObjList;
 
@@ -23,5 +23,11 @@ public class NPCManager : MonoBehaviour
             else
                 npcObjList[i].SetActive(false);
         }
+    }
+
+    public void CharacterChange(int nowNumber, int newNumber)
+    {
+        npcObjList[nowNumber].SetActive(true);
+        npcObjList[newNumber].SetActive(false);
     }
 }

@@ -37,15 +37,15 @@ public class PlayerCharacterChange : MonoBehaviour
 
         nowPlayer.SetActive(false);
 
-        // 변경 해야하는 대상 NPC 비활성화
-        // 현재 캐릭터에 해당하는 대상 NPC 활성화
-
         joystick.gameObject.SetActive(true);
         GameObject newPlayer = Instantiate(characterList[number]);
         newPlayer.GetComponent<PlayerController>().PlayerSetting();
         Camera.main.GetComponent<CameraMovement>().Player = newPlayer;
         nowPlayer = newPlayer;
-        
+
+        NPCManager.Instance.CharacterChange(JsonManager.Instance.playerData.characterNumber, number);
+        JsonManager.Instance.playerData.characterNumber = number;
+
         fadeManager.FadeIn();
 
         yield return null;

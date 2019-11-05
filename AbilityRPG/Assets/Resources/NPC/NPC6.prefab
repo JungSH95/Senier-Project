@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: "\uD3AD\uC218"
+    name: "\uD1A0\uC21C"
     sentences:
     - "\uCE90\uB9AD\uD130\uB97C \uBCC0\uACBD\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   dialogueTransform: {fileID: 0}

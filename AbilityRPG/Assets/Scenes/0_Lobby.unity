@@ -349,9 +349,8 @@ MonoBehaviour:
   backgroundAudio: {fileID: 539440305}
   effectAudio: {fileID: 539440304}
   BGMSounds: []
-  EFXSounds:
-  - {fileID: 8300000, guid: 3966c3a876666eb4b9b2f0435203ea2f, type: 3}
-  - {fileID: 8300000, guid: 29956d98121d24a418aaa4cad95edae6, type: 3}
+  PlayerEFXSounds: []
+  MonsterEFXSounds: {fileID: 0}
 --- !u!82 &539440304
 AudioSource:
   m_ObjectHideFlags: 0
@@ -555,8 +554,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 568523020}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &568523019
 GameObject:
@@ -587,6 +586,7 @@ Transform:
   m_Children:
   - {fileID: 535827816}
   - {fileID: 822960312}
+  - {fileID: 539440306}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -46,10 +46,14 @@ public class PlayerChangePopup : MonoBehaviour
         {
             case "토순":
                 characterNumber = 0;
-                status.text = "근거리 타입";
+                status.text = "원거리 타입";
                 break;
             case "펭수":
                 characterNumber = 1;
+                status.text = "원거리 타입";
+                break;
+            case "럭부":
+                characterNumber = 2;
                 status.text = "원거리 타입";
                 break;
         }

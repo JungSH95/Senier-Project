@@ -11,7 +11,6 @@ public class NPCManager : MonoBehaviour
 
     public bool isAutoSentence;
 
-    public int characterNumber;
     public bool isChangeCharacter;
 
     public Vector3 startRotation;
@@ -38,7 +37,7 @@ public class NPCManager : MonoBehaviour
                 other.GetComponent<PlayerController>().isTalk = false;
 
                 // 캐릭터 변경 가능 NPC일 경우
-                if (isChangeCharacter && characterNumber >= 0)
+                if (isChangeCharacter)
                     popupWindow.OpenPopupWindows(dialogueTrigger.dialogue.name);
 
             }

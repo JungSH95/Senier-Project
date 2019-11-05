@@ -1104,7 +1104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &342045537
 Transform:
   m_ObjectHideFlags: 0
@@ -1132,21 +1132,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 7953807032024786278, guid: 0b073b372def7b94da47495ecb0973e7,
-        type: 3}
-      propertyPath: popupWindow
-      value: 
-      objectReference: {fileID: 865244247}
-    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
-        type: 3}
-      propertyPath: dialogueTransform
-      value: 
-      objectReference: {fileID: 953135943}
-    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
-        type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 862586130}
     - target: {fileID: 4000014259547920, guid: 0b073b372def7b94da47495ecb0973e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1190,6 +1175,26 @@ PrefabInstance:
     - target: {fileID: 4000014259547920, guid: 0b073b372def7b94da47495ecb0973e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
+        type: 3}
+      propertyPath: dialogueTransform
+      value: 
+      objectReference: {fileID: 953135943}
+    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
+        type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 862586130}
+    - target: {fileID: 7953807032024786278, guid: 0b073b372def7b94da47495ecb0973e7,
+        type: 3}
+      propertyPath: popupWindow
+      value: 
+      objectReference: {fileID: 865244247}
+    - target: {fileID: 7953807032024786278, guid: 0b073b372def7b94da47495ecb0973e7,
+        type: 3}
+      propertyPath: characterNumber
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b073b372def7b94da47495ecb0973e7, type: 3}
@@ -1450,7 +1455,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 2800000, guid: 330815971664c7741b76463dbdbe5971, type: 3}
+  m_Texture: {fileID: 2800000, guid: e13bf713f56356e4082b8827d6403796, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2562,9 +2567,8 @@ MonoBehaviour:
   backgroundAudio: {fileID: 971760791}
   effectAudio: {fileID: 971760790}
   BGMSounds: []
-  EFXSounds:
-  - {fileID: 8300000, guid: 3966c3a876666eb4b9b2f0435203ea2f, type: 3}
-  - {fileID: 8300000, guid: 29956d98121d24a418aaa4cad95edae6, type: 3}
+  PlayerEFXSounds: []
+  MonsterEFXSounds: {fileID: 0}
 --- !u!82 &971760790
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3388,7 +3392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1447645441
 Transform:
   m_ObjectHideFlags: 0
@@ -5093,11 +5097,6 @@ PrefabInstance:
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 862586130}
-    - target: {fileID: 4560852274954393938, guid: da779ef5095305d4f9e8d30a07c77ed5,
-        type: 3}
-      propertyPath: dialogue.name
-      value: "\uD1A0\uC21C"
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da779ef5095305d4f9e8d30a07c77ed5, type: 3}
 --- !u!4 &6284175787001239308 stripped

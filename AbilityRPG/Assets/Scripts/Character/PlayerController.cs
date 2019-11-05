@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
             SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.MonsterEFXSounds);
 
             // 몬스터 공격력으로 적용해야 함
-            playerHpBar.Dmg(other.GetComponent<EnemyBase>().damage);
+            playerHpBar.Dmg(other.gameObject.transform.parent.GetComponent<EnemyBase>().damage);
             
             if(playerHpBar.currentHp <= 0)
             {

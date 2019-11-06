@@ -43,8 +43,8 @@ public class PlayerCharacterChange : MonoBehaviour
         Camera.main.GetComponent<CameraMovement>().Player = newPlayer;
         nowPlayer = newPlayer;
 
-        NPCManager.Instance.CharacterChange(JsonManager.Instance.playerData.characterNumber, number);
-        JsonManager.Instance.playerData.characterNumber = number;
+        NPCManager.Instance.CharacterChange(GameManager.Instance.playerData.characterNumber, number);
+        GameManager.Instance.playerData.characterNumber = number;
 
         fadeManager.FadeIn();
 

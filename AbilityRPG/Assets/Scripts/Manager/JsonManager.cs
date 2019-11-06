@@ -47,38 +47,50 @@ public class OptionData
 }
 
 public class JsonManager : Singleton<JsonManager>
-{
-    public PlayerData playerData;
-    public OptionData optionData;
+{   
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
+    public void PlayerDataLoad()
     {
         if(Application.platform == RuntimePlatform.WindowsEditor)
         {
             if(File.Exists(Application.dataPath + "/PlayerData.json"))
-                playerData = LoadJsonFile<PlayerData>(Application.dataPath, "PlayerData");
+                GameManager.Instance.playerData = LoadJsonFile<PlayerData>(Application.dataPath, "PlayerData");
             else
             {
-                playerData = new PlayerData(true);
-                string jsonData = JsonUtility.ToJson(playerData);
+                GameManager.Instance.playerData = new PlayerData(true);
+                string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
                 CreateJsonFile(Application.dataPath, "PlayerData", jsonData);
             }
         }
         else if(Application.platform == RuntimePlatform.Android)
         {
             if (File.Exists(Application.persistentDataPath + "/PlayerData.json"))
-                playerData = LoadJsonFile<PlayerData>(Application.persistentDataPath, "PlayerData");
+                GameManager.Instance.playerData = LoadJsonFile<PlayerData>(Application.persistentDataPath, "PlayerData");
             else
             {
-                playerData = new PlayerData(true);
-                string jsonData = JsonUtility.ToJson(playerData);
+                GameManager.Instance.playerData = new PlayerData(true);
+                string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
                 CreateJsonFile(Application.persistentDataPath, "PlayerData", jsonData);
             }
+        }
+    }
+
+    public void PlayerDataSave()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
+            CreateJsonFile(Application.dataPath, "PlayerData", jsonData);
+        }
+        else if (Application.platform == RuntimePlatform.Android)
+        {
+            string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
+            CreateJsonFile(Application.persistentDataPath, "PlayerData", jsonData);
         }
     }
 

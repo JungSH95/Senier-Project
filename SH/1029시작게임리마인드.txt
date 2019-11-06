@@ -61,3 +61,9 @@ MainField -> 캐릭터 정보 확인 가능 한 것
 
 Lobby -> MainField <-> BattleField  : 씬 이동간 효과 추가? 
 
+조이스틱 이동이 가능하게 할 것인가?
+
+BattleField 스테이지 종류 추가 및 캐릭터 해금 조건 기능 추가(특별방 구현)
+-> 보스/중보스 추가
+
+

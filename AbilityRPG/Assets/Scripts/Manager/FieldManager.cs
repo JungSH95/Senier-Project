@@ -11,7 +11,11 @@ public class FieldManager : Singleton<FieldManager>
     public List<Transform> startPosList;
     // 추후에 캐릭터 얻을 수 있는 이벤트 방, 보스 방 생성 필요
 
+    public List<GameObject> characterList;
+
+    public Transform playerPos;
     public GameObject player;
+
     public GameObject portal;
 
     public int currentField;
@@ -28,7 +32,20 @@ public class FieldManager : Singleton<FieldManager>
         currentField = 0;
         lastField = 5;
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        // 테스트 위해서 (임시 방편으로 만들긴 했는데 되긴 함)
+        if(GameManager.Instance == null)
+        {
+            player = Instantiate(characterList[0]);
+            player.transform.parent = playerPos.transform;
+        }
+        else
+        {
+            player = Instantiate(characterList[GameManager.Instance.playerData.characterNumber]);
+            player.transform.parent = playerPos.transform;
+        }
+
+        
+
         fadeManager = GameObject.FindGameObjectWithTag("FadeCanvas").GetComponent<FadeManager>();
     }
 

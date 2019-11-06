@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     // 임시
     public GameObject endUI;
 
-    void Awake()
+    void Start()
     {
         PlayerSetting();
     }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
 {
-    public Transform playerPos;
-
     private FadeManager fadeManager;
     
     void Start()
@@ -20,9 +18,5 @@ public class LobbyManager : MonoBehaviour
             Debug.Log("게임 시작");
             SceneLoadManager.Instance.WorldMapScene();
         }
-
-        if (Application.platform == RuntimePlatform.Android)
-            if (Input.GetKey(KeyCode.Escape))
-                Application.Quit();
     }
 }

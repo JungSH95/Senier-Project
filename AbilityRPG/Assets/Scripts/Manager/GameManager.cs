@@ -7,7 +7,7 @@ public class GameManager : Singleton<GameManager>
     public PlayerData playerData;
     public OptionData optionData;
 
-    public List<PlayerBase> characterInfoList;
+    public List<CharacterBase> characterInfoList;
 
     private bool isPaused;
 
@@ -19,6 +19,10 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         JsonManager.Instance.PlayerDataLoad();
+        JsonManager.Instance.OptionDataLoad();
+        
+        for (int i = 0; i < 3; i++)
+            JsonManager.Instance.CharacterDataLoad(i);
     }
 
     private void Update()
@@ -47,10 +51,13 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    // 어플리케이션 종료 시 호출
     private void OnApplicationQuit()
     {
-        Debug.Log("게임 종료");
-
         JsonManager.Instance.PlayerDataSave();
+        JsonManager.Instance.OptionDataSave();
+
+        //for (int i = 0; i < characterPrefebs.Count; i++)
+            //JsonManager.Instance.CharacterDataSave(i);
     }
 }

@@ -8,7 +8,7 @@ public class EnemyFSM : EnemyBase
     public enum State { Idle, Move, Attack, Dead };
     public State currentState = State.Idle;
     
-    protected void Start()
+    protected new void Start()
     {
         base.Start();
     }

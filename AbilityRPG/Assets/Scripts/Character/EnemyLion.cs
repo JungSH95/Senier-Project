@@ -14,7 +14,7 @@ public class EnemyLion : EnemyFSM
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
-    void Start()
+    private new void Start()
     {
         base.Start();
 

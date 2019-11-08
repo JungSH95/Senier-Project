@@ -22,8 +22,7 @@ public class PlayerTargeting : MonoBehaviour
 
     // 총알 발사 관련
     public Transform attackPoint;
-
-    private string weapon = "Weapon0";
+    
 
     // 시각적 표현 (에디터에서)
     private void OnDrawGizmos()
@@ -127,7 +126,7 @@ public class PlayerTargeting : MonoBehaviour
         }
 
         // 
-        if (getTarget && !playerController.isPlayerMoving() && monsterList.Count != 0)
+        if (getTarget && !playerController.IsPlayerMoving() && monsterList.Count != 0)
         {
             transform.LookAt(monsterList[targetIndex].transform);     // 변경
 
@@ -140,7 +139,7 @@ public class PlayerTargeting : MonoBehaviour
             }
 
         }
-        else if (playerController.isPlayerMoving())
+        else if (playerController.IsPlayerMoving())
         {
             if (!playerController.animator.GetCurrentAnimatorStateInfo(0).IsName("MOVE"))
             {
@@ -162,10 +161,10 @@ public class PlayerTargeting : MonoBehaviour
 
     void BulletATK()
     {
-        GameObject bullet = ObjectPool.Instance.PopFromPool(weapon);
+        GameObject bullet = ObjectPool.Instance.PopFromPool(playerController.characterBase.weapon);
         bullet.transform.position = attackPoint.position;
         bullet.transform.rotation = transform.rotation;
         bullet.SetActive(true);
-        bullet.GetComponent<PlayerWeapon>().Shoot();
+        bullet.GetComponent<PlayerWeapon>().Shoot(playerController.characterBase.damage);
     }
 }

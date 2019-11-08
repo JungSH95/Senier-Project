@@ -11,8 +11,8 @@ public class PlayerHpBar : MonoBehaviour
     public Slider backHpSlider;
     public bool backHpHit = false;
 
-    public float maxHp = 100f;
-    public float currentHp = 100f;
+    public float maxHp = 1f;
+    public float currentHp = 1f;
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class PlayerHpBar : MonoBehaviour
     void Update()
     {
         if (player == null)
-            player = GameObject.FindWithTag("Player").transform;
+            return;
 
         transform.position = player.position;
         hpSlider.value = Mathf.Lerp(hpSlider.value, currentHp / maxHp, Time.deltaTime * 5f);
@@ -41,8 +41,10 @@ public class PlayerHpBar : MonoBehaviour
 
     public void SetSlider()
     {
-        //maxHp = player.gameObject.GetComponent<EnemyLion>().maxHp;
-        maxHp = 100f;
+        if (player == null)
+            player = GameObject.FindWithTag("Player").transform;
+
+        maxHp = player.gameObject.GetComponent<PlayerController>().characterBase.maxHp;
         currentHp = maxHp;
     }
 

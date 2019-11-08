@@ -16,16 +16,11 @@ public class PlayerData
     // 사용이 가능한 캐릭터인지
     public bool[] characterUsed;
 
-    public PlayerData() { }
-
-    public PlayerData(bool isTest)
+    public PlayerData()
     {
-        if(isTest)
-        {
-            characterNumber = 0;
+        characterNumber = 0;
 
-            characterUsed = new bool[] { true, false, true };
-        }
+        characterUsed = new bool[] { true, false, true };
     }
 
     public void Print()
@@ -44,6 +39,12 @@ public class OptionData
 {
     public bool BgmOn;
     public bool EfxOn;
+
+    public OptionData()
+    {
+        BgmOn = true;
+        EfxOn = true;
+    }
 }
 
 public class JsonManager : Singleton<JsonManager>
@@ -62,7 +63,7 @@ public class JsonManager : Singleton<JsonManager>
                 GameManager.Instance.playerData = LoadJsonFile<PlayerData>(Application.dataPath, "PlayerData");
             else
             {
-                GameManager.Instance.playerData = new PlayerData(true);
+                GameManager.Instance.playerData = new PlayerData();
                 string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
                 CreateJsonFile(Application.dataPath, "PlayerData", jsonData);
             }
@@ -73,7 +74,7 @@ public class JsonManager : Singleton<JsonManager>
                 GameManager.Instance.playerData = LoadJsonFile<PlayerData>(Application.persistentDataPath, "PlayerData");
             else
             {
-                GameManager.Instance.playerData = new PlayerData(true);
+                GameManager.Instance.playerData = new PlayerData();
                 string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
                 CreateJsonFile(Application.persistentDataPath, "PlayerData", jsonData);
             }
@@ -91,6 +92,92 @@ public class JsonManager : Singleton<JsonManager>
         {
             string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
             CreateJsonFile(Application.persistentDataPath, "PlayerData", jsonData);
+        }
+    }
+
+    public void OptionDataLoad()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (File.Exists(Application.dataPath + "/OptionData.json"))
+                GameManager.Instance.optionData = LoadJsonFile<OptionData>(Application.dataPath, "OptionData");
+            else
+            {
+                GameManager.Instance.optionData = new OptionData();
+                string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
+                CreateJsonFile(Application.dataPath, "OptionData", jsonData);
+            }
+        }
+        else if (Application.platform == RuntimePlatform.Android)
+        {
+            if (File.Exists(Application.persistentDataPath + "/OptionData.json"))
+                GameManager.Instance.optionData = LoadJsonFile<OptionData>(Application.persistentDataPath, "OptionData");
+            else
+            {
+                GameManager.Instance.optionData = new OptionData();
+                string jsonData = JsonUtility.ToJson(GameManager.Instance.playerData);
+                CreateJsonFile(Application.persistentDataPath, "OptionData", jsonData);
+            }
+        }
+    }
+
+    public void OptionDataSave()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            string jsonData = JsonUtility.ToJson(GameManager.Instance.optionData);
+            CreateJsonFile(Application.dataPath, "OptionData", jsonData);
+        }
+        else if (Application.platform == RuntimePlatform.Android)
+        {
+            string jsonData = JsonUtility.ToJson(GameManager.Instance.optionData);
+            CreateJsonFile(Application.persistentDataPath, "OptionData", jsonData);
+        }
+    }
+
+    public void CharacterDataLoad(int number)
+    {
+        string fileName = "Character" + number.ToString();
+        string weapon = "Weapon" + number.ToString();
+                       
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            if (File.Exists(Application.dataPath + "/" + fileName + ".json"))
+                GameManager.Instance.characterInfoList.Add(LoadJsonFile<CharacterBase>(Application.dataPath, fileName));
+            else
+            {
+                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon));
+                string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
+                CreateJsonFile(Application.dataPath, fileName, jsonData);
+            }
+        }
+        else if (Application.platform == RuntimePlatform.Android)
+        {
+            if (File.Exists(Application.persistentDataPath + "/" + fileName + ".json"))
+                GameManager.Instance.characterInfoList.Add(LoadJsonFile<CharacterBase>(Application.persistentDataPath, fileName));
+            else
+            {
+                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon));
+                string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
+                CreateJsonFile(Application.persistentDataPath, fileName, jsonData);
+            }
+        }
+
+    }
+
+    public void CharacterDataSave(int number)
+    {
+        string fileName = "Character" + number.ToString();
+
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
+            CreateJsonFile(Application.dataPath, fileName, jsonData);
+        }
+        else if (Application.platform == RuntimePlatform.Android)
+        {
+            string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
+            CreateJsonFile(Application.persistentDataPath, fileName, jsonData);
         }
     }
 

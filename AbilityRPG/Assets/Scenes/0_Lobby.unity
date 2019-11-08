@@ -676,7 +676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9c0c80452621342a343525a1e1e676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
 --- !u!1 &875116363
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +755,10 @@ MonoBehaviour:
     BgmOn: 0
     EfxOn: 0
   characterInfoList: []
+  characterPrefebs:
+  - {fileID: 5005349111358411054, guid: 7883d5e96bffe994faccc7b4974de6e6, type: 3}
+  - {fileID: 2941204486920549296, guid: 36e88a83f94dc09408e7223def89bfac, type: 3}
+  - {fileID: 1674356813129795148, guid: 413c034d047c33e4197af86429ef81ed, type: 3}
 --- !u!4 &1067394126
 Transform:
   m_ObjectHideFlags: 0

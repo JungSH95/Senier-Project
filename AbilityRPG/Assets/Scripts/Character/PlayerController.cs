@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed = 2.0f;         // 움직이는 스피드.
-    
+    public CharacterBase characterBase;
+        
     protected Joystick joystick;
     protected Joybutton joybutton;
     
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.stoppingDistance = 0.7f;
-        navAgent.speed = Speed;
+        navAgent.speed = characterBase.speed;
 
         isDead = false;
 
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if (isPopup || isDead)
             return;
 
-        if (isPlayerMoving())
+        if (IsPlayerMoving())
         {
             isNpcTarget = false;
             this.gameObject.GetComponent<PlayerTargeting>().getTarget = false;
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
             navAgent.SetDestination(this.transform.position);
 
-            transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * characterBase.speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg, 0f);
         }
         else if (isNpcTarget)
@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         NpcTargeting();
     }
 
-    public bool isPlayerMoving()
+    public bool IsPlayerMoving()
     {
         if(joystick == null)
             return false;

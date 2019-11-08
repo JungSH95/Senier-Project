@@ -42,6 +42,8 @@ public class FieldManager : Singleton<FieldManager>
         {
             player = Instantiate(characterList[GameManager.Instance.playerData.characterNumber]);
             player.transform.parent = playerPos.transform;
+            player.GetComponent<PlayerController>().characterBase =
+                GameManager.Instance.characterInfoList[GameManager.Instance.playerData.characterNumber];
         }
 
         

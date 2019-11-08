@@ -17,6 +17,8 @@ public class MainFieldManager : MonoBehaviour
         else
         {
             player = Instantiate(characterList[GameManager.Instance.playerData.characterNumber]);
+            player.GetComponent<PlayerController>().characterBase =
+                GameManager.Instance.characterInfoList[GameManager.Instance.playerData.characterNumber];
         }
     }
 }

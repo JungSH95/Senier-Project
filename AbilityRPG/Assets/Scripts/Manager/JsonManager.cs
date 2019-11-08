@@ -16,10 +16,12 @@ public class PlayerData
     // 사용이 가능한 캐릭터인지
     public bool[] characterUsed;
 
+    public int resourceExp;
+
     public PlayerData()
     {
         characterNumber = 0;
-
+        resourceExp = 0;
         characterUsed = new bool[] { true, false, true };
     }
 

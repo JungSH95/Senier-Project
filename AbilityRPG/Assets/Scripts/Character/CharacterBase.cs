@@ -46,4 +46,10 @@ public class CharacterBase
     {
         strExp += exp;
     }
+
+    // 각 렙에 따른 능력치 설정
+    public void SetStatus()
+    {
+
+    }
 }

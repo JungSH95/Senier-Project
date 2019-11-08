@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Joybutton : MonoBehaviour
 {
-    public bool pressed = false;
-    
+    public void PlayerInfoButton()
+    {
+        MainFieldManager.Instance.PlayerInfoOpen();
+    }
 }

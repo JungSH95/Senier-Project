@@ -11,7 +11,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
     public GameObject joystickCanvas;
     public GameObject mainCamera;
     public GameObject playerInfo;
-
+    
     private void Awake()
     {
         // 테스트 위해서 (임시 방편으로 만들긴 했는데 되긴 함)
@@ -32,11 +32,14 @@ public class MainFieldManager : Singleton<MainFieldManager>
         if (joystickCanvas == null || mainCamera == null || playerInfo == null)
             return;
 
+        player.GetComponent<PlayerController>().isNpcTarget = false;
         player.SetActive(false);
-
         joystickCanvas.SetActive(false);
         mainCamera.SetActive(false);
+
         playerInfo.SetActive(true);
+        playerInfo.GetComponent<PlayerInfoUI>().OpenPlayerInfoUI(GameManager.Instance.playerData.characterNumber);
+        //playerInfo.GetComponent<PlayerInfoUI>().OpenPlayerInfoUI(2);
     }
 
     public void PlayerInfoClose()
@@ -45,9 +48,10 @@ public class MainFieldManager : Singleton<MainFieldManager>
             return;
 
         player.SetActive(true);
-
         joystickCanvas.SetActive(true);
         mainCamera.SetActive(true);
+        
+        playerInfo.GetComponent<PlayerInfoUI>().ClosePlayerInfoUI();
         playerInfo.SetActive(false);
     }
 }

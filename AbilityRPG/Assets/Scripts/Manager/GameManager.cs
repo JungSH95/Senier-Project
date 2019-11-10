@@ -57,7 +57,7 @@ public class GameManager : Singleton<GameManager>
         JsonManager.Instance.PlayerDataSave();
         JsonManager.Instance.OptionDataSave();
 
-        //for (int i = 0; i < characterPrefebs.Count; i++)
-            //JsonManager.Instance.CharacterDataSave(i);
+        for (int i = 0; i < 3; i++)
+            JsonManager.Instance.CharacterDataSave(i);
     }
 }

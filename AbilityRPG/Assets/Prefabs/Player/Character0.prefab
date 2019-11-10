@@ -1281,7 +1281,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96cb909e5edcbec488b05e61eb71484c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  characterBase:
+    strLevel: 0
+    dexLevel: 0
+    conLevel: 0
+    strExp: 0
+    dexExp: 0
+    conExp: 0
+    weapon: Weapon0
+    weaponLevel: 0
+    weaponExp: 0
+    maxHp: 100
+    currentHp: 100
+    damage: 0
+    speed: 2
   animator: {fileID: 0}
   layerMask:
     serializedVersion: 2
@@ -1290,6 +1303,7 @@ MonoBehaviour:
   isPopup: 0
   playerHpBar: {fileID: 0}
   isDead: 0
+  playerTargeting: {fileID: 0}
 --- !u!114 &278737704728046449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,7 +1321,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
-  playerBullet: {fileID: 0}
   attackPoint: {fileID: 8094283114638345938}
 --- !u!1 &5005376909633083466
 GameObject:

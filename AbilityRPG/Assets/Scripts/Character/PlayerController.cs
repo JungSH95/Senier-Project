@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask layerMask;
 
     private Transform targetNPC;
-    private bool isNpcTarget = false;
+    public bool isNpcTarget = false;
     public bool isTalk = false;
     public bool isPopup = false;
 
@@ -25,9 +25,6 @@ public class PlayerController : MonoBehaviour
     public bool isDead;
 
     public PlayerTargeting playerTargeting;
-
-    // 임시
-    public GameObject endUI;
 
     void Start()
     {
@@ -98,7 +95,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IDLE", true);
         }
 
-        NpcTargeting();
+        // 전투 중이 아닐 경우에만
+        if (playerTargeting.monsterList == null || playerTargeting.monsterList.Count == 0)
+            NpcTargeting();
     }
 
     public bool IsPlayerMoving()
@@ -120,19 +119,32 @@ public class PlayerController : MonoBehaviour
     // npc 클릭시 npc 한테 이동
     public void NpcTargeting()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
+        // 게임 오브젝트 위일 경우만 PC에서는 -1 모바일에서는 0
+        int pointerID;
 
-            if (Physics.Raycast(ray, out hitInfo, 100f, layerMask))
+    #if UNITY_EDITOR
+        pointerID = -1;
+    #elif UNITY_ANDROID
+        pointerID = 0;
+    #endif
+
+        // ui 위에 없을 경우
+        if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(pointerID))
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hitInfo.transform.CompareTag("NPC"))
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hitInfo;
+
+                if (Physics.Raycast(ray, out hitInfo, 100f, layerMask))
                 {
-                    isNpcTarget = true;
-                    targetNPC = hitInfo.transform;
-                    transform.LookAt(hitInfo.transform);
-                    navAgent.SetDestination(hitInfo.transform.position);
+                    if (hitInfo.transform.CompareTag("NPC"))
+                    {
+                        isNpcTarget = true;
+                        targetNPC = hitInfo.transform;
+                        transform.LookAt(hitInfo.transform);
+                        navAgent.SetDestination(hitInfo.transform.position);
+                    }
                 }
             }
         }
@@ -140,9 +152,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("Monster"))
-            Debug.Log("몬스터로 공격 받음");
-
         if(other.transform.CompareTag("NextScene"))
             SceneLoadManager.Instance.LoadScene("2_BattleField");
 
@@ -169,8 +178,6 @@ public class PlayerController : MonoBehaviour
 
                 // 나중에 게임 매니저에서 처리해야 함
                 joystick.gameObject.SetActive(false);
-                endUI.SetActive(true);
-
                 isDead = true;
             }
         }

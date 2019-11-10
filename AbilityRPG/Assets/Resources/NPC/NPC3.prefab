@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 8645502063426915770}
   - component: {fileID: 8645502063426915771}
   m_Layer: 0
-  m_Name: Character
+  m_Name: NPC3
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -374,7 +374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAutoSentence: 0
-  characterNumber: 0
   isChangeCharacter: 0
   startRotation: {x: 0, y: 0, z: 0}
   popupWindow: {fileID: 0}

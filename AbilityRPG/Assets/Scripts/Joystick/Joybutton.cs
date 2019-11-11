@@ -9,4 +9,14 @@ public class Joybutton : MonoBehaviour
     {
         MainFieldManager.Instance.PlayerInfoOpen();
     }
+
+    public void CharacterBookButton()
+    {
+        MainFieldManager.Instance.CharacterBookOpen();
+    }
+
+    public void OptionButton()
+    {
+        MainFieldManager.Instance.OptionOpen();
+    }
 }

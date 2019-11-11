@@ -11,7 +11,11 @@ public class MainFieldManager : Singleton<MainFieldManager>
     public GameObject joystickCanvas;
     public GameObject mainCamera;
     public GameObject playerInfo;
-    
+
+    public GameObject characterBook;
+    public GameObject option;
+    public GameObject gameClose;
+
     private void Awake()
     {
         // 테스트 위해서 (임시 방편으로 만들긴 했는데 되긴 함)
@@ -25,6 +29,14 @@ public class MainFieldManager : Singleton<MainFieldManager>
             player.GetComponent<PlayerController>().characterBase =
                 GameManager.Instance.characterInfoList[GameManager.Instance.playerData.characterNumber];
         }
+    }
+
+    private void Update()
+    {
+        // 뒤로가기 버튼
+        if (Application.platform == RuntimePlatform.Android)
+            if (Input.GetKey(KeyCode.Escape))
+                Application.Quit();
     }
 
     public void PlayerInfoOpen()
@@ -53,5 +65,25 @@ public class MainFieldManager : Singleton<MainFieldManager>
         
         playerInfo.GetComponent<PlayerInfoUI>().ClosePlayerInfoUI();
         playerInfo.SetActive(false);
+    }
+
+    public void CharacterBookOpen()
+    {
+
+    }
+
+    public void CharacterBookClose()
+    {
+
+    }
+
+    public void OptionOpen()
+    {
+
+    }
+
+    public void OptionClose()
+    {
+
     }
 }

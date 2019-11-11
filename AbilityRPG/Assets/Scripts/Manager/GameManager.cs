@@ -25,15 +25,6 @@ public class GameManager : Singleton<GameManager>
             JsonManager.Instance.CharacterDataLoad(i);
     }
 
-    private void Update()
-    {
-        // 뒤로가기 버튼
-        if (Application.platform == RuntimePlatform.Android)
-            if (Input.GetKey(KeyCode.Escape))
-                Application.Quit();
-    }
-
-
     private void OnApplicationPause(bool pause)
     {
         if(pause)

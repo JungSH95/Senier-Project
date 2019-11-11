@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// https://www.youtube.com/watch?v=_nRzoTzeyxU      다이얼로그 시스템 만드는법
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshPro text;
@@ -54,6 +53,8 @@ public class DialogueManager : MonoBehaviour
 
             yield return new WaitForSeconds(1.5f);
         }
+
+        EndDialogue();
     }
 
     // 다음 내용으로
@@ -86,9 +87,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
-        Debug.Log("End of conversation");
+        StopAllCoroutines();
+        text.text = "";
+        quad.transform.localScale = new Vector3(0f, 0f);
     }
 
 

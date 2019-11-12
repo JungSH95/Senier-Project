@@ -94,6 +94,8 @@ public class FieldManager : Singleton<FieldManager>
         }
 
         player.SetActive(true);
+        player.GetComponent<PlayerController>().animator.SetFloat("AtkSpeed", 
+            player.GetComponent<PlayerController>().characterBase.atkSpeed);
 
         fadeManager.FadeIn();
         SpawnManager.Instance.MonsterAllSetActive();
@@ -103,7 +105,6 @@ public class FieldManager : Singleton<FieldManager>
     // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.
     public void BattleStart()
     {
-        Debug.Log("전투 시작");
         SpawnManager.Instance.MonsterAIStart();
         player.GetComponent<PlayerTargeting>().monsterList = SpawnManager.Instance.monsterList;
 

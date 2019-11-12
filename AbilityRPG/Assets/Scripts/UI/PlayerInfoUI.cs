@@ -27,6 +27,11 @@ public class PlayerInfoUI : MonoBehaviour
 
     private int currentNumber;
 
+    private float conMax;
+    private float strMax;
+    private float dexMax;
+    private float weaponMax;
+
     public void OpenPlayerInfoUI(int number = 0)
     {
         currentNumber = number;
@@ -44,10 +49,15 @@ public class PlayerInfoUI : MonoBehaviour
                 break;
         }
 
-        conSlider.value = 0f;
-        strSlider.value = 0f;
-        dexSlider.value = 0f;
-        weaponSlider.value = 0f;
+        conMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].conLevel);
+        strMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].strLevel);
+        dexMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].dexLevel);
+        weaponMax = Mathf.Pow(3, GameManager.Instance.characterInfoList[currentNumber].weaponLevel);
+
+        conSlider.value = GameManager.Instance.characterInfoList[currentNumber].conExp / conMax;
+        strSlider.value = GameManager.Instance.characterInfoList[currentNumber].strExp / strMax;
+        dexSlider.value = GameManager.Instance.characterInfoList[currentNumber].dexExp / dexMax;
+        weaponSlider.value = GameManager.Instance.characterInfoList[currentNumber].weaponExp / weaponMax;
 
         conLevel.text = "LV." + GameManager.Instance.characterInfoList[currentNumber].conLevel;
         strLevel.text = "LV." + GameManager.Instance.characterInfoList[currentNumber].strLevel;
@@ -70,33 +80,71 @@ public class PlayerInfoUI : MonoBehaviour
 
     public void ConExpUpClick()
     {
-        Debug.Log("건강 렙업");
-
         GameManager.Instance.characterInfoList[currentNumber].conExp += 1;
-        Debug.Log("건강 경험치 : " + GameManager.Instance.characterInfoList[currentNumber].conExp);
+
+        if (GameManager.Instance.characterInfoList[currentNumber].conExp >= conMax)
+        {
+            GameManager.Instance.characterInfoList[currentNumber].ConLevelUp();
+
+            conMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].conLevel);
+            conLevel.text = "LV." + GameManager.Instance.characterInfoList[currentNumber].conLevel;
+        }
+
+        conSlider.value = GameManager.Instance.characterInfoList[currentNumber].conExp / conMax;
     }
 
     public void StrExpUpClick()
     {
-        Debug.Log("근력 렙업");
-
         GameManager.Instance.characterInfoList[currentNumber].strExp += 1;
-        Debug.Log("근력 경험치 : " + GameManager.Instance.characterInfoList[currentNumber].strExp);
+
+        if (GameManager.Instance.characterInfoList[currentNumber].strExp >= strMax)
+        {
+            GameManager.Instance.characterInfoList[currentNumber].StrLevelUp();
+
+            strMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].strLevel);
+            strLevel.text = "LV." + GameManager.Instance.characterInfoList[currentNumber].strLevel;
+        }
+
+        strSlider.value = GameManager.Instance.characterInfoList[currentNumber].strExp / strMax;
     }
 
     public void DexExpUpClick()
     {
-        Debug.Log("민첩 렙업");
+        // 만렙일 경우
+        if (GameManager.Instance.characterInfoList[currentNumber].dexLevel ==
+            GameManager.Instance.characterInfoList[currentNumber].dexMaxLevel)
+            return;
 
         GameManager.Instance.characterInfoList[currentNumber].dexExp += 1;
-        Debug.Log("민첩 경험치 : " + GameManager.Instance.characterInfoList[currentNumber].dexExp);
+
+        if (GameManager.Instance.characterInfoList[currentNumber].dexExp >= dexMax)
+        {
+            GameManager.Instance.characterInfoList[currentNumber].DexLevelUp();
+
+            dexMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].dexLevel);
+
+            if (GameManager.Instance.characterInfoList[currentNumber].dexLevel !=
+            GameManager.Instance.characterInfoList[currentNumber].dexMaxLevel)
+                dexLevel.text = "LV." + GameManager.Instance.characterInfoList[currentNumber].dexLevel;
+            else
+                dexLevel.text = "LV.MAX";
+        }
+
+        dexSlider.value = GameManager.Instance.characterInfoList[currentNumber].dexExp / dexMax;
     }
 
     public void WeaponExpUpClick()
     {
-        Debug.Log("무기 렙업");
-
         GameManager.Instance.characterInfoList[currentNumber].weaponExp += 1;
-        Debug.Log("무기 경험치 : " + GameManager.Instance.characterInfoList[currentNumber].weaponExp);
+
+        if (GameManager.Instance.characterInfoList[currentNumber].weaponExp >= weaponMax)
+        {
+            GameManager.Instance.characterInfoList[currentNumber].WeaponLevelUp();
+
+            weaponMax = Mathf.Pow(3, GameManager.Instance.characterInfoList[currentNumber].weaponLevel);
+            weaponLevel.text = "LV." + GameManager.Instance.characterInfoList[currentNumber].weaponLevel;
+        }
+
+        weaponSlider.value = GameManager.Instance.characterInfoList[currentNumber].weaponExp / weaponMax;
     }
 }

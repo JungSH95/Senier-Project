@@ -5,6 +5,8 @@ public class CharacterBase
     public int dexLevel;     // 민첩 (공격 속도에 영향)
     public int conLevel;     // 건강 (체력에 영향)
 
+    public int dexMaxLevel;     // 민첩 (공격 속도에 영향)
+
     public int strExp;
     public int dexExp;
     public int conExp;
@@ -19,6 +21,7 @@ public class CharacterBase
 
     public float damage;
 
+    public float atkSpeed;
     public float speed;
 
     public CharacterBase(string weaponName)
@@ -27,11 +30,14 @@ public class CharacterBase
         dexLevel = 1;
         conLevel = 1;
 
+        dexMaxLevel = 10;
+
         strExp = 0;
         dexExp = 0;
         conExp = 0;
 
         weapon = weaponName;
+        weaponLevel = 1;
         weaponExp = 0;
 
         maxHp = 100f;
@@ -39,17 +45,39 @@ public class CharacterBase
 
         damage = 10f;
 
+        atkSpeed = 1.5f;
         speed = 2f;
     }
 
-    public void AddStrExp(int exp)
+    public void StrLevelUp()
     {
-        strExp += exp;
+        strExp = 0;
+        strLevel += 1;
+
+        damage = 10f + (strLevel - 1) * 0.1f;
     }
 
-    // 각 렙에 따른 능력치 설정
-    public void SetStatus()
+    public void DexLevelUp()
     {
+        dexExp = 0;
+        dexLevel += 1;
 
+        atkSpeed = 1.5f + dexLevel * 0.1f;
+    }
+
+    public void ConLevelUp()
+    {
+        conExp = 0;
+        conLevel += 1;
+
+        maxHp = 100f + (conLevel - 1) * 1f;
+    }
+
+    public void WeaponLevelUp()
+    {
+        weaponExp = 0;
+        weaponLevel += 1;
+
+        damage = 10f + (weaponLevel - 1) * 1f;
     }
 }

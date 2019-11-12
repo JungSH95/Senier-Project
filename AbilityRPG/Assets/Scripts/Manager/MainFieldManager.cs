@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainFieldManager : Singleton<MainFieldManager>
 {
@@ -10,11 +11,12 @@ public class MainFieldManager : Singleton<MainFieldManager>
     [Header("PlayerInfo Open/Close")]
     public GameObject joystickCanvas;
     public GameObject mainCamera;
-    public GameObject playerInfo;
 
+    [Header("PopupWindows")]
+    public GameObject playerInfo;
     public GameObject characterBook;
     public GameObject option;
-    public GameObject gameClose;
+    public GameObject gameEnd;
 
     private void Awake()
     {
@@ -36,10 +38,10 @@ public class MainFieldManager : Singleton<MainFieldManager>
         // 뒤로가기 버튼
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape))
-                Application.Quit();
+                GameEndOpen();
     }
 
-    public void PlayerInfoOpen()
+    public void PlayerInfoOpen(int number)
     {
         if (joystickCanvas == null || mainCamera == null || playerInfo == null)
             return;
@@ -50,8 +52,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
         mainCamera.SetActive(false);
 
         playerInfo.SetActive(true);
-        playerInfo.GetComponent<PlayerInfoUI>().OpenPlayerInfoUI(GameManager.Instance.playerData.characterNumber);
-        //playerInfo.GetComponent<PlayerInfoUI>().OpenPlayerInfoUI(2);
+        playerInfo.GetComponent<PlayerInfoUI>().OpenPlayerInfoUI(number);
     }
 
     public void PlayerInfoClose()
@@ -69,21 +70,17 @@ public class MainFieldManager : Singleton<MainFieldManager>
 
     public void CharacterBookOpen()
     {
-
-    }
-
-    public void CharacterBookClose()
-    {
-
+        characterBook.SetActive(true);
     }
 
     public void OptionOpen()
     {
-
+        option.SetActive(true);
     }
 
-    public void OptionClose()
+    public void GameEndOpen()
     {
-
+        gameEnd.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(Application.Quit);
+        gameEnd.SetActive(true);
     }
 }

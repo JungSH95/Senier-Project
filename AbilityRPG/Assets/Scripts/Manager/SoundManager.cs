@@ -12,6 +12,22 @@ public class SoundManager : Singleton<SoundManager>
     public AudioClip[] PlayerEFXSounds;
     public AudioClip MonsterEFXSounds;
 
+    private void Start()
+    {
+        if(GameManager.Instance != null)
+        {
+            if (GameManager.Instance.optionData.BgmOn)
+                backgroundAudio.volume = 0.8f;
+            else
+                backgroundAudio.volume = 0f;
+
+            if (GameManager.Instance.optionData.EfxOn)
+                effectAudio.volume = 0.4f;
+            else
+                effectAudio.volume = 0f;
+        }
+    }
+
     public void BackGoundPlay(AudioClip clip)
     {
         if (clip == null)

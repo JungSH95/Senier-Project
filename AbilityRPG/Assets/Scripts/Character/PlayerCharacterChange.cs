@@ -12,6 +12,7 @@ public class PlayerCharacterChange : MonoBehaviour
     public FadeManager fadeManager;
 
     public Joystick joystick;
+    public Joybutton joybutton;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class PlayerCharacterChange : MonoBehaviour
         nowPlayer = GameObject.FindGameObjectWithTag("Player");
 
         joystick = FindObjectOfType<Joystick>();
+        joybutton = FindObjectOfType<Joybutton>();
     }
 
     public void CharacterChange(int number)
@@ -45,6 +47,7 @@ public class PlayerCharacterChange : MonoBehaviour
 
         NPCManager.Instance.CharacterChange(GameManager.Instance.playerData.characterNumber, number);
         GameManager.Instance.playerData.characterNumber = number;
+        joybutton.SetPlayerInfoImage();
 
         fadeManager.FadeIn();
 

@@ -80,6 +80,9 @@ public class PlayerInfoUI : MonoBehaviour
 
     public void ConExpUpClick()
     {
+        if (GameManager.Instance.playerData.resourceExp == 0)
+            return;
+
         GameManager.Instance.characterInfoList[currentNumber].conExp += 1;
 
         if (GameManager.Instance.characterInfoList[currentNumber].conExp >= conMax)
@@ -95,6 +98,9 @@ public class PlayerInfoUI : MonoBehaviour
 
     public void StrExpUpClick()
     {
+        if (GameManager.Instance.playerData.resourceExp == 0)
+            return;
+
         GameManager.Instance.characterInfoList[currentNumber].strExp += 1;
 
         if (GameManager.Instance.characterInfoList[currentNumber].strExp >= strMax)
@@ -110,9 +116,10 @@ public class PlayerInfoUI : MonoBehaviour
 
     public void DexExpUpClick()
     {
-        // 만렙일 경우
+        // 만렙일 경우 || 경험치 자원이 없을 경우
         if (GameManager.Instance.characterInfoList[currentNumber].dexLevel ==
-            GameManager.Instance.characterInfoList[currentNumber].dexMaxLevel)
+            GameManager.Instance.characterInfoList[currentNumber].dexMaxLevel ||
+            GameManager.Instance.playerData.resourceExp == 0)
             return;
 
         GameManager.Instance.characterInfoList[currentNumber].dexExp += 1;
@@ -135,6 +142,9 @@ public class PlayerInfoUI : MonoBehaviour
 
     public void WeaponExpUpClick()
     {
+        if (GameManager.Instance.playerData.resourceExp == 0)
+            return;
+
         GameManager.Instance.characterInfoList[currentNumber].weaponExp += 1;
 
         if (GameManager.Instance.characterInfoList[currentNumber].weaponExp >= weaponMax)

@@ -16,6 +16,7 @@ public class Joybutton : MonoBehaviour
             playerInfoImage.sprite = characterSprite[GameManager.Instance.playerData.characterNumber];
     }
 
+    // MainField -------------------------------------------
     public void SetPlayerInfoImage()
     {
         playerInfoImage.sprite = characterSprite[GameManager.Instance.playerData.characterNumber];
@@ -35,4 +36,7 @@ public class Joybutton : MonoBehaviour
     {
         MainFieldManager.Instance.OptionOpen();
     }
+    // -----------------------------------------------------
+
+
 }

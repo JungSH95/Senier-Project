@@ -23,6 +23,7 @@ public class EnemyBase : MonoBehaviour {
     protected float distance;
 
     public GameObject monsterAtkSphere;
+    public GameObject floatingTextPos;
 
     protected GameObject Player;
 

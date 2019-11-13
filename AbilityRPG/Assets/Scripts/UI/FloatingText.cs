@@ -11,35 +11,43 @@ public class FloatingText : MonoBehaviour
 
     private TextMeshPro textMeshPro;
 
+    private Color startColor;
+
     Color alpha;
 
-    void Start()
-    {
-        SetText();
-    }
-
-    // Update is called once per frame
+    private bool isStart;
+    
     void Update()
     {
-        transform.Translate(new Vector3(0, moveSpeed * Time.deltaTime, 0)); // 텍스트 위치
+        if (isStart)
+        {
+            transform.Translate(new Vector3(0, moveSpeed * Time.deltaTime, 0)); // 텍스트 위치
 
-        alpha.a = Mathf.Lerp(alpha.a, 0, Time.deltaTime * alphaSpeed); // 텍스트 알파값
-        textMeshPro.color = alpha;
+            alpha.a = Mathf.Lerp(alpha.a, 0, Time.deltaTime * alphaSpeed); // 텍스트 알파값
+            textMeshPro.color = alpha;
+        }
     }
 
-    public void SetText()
+    public void SetText(float fontsize, string str = "")
     {
+        GetComponent<RectTransform>().localPosition = new Vector3(0f, 0f, -1f);
+
         moveSpeed = 0.5f;
         alphaSpeed = 3.0f;
 
         textMeshPro = GetComponent<TextMeshPro>();
         alpha = textMeshPro.color;
+        alpha.a = 1.0f;
+        textMeshPro.text = str;
+        textMeshPro.fontSize = fontsize;
 
         Invoke("FloatingTextEnd", 1.0f);
+        isStart = true;
+        gameObject.SetActive(true);
     }
 
     public void FloatingTextEnd()
     {
-        this.gameObject.SetActive(false);
+        ObjectPool.Instance.PushToPool(gameObject.name, this.gameObject);
     }
 }

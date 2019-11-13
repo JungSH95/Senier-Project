@@ -21,6 +21,8 @@ public class PlayerInfoUI : MonoBehaviour
 
     public new GameObject camera;
 
+    public GameObject floatingTextPos;
+
     [Header("Object")]
     public GameObject[] characterObjects;
     public GameObject[] weaponObjects;
@@ -81,7 +83,12 @@ public class PlayerInfoUI : MonoBehaviour
     public void ConExpUpClick()
     {
         if (GameManager.Instance.playerData.resourceExp == 0)
+        {
+            GameObject floatingText = ObjectPool.Instance.PopFromPool("FloatingText");
+            floatingText.transform.SetParent(floatingTextPos.transform);
+            floatingText.GetComponent<FloatingText>().SetText(1, "경험치 자원이 없습니다.");
             return;
+        }
 
         GameManager.Instance.characterInfoList[currentNumber].conExp += 1;
 
@@ -116,10 +123,12 @@ public class PlayerInfoUI : MonoBehaviour
 
     public void DexExpUpClick()
     {
+        if (GameManager.Instance.playerData.resourceExp == 0)
+            return;
+
         // 만렙일 경우 || 경험치 자원이 없을 경우
         if (GameManager.Instance.characterInfoList[currentNumber].dexLevel ==
-            GameManager.Instance.characterInfoList[currentNumber].dexMaxLevel ||
-            GameManager.Instance.playerData.resourceExp == 0)
+            GameManager.Instance.characterInfoList[currentNumber].dexMaxLevel)
             return;
 
         GameManager.Instance.characterInfoList[currentNumber].dexExp += 1;

@@ -48,6 +48,11 @@ public class FieldManager : Singleton<FieldManager>
         fadeManager = GameObject.FindGameObjectWithTag("FadeCanvas").GetComponent<FadeManager>();
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void NextField()
     {
         currentStage++;

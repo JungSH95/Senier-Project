@@ -25,6 +25,7 @@ public class GameManager : Singleton<GameManager>
             JsonManager.Instance.CharacterDataLoad(i);
     }
 
+    // 화면 내렸을때
     private void OnApplicationPause(bool pause)
     {
         if(pause)

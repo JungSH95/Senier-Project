@@ -91,6 +91,7 @@ BattleField 기능
 -> BattleFieldScene에서 모바일(홈 버튼 or 뒤로가기 버튼 : 그에 따른 팝업창)
 -> 중보스 / 보스 구현?
 
+* 버튼 효과음 추가 필요
 
 부가적인 기능
 1. Lobby -> MainField <-> BattleField  : 씬 이동간 효과 추가? 

@@ -6,31 +6,30 @@ using UnityEngine;
 public class FieldManager : Singleton<FieldManager>
 {
     public GameObject nowField;
+    private GameObject portal;
 
     // base battle 방 시작 위치
     public List<Transform> startPosList;
-    // 추후에 캐릭터 얻을 수 있는 이벤트 방, 보스 방 생성 필요
+    // 캐릭터 얻을 수 있는 비밀 방
+    public List<Transform> hiddenStartPosList;
 
     public List<GameObject> characterList;
 
     public Transform playerPos;
     public GameObject player;
 
-    public GameObject portal;
-
-    public int currentField;
-    public int lastField;
+    private int currentStage;
+    private int lastStage;
 
     public bool isClear;
 
     private FadeManager fadeManager;
-
-    // 몬스터가 사망하고 남아 있는 몬스터가 없을 경우 다음 field로 이동하는 포탈이 나옴
-
+    public StageTextAnimation stageAnimation;
+    
     private void Awake()
     {
-        currentField = 0;
-        lastField = 5;
+        currentStage = 0;
+        lastStage = 5;
 
         // 테스트 위해서 (임시 방편으로 만들긴 했는데 되긴 함)
         if(GameManager.Instance == null)
@@ -45,18 +44,16 @@ public class FieldManager : Singleton<FieldManager>
             player.GetComponent<PlayerController>().characterBase =
                 GameManager.Instance.characterInfoList[GameManager.Instance.playerData.characterNumber];
         }
-
         
-
         fadeManager = GameObject.FindGameObjectWithTag("FadeCanvas").GetComponent<FadeManager>();
     }
 
     public void NextField()
     {
-        currentField++;
+        currentStage++;
 
         // 마지막 스테이지 클리어 시
-        if (currentField > lastField)
+        if (currentStage > lastStage)
             return;
         
         StartCoroutine(CoNextField());
@@ -73,7 +70,6 @@ public class FieldManager : Singleton<FieldManager>
         yield return new WaitForSeconds(0.5f);      // 시각적으로 보이는 것 때문에 일부로 딜레이
 
         int randomIndex = Random.Range(0, startPosList.Count);
-        // 부모 오브젝트 얻어오는 방법
         nowField = startPosList[randomIndex].parent.gameObject;
         nowField.SetActive(true);
 
@@ -99,9 +95,9 @@ public class FieldManager : Singleton<FieldManager>
 
         fadeManager.FadeIn();
         SpawnManager.Instance.MonsterAllSetActive();
+        stageAnimation.StageAnimationStart(currentStage.ToString());
     }
 
-    // 나중에 전투 지역으로 들어갔을 경우에 몬스터 리스트를 받아오게 끔 변경
     // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.
     public void BattleStart()
     {

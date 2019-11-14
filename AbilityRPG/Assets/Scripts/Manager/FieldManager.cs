@@ -25,7 +25,9 @@ public class FieldManager : Singleton<FieldManager>
 
     private FadeManager fadeManager;
     public StageTextAnimation stageAnimation;
-    
+
+    public BattleExitPanel exitPanel;
+
     private void Awake()
     {
         currentStage = 0;
@@ -50,7 +52,12 @@ public class FieldManager : Singleton<FieldManager>
 
     private void Update()
     {
-        
+        if (Application.platform == RuntimePlatform.Android)
+            if (Input.GetKey(KeyCode.Escape))
+                exitPanel.ExitPanelOpen();
+
+        if (Input.GetKeyDown(KeyCode.A))
+            exitPanel.ExitPanelOpen();
     }
 
     public void NextField()
@@ -117,5 +124,10 @@ public class FieldManager : Singleton<FieldManager>
     public void FieldClear()
     {
         portal.SetActive(true);
+    }
+
+    public void FieldClearFail()
+    {
+
     }
 }

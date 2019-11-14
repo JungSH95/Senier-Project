@@ -19,8 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool isNpcTarget = false;
     public bool isTalk = false;
     public bool isPopup = false;
-
-    // 임시로 플레이어 체력 감소 테스트용
+    
     public PlayerHpBar playerHpBar;
     public bool isDead;
 
@@ -150,6 +149,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PlayerDead()
+    {
+        animator.SetBool("MOVE", false);
+        animator.SetBool("THROW", false);
+        animator.SetBool("IDLE", false);
+        animator.SetBool("DEAD", true);
+
+        // 나중에 게임 매니저에서 처리해야 함
+        joystick.gameObject.SetActive(false);
+        isDead = true;
+
+        FieldManager.Instance.FieldClearFail();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.CompareTag("NextScene"))
@@ -170,16 +183,7 @@ public class PlayerController : MonoBehaviour
             playerHpBar.Dmg(other.gameObject.transform.parent.GetComponent<EnemyBase>().damage);
             
             if(playerHpBar.currentHp <= 0)
-            {
-                animator.SetBool("MOVE", false);
-                animator.SetBool("THROW", false);
-                animator.SetBool("IDLE", false);
-                animator.SetBool("DEAD", true);
-
-                // 나중에 게임 매니저에서 처리해야 함
-                joystick.gameObject.SetActive(false);
-                isDead = true;
-            }
+                PlayerDead();
         }
     }
 }

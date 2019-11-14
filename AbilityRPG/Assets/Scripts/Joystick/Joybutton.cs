@@ -38,5 +38,8 @@ public class Joybutton : MonoBehaviour
     }
     // -----------------------------------------------------
 
-
+    public void BattleExitButton()
+    {
+        FieldManager.Instance.exitPanel.ExitPanelOpen();
+    }
 }

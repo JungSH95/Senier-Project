@@ -8,8 +8,6 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public List<Transform> points;
     public List<GameObject> monsterList;
-    
-    public string monsterName;
 
     private int maxMonsterCount;
     private int nowMonsterCount;
@@ -42,7 +40,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
         while (nowMonsterCount < maxMonsterCount)
         {
-            GameObject newMonster = ObjectPool.Instance.PopFromPool("Monster2");
+            int randomIndex = Random.Range(1, 3);
+            GameObject newMonster = ObjectPool.Instance.PopFromPool("Monster" + randomIndex.ToString());
             newMonster.transform.parent = points[nowMonsterCount].transform;
             newMonster.transform.position = points[nowMonsterCount++].position;
             newMonster.transform.Find("Character").gameObject.transform.position = newMonster.transform.position;
@@ -71,8 +70,11 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         monsterList.Remove(monster);
 
-        // 남아있는 몬스터의 수가 없을 경우 다음 필드로 이동하기 위한 포탈 생성
+        FieldManager.Instance.monsterDeadCount++;
+        FieldManager.Instance.expCount += monster.GetComponent<EnemyBase>().haveExp;
+
+        // 남아있는 몬스터의 수가 없으면 스테이지 클리어
         if (monsterList.Count == 0)
-            FieldManager.Instance.FieldClear();
+            FieldManager.Instance.StageClear();
     }
 }

@@ -11,6 +11,8 @@ public class EnemyBase : MonoBehaviour {
 
     public float damage = 10f;
 
+    public int haveExp;
+
     [SerializeField]
     protected float playerRealizeRange = 2f;        // 플레이어 인식 거리
     protected float attackRange = 0.5f;             // 공격 사거리

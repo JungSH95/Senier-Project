@@ -8,6 +8,7 @@ public class PlayerInfoUI : MonoBehaviour
 {
     [Header("UI")]
     public TextMeshProUGUI characterName;
+    public TextMeshProUGUI expCoin;
 
     public Slider conSlider;
     public Slider strSlider;
@@ -50,6 +51,8 @@ public class PlayerInfoUI : MonoBehaviour
                 characterName.text = "럭부";
                 break;
         }
+
+        expCoin.text = GameManager.Instance.playerData.resourceExp.ToString();
 
         conMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].conLevel);
         strMax = Mathf.Pow(2, GameManager.Instance.characterInfoList[currentNumber].strLevel);
@@ -106,7 +109,12 @@ public class PlayerInfoUI : MonoBehaviour
     public void StrExpUpClick()
     {
         if (GameManager.Instance.playerData.resourceExp == 0)
+        {
+            GameObject floatingText = ObjectPool.Instance.PopFromPool("FloatingText");
+            floatingText.transform.SetParent(floatingTextPos.transform);
+            floatingText.GetComponent<FloatingText>().SetText(1, "경험치 자원이 없습니다.");
             return;
+        }
 
         GameManager.Instance.characterInfoList[currentNumber].strExp += 1;
 
@@ -124,7 +132,12 @@ public class PlayerInfoUI : MonoBehaviour
     public void DexExpUpClick()
     {
         if (GameManager.Instance.playerData.resourceExp == 0)
+        {
+            GameObject floatingText = ObjectPool.Instance.PopFromPool("FloatingText");
+            floatingText.transform.SetParent(floatingTextPos.transform);
+            floatingText.GetComponent<FloatingText>().SetText(1, "경험치 자원이 없습니다.");
             return;
+        }
 
         // 만렙일 경우 || 경험치 자원이 없을 경우
         if (GameManager.Instance.characterInfoList[currentNumber].dexLevel ==
@@ -152,7 +165,12 @@ public class PlayerInfoUI : MonoBehaviour
     public void WeaponExpUpClick()
     {
         if (GameManager.Instance.playerData.resourceExp == 0)
+        {
+            GameObject floatingText = ObjectPool.Instance.PopFromPool("FloatingText");
+            floatingText.transform.SetParent(floatingTextPos.transform);
+            floatingText.GetComponent<FloatingText>().SetText(1, "경험치 자원이 없습니다.");
             return;
+        }
 
         GameManager.Instance.characterInfoList[currentNumber].weaponExp += 1;
 

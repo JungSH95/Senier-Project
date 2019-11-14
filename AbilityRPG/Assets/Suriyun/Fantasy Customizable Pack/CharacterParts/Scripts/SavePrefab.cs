@@ -21,7 +21,9 @@ public class SavePrefab : MonoBehaviour
         AssetDatabase.DeleteAsset(prefabPath);
 
         // Save the transform's GameObject as a prefab asset.
+#pragma warning disable CS0618 // 형식 또는 멤버는 사용되지 않습니다.
         PrefabUtility.CreatePrefab(prefabPath, saveObject);
+#pragma warning restore CS0618 // 형식 또는 멤버는 사용되지 않습니다.
 #endif
     }
 }

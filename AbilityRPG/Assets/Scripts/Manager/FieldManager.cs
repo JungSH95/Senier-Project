@@ -18,20 +18,28 @@ public class FieldManager : Singleton<FieldManager>
     public Transform playerPos;
     public GameObject player;
 
-    private int currentStage;
-    private int lastStage;
+    public int currentStage;
+    public int lastStage;
+
+    public int monsterDeadCount;
+    public int expCount;
 
     public bool isClear;
 
     private FadeManager fadeManager;
     public StageTextAnimation stageAnimation;
 
+    [Header("UI")]
     public BattleExitPanel exitPanel;
+    public BattleResult battleResult;
 
     private void Awake()
     {
         currentStage = 0;
-        lastStage = 5;
+        lastStage = 4;
+
+        monsterDeadCount = 0;
+        expCount = 0;
 
         // 테스트 위해서 (임시 방편으로 만들긴 했는데 되긴 함)
         if(GameManager.Instance == null)
@@ -55,9 +63,6 @@ public class FieldManager : Singleton<FieldManager>
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape))
                 exitPanel.ExitPanelOpen();
-
-        if (Input.GetKeyDown(KeyCode.A))
-            exitPanel.ExitPanelOpen();
     }
 
     public void NextField()
@@ -83,13 +88,19 @@ public class FieldManager : Singleton<FieldManager>
 
         int randomIndex = Random.Range(0, startPosList.Count);
         nowField = startPosList[randomIndex].parent.gameObject;
+
+        //nowField = hiddenStartPosList[0].parent.gameObject;
+
         nowField.SetActive(true);
 
+        //player.transform.position = hiddenStartPosList[0].position;
+        //hiddenStartPosList.RemoveAt(0);
+
         player.transform.position = startPosList[randomIndex].position;
-        startPosList.RemoveAt(randomIndex);
+        //startPosList.RemoveAt(randomIndex);
 
         // 포탈 Obj 얻어오기
-        portal = nowField.transform.Find("NextFieldPortal").gameObject;
+        portal = nowField.transform.Find("Portal").gameObject;
 
         // 스폰 위치 설정 및 스폰 시작
         SpawnManager.Instance.SetSpawnTransform(nowField);
@@ -121,13 +132,23 @@ public class FieldManager : Singleton<FieldManager>
     }
 
     // 포탈 나옴 (포탈 관련 효과 및 애니메이션 재생 필요)
-    public void FieldClear()
+    public void StageClear()
     {
+        if(lastStage == currentStage)
+        {
+            Debug.Log("마지막 스테이지 입니다.");
+            BattleFieldEnd(true);
+            return;
+        }
+
         portal.SetActive(true);
+
+        Debug.Log(expCount.ToString());
     }
 
-    public void FieldClearFail()
+    public void BattleFieldEnd(bool clear)
     {
-
+        battleResult.SetResultUI(clear);
+        battleResult.StartCoroutine(battleResult.CoResultOpen());
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -32,6 +33,9 @@ public class GameManager : Singleton<GameManager>
         {
             isPaused = true;
             Debug.Log("일시정지");
+
+            if(SceneManager.GetActiveScene().name == "2_BattleField")
+                FieldManager.Instance.exitPanel.ExitPanelOpen();
         }
         else
         {

@@ -7,7 +7,7 @@ public class Portal : MonoBehaviour
     public void EffectStart()
     {
         if (EffectSet.Instance.PortalEffect != null)
-            Instantiate(EffectSet.Instance.PortalEffect, transform.position, Quaternion.Euler(0, 0, 0));
+            Instantiate(EffectSet.Instance.PortalEffect, transform.position, Quaternion.Euler(90, 0, 0));
     }
 
     private void OnTriggerEnter(Collider other)

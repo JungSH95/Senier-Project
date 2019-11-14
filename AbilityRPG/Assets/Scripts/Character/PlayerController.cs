@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
         joystick.gameObject.SetActive(false);
         isDead = true;
 
-        FieldManager.Instance.FieldClearFail();
+        FieldManager.Instance.BattleFieldEnd(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -174,7 +174,6 @@ public class PlayerController : MonoBehaviour
         if(other.transform.CompareTag("MonsterAtk"))
         {
             // 공격 받은거 처리
-            Debug.Log("플레이어 데미지 받음");
             other.gameObject.SetActive(false);
             Instantiate(EffectSet.Instance.PlayerDmgEffect, playerTargeting.attackPoint.position, Quaternion.Euler(90, 0, 0));
             SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.MonsterEFXSounds);

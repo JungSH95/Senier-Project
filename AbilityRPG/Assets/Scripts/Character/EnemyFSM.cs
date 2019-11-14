@@ -50,6 +50,9 @@ public class EnemyFSM : EnemyBase
         }
         else
             currentState = State.Move;
+
+        if (FieldManager.Instance.player.GetComponent<PlayerController>().isDead)
+            StopAllCoroutines();
     }
 
     protected virtual IEnumerator Move()
@@ -79,8 +82,8 @@ public class EnemyFSM : EnemyBase
             animator.SetInteger("animation", 11);
 
         monsterAtkSphere.SetActive(true);
-
         yield return new WaitForSeconds(0.4f);
+        monsterAtkSphere.SetActive(false);
 
         currentState = State.Idle;
     }
@@ -89,6 +92,7 @@ public class EnemyFSM : EnemyBase
     {
         animator.SetInteger("animation", 7);
         SpawnManager.Instance.MonsterDie(this.gameObject);
+        monsterAtkSphere.SetActive(false);
         navAgent.enabled = false;
         enemyHpBar.gameObject.SetActive(false);
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
@@ -96,7 +100,7 @@ public class EnemyFSM : EnemyBase
         yield return new WaitForSeconds(5f);
 
         this.gameObject.transform.parent.gameObject.SetActive(false);
-        ObjectPool.Instance.PushToPool("Monster2", this.gameObject.transform.parent.gameObject);        // 오브젝트 풀에 반환
+        ObjectPool.Instance.PushToPool("Monster2", this.gameObject.transform.parent.gameObject);
 
         StopAllCoroutines();
         yield return null;

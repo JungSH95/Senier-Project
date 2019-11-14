@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Joybutton : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class Joybutton : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance != null)
+        if (GameManager.Instance != null && SceneManager.GetActiveScene().name == "1_MainField")
             playerInfoImage.sprite = characterSprite[GameManager.Instance.playerData.characterNumber];
     }
 

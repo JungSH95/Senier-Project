@@ -18,6 +18,8 @@ public class EnemyFrog : EnemyFSM
     {
         base.Start();
 
+        haveExp = 1;
+
         playerRealizeRange = 2f;
         navAgent.stoppingDistance = 0.45f;
 

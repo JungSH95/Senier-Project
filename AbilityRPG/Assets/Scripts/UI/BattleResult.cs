@@ -63,14 +63,17 @@ public class BattleResult : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         
         animator.SetBool("Open", true);
-        SoundManager.Instance.backgroundAudio.volume = 0.4f;
-        
+
+        if (SoundManager.Instance.backgroundAudio.volume != 0f)
+            SoundManager.Instance.backgroundAudio.volume = 0.4f;
+
         // 플레이어 데이터 저장 (expCount)
+        GameManager.Instance.playerData.resourceExp += FieldManager.Instance.expCount;
+
     }
 
     public void BackButtonClick()
     {
-        Debug.Log("돌아가기");
         SceneLoadManager.Instance.LoadScene("1_MainField");
     }
 }

@@ -53,7 +53,7 @@ public class ObjectPool : Singleton<ObjectPool>
             }
         }
 
-        Debug.Log("There is no matched pool in list.");
+        //Debug.Log("There is no matched pool in list.");
         return null;
     }
 }

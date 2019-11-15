@@ -20,17 +20,10 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         spawnTransform = fieldObj.transform.Find("Spawn").transform;
 
-        //spawnTransform.GetComponentsInChildren<Transform>(points);
         int nSize = spawnTransform.childCount;
-
         for(int i=0; i< nSize; i++)
             points.Add(spawnTransform.GetChild(i));
-
-        // GetComponentsInChildren<>() 함수는 부모까지 포함하여 리스트에 넣어준다.
-        //points.RemoveAt(0);
-
-        Debug.Log("points 수 : " + points.Count);
-
+        
         isSpawnEnd = false;
 
         StartCoroutine(CreateMonster());

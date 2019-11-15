@@ -41,11 +41,8 @@ public class SceneLoadManager : Singleton<SceneLoadManager>
         {
             yield return null;
 
-            Debug.Log(op.progress);
             if (op.progress >= 0.9f)
                 op.allowSceneActivation = true;
         }
-
-        Debug.Log("로딩 끝");
     }
 }

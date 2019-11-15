@@ -15,6 +15,9 @@ public class GameManager : Singleton<GameManager>
     private void Awake()
     {
         DontDestroyOnLoad(this);
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 40;
     }
 
     private void Start()
@@ -32,7 +35,6 @@ public class GameManager : Singleton<GameManager>
         if(pause)
         {
             isPaused = true;
-            Debug.Log("일시정지");
 
             if(SceneManager.GetActiveScene().name == "2_BattleField")
                 FieldManager.Instance.exitPanel.ExitPanelOpen();
@@ -42,7 +44,6 @@ public class GameManager : Singleton<GameManager>
             if(isPaused)
             {
                 isPaused = false;
-                Debug.Log("일시정지 상태에서 돌아옴");
             }
         }
     }

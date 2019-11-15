@@ -24,8 +24,6 @@ public class BattleExitPanel : MonoBehaviour
 
     public void YesButtonClick()
     {
-        Debug.Log("YesButton 클릭");
-
         // 캐릭터 사망처리 후
         // 결과창 표시
         FieldManager.Instance.player.GetComponent<PlayerController>().playerHpBar.Dmg(999);
@@ -36,8 +34,6 @@ public class BattleExitPanel : MonoBehaviour
 
     public void NoButtonClick()
     {
-        Debug.Log("NoButton 클릭");
-
         this.gameObject.SetActive(false);
         Time.timeScale = 1;
     }

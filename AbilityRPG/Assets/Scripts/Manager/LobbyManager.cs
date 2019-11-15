@@ -8,7 +8,6 @@ public class LobbyManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("게임 시작");
             SceneLoadManager.Instance.WorldMapScene();
         }
     }

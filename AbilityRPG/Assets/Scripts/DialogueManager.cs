@@ -21,8 +21,6 @@ public class DialogueManager : MonoBehaviour
     {
         transform.position = dialoguePos.position;
 
-        Debug.Log("Starting conversation with " + dialogue.name);   // 다이얼로그의 이름
-
         sentences.Clear();                                          // 기존 내용 비우기
 
         foreach (string sentence in dialogue.sentences)

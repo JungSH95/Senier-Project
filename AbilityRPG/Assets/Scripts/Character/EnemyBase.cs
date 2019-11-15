@@ -82,8 +82,6 @@ public class EnemyBase : MonoBehaviour {
                     canAtk = true;
                 }
             }
-
-            Debug.Log("쿨타임 진행 중");
         }
     }
 

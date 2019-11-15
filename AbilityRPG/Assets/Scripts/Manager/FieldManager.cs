@@ -91,7 +91,6 @@ public class FieldManager : Singleton<FieldManager>
         yield return new WaitForSeconds(0.5f);      // 시각적으로 보이는 것 때문에 일부로 딜레이
 
         int randomIndex = Random.Range(0, startPosList.Count);
-        Debug.Log("랜덤 번호 : " + randomIndex.ToString());
         nowField = startPosList[randomIndex].parent.gameObject;
 
         //nowField = hiddenStartPosList[0].parent.gameObject;
@@ -140,15 +139,12 @@ public class FieldManager : Singleton<FieldManager>
     {
         if(lastStage == currentStage)
         {
-            Debug.Log("마지막 스테이지 입니다.");
             BattleFieldEnd(true);
             return;
         }
 
         portal.SetActive(true);
         portal.transform.GetChild(0).GetComponent<Animator>().SetBool("Clear", true);
-
-        Debug.Log(expCount.ToString());
     }
 
     public void BattleFieldEnd(bool clear)

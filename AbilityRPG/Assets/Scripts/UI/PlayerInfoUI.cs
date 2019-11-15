@@ -94,6 +94,8 @@ public class PlayerInfoUI : MonoBehaviour
         }
 
         GameManager.Instance.characterInfoList[currentNumber].conExp += 1;
+        GameManager.Instance.playerData.resourceExp -= 1;
+        expCoin.text = GameManager.Instance.playerData.resourceExp.ToString();
 
         if (GameManager.Instance.characterInfoList[currentNumber].conExp >= conMax)
         {
@@ -117,6 +119,8 @@ public class PlayerInfoUI : MonoBehaviour
         }
 
         GameManager.Instance.characterInfoList[currentNumber].strExp += 1;
+        GameManager.Instance.playerData.resourceExp -= 1;
+        expCoin.text = GameManager.Instance.playerData.resourceExp.ToString();
 
         if (GameManager.Instance.characterInfoList[currentNumber].strExp >= strMax)
         {
@@ -145,6 +149,8 @@ public class PlayerInfoUI : MonoBehaviour
             return;
 
         GameManager.Instance.characterInfoList[currentNumber].dexExp += 1;
+        GameManager.Instance.playerData.resourceExp -= 1;
+        expCoin.text = GameManager.Instance.playerData.resourceExp.ToString();
 
         if (GameManager.Instance.characterInfoList[currentNumber].dexExp >= dexMax)
         {
@@ -173,6 +179,8 @@ public class PlayerInfoUI : MonoBehaviour
         }
 
         GameManager.Instance.characterInfoList[currentNumber].weaponExp += 1;
+        GameManager.Instance.playerData.resourceExp -= 1;
+        expCoin.text = GameManager.Instance.playerData.resourceExp.ToString();
 
         if (GameManager.Instance.characterInfoList[currentNumber].weaponExp >= weaponMax)
         {

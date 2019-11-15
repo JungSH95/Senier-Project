@@ -93,6 +93,7 @@ public class FieldManager : Singleton<FieldManager>
         yield return new WaitForSeconds(0.5f);      // 시각적으로 보이는 것 때문에 일부로 딜레이
 
         int randomIndex = Random.Range(0, startPosList.Count);
+        Debug.Log("랜덤 번호 : " + randomIndex.ToString());
         nowField = startPosList[randomIndex].parent.gameObject;
 
         //nowField = hiddenStartPosList[0].parent.gameObject;
@@ -105,8 +106,10 @@ public class FieldManager : Singleton<FieldManager>
         player.transform.position = startPosList[randomIndex].position;
         //startPosList.RemoveAt(randomIndex);
 
-        // 포탈 Obj 얻어오기
+        // 포탈 Obj 초기화
         portal = nowField.transform.Find("Portal").gameObject;
+        portal.transform.GetChild(0).GetComponent<Animator>().SetBool("Clear", false);
+        portal.SetActive(false);
 
         // 스폰 위치 설정 및 스폰 시작
         SpawnManager.Instance.SetSpawnTransform(nowField);
@@ -122,7 +125,9 @@ public class FieldManager : Singleton<FieldManager>
             player.GetComponent<PlayerController>().characterBase.atkSpeed);
 
         fadeManager.FadeIn();
+
         SpawnManager.Instance.MonsterAllSetActive();
+
         stageAnimation.StageAnimationStart(currentStage.ToString());
     }
 
@@ -147,6 +152,7 @@ public class FieldManager : Singleton<FieldManager>
         }
 
         portal.SetActive(true);
+        portal.transform.GetChild(0).GetComponent<Animator>().SetBool("Clear", true);
 
         Debug.Log(expCount.ToString());
     }

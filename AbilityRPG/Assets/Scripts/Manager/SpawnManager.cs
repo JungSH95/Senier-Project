@@ -64,7 +64,10 @@ public class SpawnManager : Singleton<SpawnManager>
     public void MonsterAllSetActive()
     {
         for (int i = 0; i < monsterList.Count; i++)
+        {
             monsterList[i].transform.parent.gameObject.SetActive(true);
+            monsterList[i].GetComponent<EnemyFSM>().MonsterSet();
+        }
     }
 
     public void MonsterAIStart()

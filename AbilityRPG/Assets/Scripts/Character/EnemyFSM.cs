@@ -105,15 +105,23 @@ public class EnemyFSM : EnemyBase
         yield return null;
     }
 
-    public void MonsterCoroutineStart()
+    public void MonsterSet()
     {
         currentState = State.Idle;
+
+        navAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        enemyHpBar = gameObject.transform.parent.Find("Canvas").GetComponent<EnemyHpBar>();
 
         navAgent.enabled = true;
         enemyHpBar.gameObject.SetActive(true);
         enemyHpBar.SetSlider();
-        this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
 
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+    }
+
+    public void MonsterCoroutineStart()
+    {
         StartCoroutine(FSM());
     }
 }

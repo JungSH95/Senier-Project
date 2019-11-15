@@ -25,13 +25,12 @@ public class EnemyBase : MonoBehaviour {
     protected float distance;
 
     public GameObject monsterAtkSphere;
-    public GameObject floatingTextPos;
 
     protected GameObject Player;
 
-    protected NavMeshAgent navAgent;
-    protected Animator animator;
-    protected EnemyHpBar enemyHpBar;
+    public NavMeshAgent navAgent;
+    public Animator animator;
+    public EnemyHpBar enemyHpBar;
 
     public LayerMask layerMask;
 

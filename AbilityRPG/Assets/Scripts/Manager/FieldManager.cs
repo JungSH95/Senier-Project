@@ -36,7 +36,7 @@ public class FieldManager : Singleton<FieldManager>
     private void Awake()
     {
         currentStage = 0;
-        lastStage = 10;
+        lastStage = 3;
 
         monsterDeadCount = 0;
         expCount = 0;
@@ -82,9 +82,7 @@ public class FieldManager : Singleton<FieldManager>
 
         SpawnManager.Instance.PointsMonsterCheck();
         while (SpawnManager.Instance.isMonsterClear == false)
-        {
             yield return new WaitForSeconds(0.01f);
-        }
 
         nowField.SetActive(false);
         player.SetActive(false);    // 조이스틱 이동과 중복 되서 위치 이동 이상하게 됌 그래서 추가
@@ -116,18 +114,14 @@ public class FieldManager : Singleton<FieldManager>
 
         // 몬스터 생성이 끝날때까지 대기
         while (SpawnManager.Instance.isSpawnEnd != true)
-        {
             yield return new WaitForSeconds(0.01f);
-        }
 
         player.SetActive(true);
         player.GetComponent<PlayerController>().animator.SetFloat("AtkSpeed", 
             player.GetComponent<PlayerController>().characterBase.atkSpeed);
 
         fadeManager.FadeIn();
-
         SpawnManager.Instance.MonsterAllSetActive();
-
         stageAnimation.StageAnimationStart(currentStage.ToString());
     }
 

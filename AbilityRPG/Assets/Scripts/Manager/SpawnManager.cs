@@ -43,7 +43,7 @@ public class SpawnManager : Singleton<SpawnManager>
         maxMonsterCount = points.Count;
         nowMonsterCount = 0;
 
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(0.5f);
 
         while (nowMonsterCount < maxMonsterCount)
         {

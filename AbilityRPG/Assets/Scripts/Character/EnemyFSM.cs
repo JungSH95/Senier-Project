@@ -109,6 +109,8 @@ public class EnemyFSM : EnemyBase
     {
         currentState = State.Idle;
 
+        Player = GameObject.FindGameObjectWithTag("Player");
+
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         enemyHpBar = gameObject.transform.parent.Find("Canvas").GetComponent<EnemyHpBar>();
@@ -118,6 +120,8 @@ public class EnemyFSM : EnemyBase
         enemyHpBar.SetSlider();
 
         this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+
+        StartCoroutine(CoCoolTime());
     }
 
     public void MonsterCoroutineStart()

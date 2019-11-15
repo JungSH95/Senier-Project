@@ -21,7 +21,7 @@ public class PlayerData
     public PlayerData()
     {
         characterNumber = 0;
-        resourceExp = 0;
+        resourceExp = 10;
         characterUsed = new bool[] { true, false, true };
     }
 

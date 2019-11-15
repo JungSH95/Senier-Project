@@ -96,11 +96,10 @@ public class EnemyFSM : EnemyBase
         navAgent.enabled = false;
         enemyHpBar.gameObject.SetActive(false);
         this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-
+        
         yield return new WaitForSeconds(5f);
 
         this.gameObject.transform.parent.gameObject.SetActive(false);
-        ObjectPool.Instance.PushToPool("Monster2", this.gameObject.transform.parent.gameObject);
 
         StopAllCoroutines();
         yield return null;
@@ -109,6 +108,7 @@ public class EnemyFSM : EnemyBase
     public void MonsterCoroutineStart()
     {
         currentState = State.Idle;
+
         navAgent.enabled = true;
         enemyHpBar.gameObject.SetActive(true);
         enemyHpBar.SetSlider();

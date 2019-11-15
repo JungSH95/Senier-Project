@@ -16,7 +16,8 @@ public class PlayerWeapon : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Monster"))
+        if(collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Monster")
+            || collision.transform.CompareTag("Obstacle"))
         {
             rigidbody.velocity = Vector3.zero;
             

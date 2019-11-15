@@ -17,6 +17,7 @@ TagManager:
   - Weapon1
   - Weapon2
   - MonsterAtk
+  - Obstacle
   layers:
   - Default
   - TransparentFX

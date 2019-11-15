@@ -48,6 +48,7 @@ public class PlayerCharacterChange : MonoBehaviour
         NPCManager.Instance.CharacterChange(GameManager.Instance.playerData.characterNumber, number);
         GameManager.Instance.playerData.characterNumber = number;
         joybutton.SetPlayerInfoImage();
+        MainFieldManager.Instance.player = nowPlayer;
 
         fadeManager.FadeIn();
 

@@ -82,7 +82,7 @@ public class EnemyFSM : EnemyBase
             animator.SetInteger("animation", 11);
 
         monsterAtkSphere.SetActive(true);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         monsterAtkSphere.SetActive(false);
 
         currentState = State.Idle;

@@ -14,7 +14,6 @@ public class EnemyBase : MonoBehaviour {
     public int haveExp;
 
     [SerializeField]
-    protected float playerRealizeRange = 2f;        // 플레이어 인식 거리
     protected float attackRange = 0.5f;             // 공격 사거리
     protected float attackCoolTime = 3f;            // 공격 쿨타임
     protected float attackCoolTimeCacl = 3f;        // 코루틴 : 공격 쿨타임

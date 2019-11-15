@@ -71,11 +71,13 @@ public class MainFieldManager : Singleton<MainFieldManager>
     public void CharacterBookOpen()
     {
         characterBook.SetActive(true);
+        player.GetComponent<PlayerController>().isNpcTarget = false;
     }
 
     public void OptionOpen()
     {
         option.SetActive(true);
+        player.GetComponent<PlayerController>().isNpcTarget = false;
     }
 
     public void GameEndOpen()

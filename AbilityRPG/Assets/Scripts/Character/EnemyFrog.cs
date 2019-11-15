@@ -8,8 +8,6 @@ public class EnemyFrog : EnemyFSM
     // 사거리 표시
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, playerRealizeRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
@@ -20,11 +18,10 @@ public class EnemyFrog : EnemyFSM
 
         haveExp = 1;
 
-        playerRealizeRange = 2f;
         navAgent.stoppingDistance = 0.45f;
 
-        attackCoolTime = 1f;
-        attackCoolTimeCacl = 1f;
+        attackCoolTime = 3f;
+        attackCoolTimeCacl = 3f;
     }
 
     // 몬스터 능력치 조정

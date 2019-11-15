@@ -22,7 +22,7 @@ public class PlayerData
     {
         characterNumber = 0;
         resourceExp = 10;
-        characterUsed = new bool[] { true, false, true };
+        characterUsed = new bool[] { true, true, false };
     }
 
     public void Print()
@@ -148,7 +148,8 @@ public class JsonManager : Singleton<JsonManager>
                 GameManager.Instance.characterInfoList.Add(LoadJsonFile<CharacterBase>(Application.dataPath, fileName));
             else
             {
-                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon));
+                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon, false));
+
                 string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
                 CreateJsonFile(Application.dataPath, fileName, jsonData);
             }
@@ -159,7 +160,11 @@ public class JsonManager : Singleton<JsonManager>
                 GameManager.Instance.characterInfoList.Add(LoadJsonFile<CharacterBase>(Application.persistentDataPath, fileName));
             else
             {
-                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon));
+                if (number == 1)
+                    GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon, true));
+                else
+                    GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon, false));
+                
                 string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
                 CreateJsonFile(Application.persistentDataPath, fileName, jsonData);
             }

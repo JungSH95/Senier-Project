@@ -2397,16 +2397,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
-        type: 3}
-      propertyPath: dialogueTransform
-      value: 
-      objectReference: {fileID: 953135943}
-    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
-        type: 3}
-      propertyPath: dialogueBox
-      value: 
-      objectReference: {fileID: 904606990}
     - target: {fileID: 7953807032024786278, guid: 0b073b372def7b94da47495ecb0973e7,
         type: 3}
       propertyPath: popupWindow
@@ -2422,6 +2412,16 @@ PrefabInstance:
       propertyPath: isAutoSentence
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
+        type: 3}
+      propertyPath: dialogueTransform
+      value: 
+      objectReference: {fileID: 953135943}
+    - target: {fileID: 6622427548663899503, guid: 0b073b372def7b94da47495ecb0973e7,
+        type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 904606990}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b073b372def7b94da47495ecb0973e7, type: 3}
 --- !u!4 &384193134 stripped
@@ -6996,7 +6996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -21966,6 +21966,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8645502063426915770, guid: 8a46166a19672e74b9cfc477cfa83b63,
+        type: 3}
+      propertyPath: isAutoSentence
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8645502063426915771, guid: 8a46166a19672e74b9cfc477cfa83b63,
         type: 3}
       propertyPath: dialogueTransform
@@ -21976,11 +21981,6 @@ PrefabInstance:
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 1977600731}
-    - target: {fileID: 8645502063426915770, guid: 8a46166a19672e74b9cfc477cfa83b63,
-        type: 3}
-      propertyPath: isAutoSentence
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a46166a19672e74b9cfc477cfa83b63, type: 3}
 --- !u!23 &8828931614341083295

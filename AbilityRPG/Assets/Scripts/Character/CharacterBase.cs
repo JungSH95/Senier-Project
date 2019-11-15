@@ -24,7 +24,7 @@ public class CharacterBase
     public float atkSpeed;
     public float speed;
 
-    public CharacterBase(string weaponName)
+    public CharacterBase(string weaponName, bool master)
     {
         strLevel = 1;
         dexLevel = 1;
@@ -47,6 +47,14 @@ public class CharacterBase
 
         atkSpeed = 1.5f;
         speed = 2f;
+
+        if(master)
+        {
+            strLevel = 10;
+            dexLevel = 10;
+            conLevel = 10;
+            weaponLevel = 50;
+        }
     }
 
     public void StrLevelUp()
@@ -54,7 +62,7 @@ public class CharacterBase
         strExp = 0;
         strLevel += 1;
 
-        damage = 10f + (strLevel - 1) * 0.1f;
+        damage += (strLevel - 1) * 0.1f;
     }
 
     public void DexLevelUp()
@@ -70,7 +78,7 @@ public class CharacterBase
         conExp = 0;
         conLevel += 1;
 
-        maxHp = 100f + (conLevel - 1) * 1f;
+        maxHp += (conLevel - 1) * 1f;
     }
 
     public void WeaponLevelUp()
@@ -78,6 +86,6 @@ public class CharacterBase
         weaponExp = 0;
         weaponLevel += 1;
 
-        damage = 10f + (weaponLevel - 1) * 1f;
+        damage += (weaponLevel - 1) * 1f;
     }
 }

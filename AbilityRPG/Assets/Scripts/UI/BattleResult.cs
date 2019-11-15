@@ -73,5 +73,6 @@ public class BattleResult : MonoBehaviour
     public void BackButtonClick()
     {
         SceneLoadManager.Instance.LoadScene("1_MainField");
+        backButton.enabled = false;
     }
 }

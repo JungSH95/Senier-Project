@@ -54,8 +54,6 @@ public class BattleResult : MonoBehaviour
             resultText.text = "클 리 어";
         else
             resultText.text = "사 망";
-
-        backButton.onClick.AddListener(BackButtonClick);
     }
 
     public IEnumerator CoResultOpen()

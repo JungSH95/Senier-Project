@@ -14,9 +14,9 @@ public class StageTextAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void StageAnimationStart(string stagenumber)
+    public void StageAnimationStart(string stageText)
     {
-        text.text = stagenumber + " - Stage";
+        text.text = stageText;
         StartCoroutine(CoStageAnimation());
     }
 

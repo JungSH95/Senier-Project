@@ -1186,7 +1186,7 @@ GameObject:
   - component: {fileID: 6899053882328456384}
   m_Layer: 0
   m_Name: Spawn
-  m_TagString: MonsterSpawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 6899053882867162929}
   m_Layer: 0
   m_Name: Point (3)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1712,7 +1712,7 @@ GameObject:
   - component: {fileID: 6899053883543490159}
   m_Layer: 0
   m_Name: Point (1)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1843,7 +1843,7 @@ GameObject:
   - component: {fileID: 6899053883847401601}
   m_Layer: 0
   m_Name: Point (4)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1873,7 +1873,7 @@ GameObject:
   - component: {fileID: 6899053884031495814}
   m_Layer: 0
   m_Name: Point
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1951,7 +1951,7 @@ GameObject:
   - component: {fileID: 6899053884207410967}
   m_Layer: 0
   m_Name: Point (2)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

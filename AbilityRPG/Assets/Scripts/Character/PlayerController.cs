@@ -39,15 +39,19 @@ public class PlayerController : MonoBehaviour
 
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.stoppingDistance = 0.7f;
-        navAgent.speed = characterBase.speed;
+
 
         isDead = false;
 
-        // 임시로 플레이어 체력 감소 테스트용
         if (gameObject.transform.parent != null)
             playerHpBar = gameObject.transform.parent.transform.Find("Canvas").GetComponent<PlayerHpBar>();
 
         playerTargeting = GetComponent<PlayerTargeting>();
+
+        characterBase = GameManager.Instance.characterInfoList[GameManager.Instance.playerData.characterNumber];
+        navAgent.speed = characterBase.speed;
+
+        animator.SetFloat("AtkSpeed", characterBase.atkSpeed);
     }
 
     public void FixedUpdate()
@@ -167,6 +171,13 @@ public class PlayerController : MonoBehaviour
         isDead = true;
 
         FieldManager.Instance.BattleFieldEnd(false);
+    }
+
+    // 체력 회복
+    public void PlayerHill(float percent)
+    {
+        playerHpBar.Hill(characterBase.maxHp * (percent * 0.01f));
+        Instantiate(EffectSet.Instance.PlayerHillEffect, playerTargeting.attackPoint.position, Quaternion.Euler(0, 0, 0));
     }
 
     private void OnTriggerEnter(Collider other)

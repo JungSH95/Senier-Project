@@ -5,7 +5,7 @@ using UnityEngine;
 public class EffectSet : Singleton<EffectSet>
 {
     [Header("Player")]
-    public List<GameObject> PlayerAtkEffect;
+    public GameObject PlayerHillEffect;
     public GameObject PlayerDmgEffect;
 
     [Header("Monster")]

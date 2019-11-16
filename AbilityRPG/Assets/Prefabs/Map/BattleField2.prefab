@@ -1644,7 +1644,7 @@ GameObject:
   - component: {fileID: 8247474025530179342}
   m_Layer: 0
   m_Name: Spawn
-  m_TagString: MonsterSpawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1692,7 +1692,7 @@ GameObject:
   - component: {fileID: 2713167209412644892}
   m_Layer: 0
   m_Name: Point (2)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1852,7 +1852,7 @@ GameObject:
   - component: {fileID: 7276408649726210075}
   m_Layer: 0
   m_Name: Point (1)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1934,7 +1934,7 @@ GameObject:
   - component: {fileID: 5767213061368113086}
   m_Layer: 0
   m_Name: Point (4)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2003,7 +2003,7 @@ GameObject:
   - component: {fileID: 3127016342775238542}
   m_Layer: 0
   m_Name: Point
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2098,7 +2098,7 @@ GameObject:
   - component: {fileID: 4899516289085001248}
   m_Layer: 0
   m_Name: Point (3)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28303,15 +28303,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1663784380544388, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 1339958309788442, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891899746272066, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -28319,7 +28311,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 1628367955279458, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
+    - target: {fileID: 1663784380544388, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891899746272066, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -28328,6 +28324,10 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1224788301267576, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628367955279458, guid: 1c646272db9f13f40a1cc8d87b080552, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}

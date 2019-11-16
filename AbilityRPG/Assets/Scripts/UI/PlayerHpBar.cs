@@ -58,4 +58,12 @@ public class PlayerHpBar : MonoBehaviour
     {
         backHpHit = true;
     }
+
+    public void Hill(float hp)
+    {
+        currentHp += hp;
+
+        if (currentHp > maxHp)
+            currentHp = maxHp;
+    }
 }

@@ -36,7 +36,7 @@ public class FieldManager : Singleton<FieldManager>
     private void Awake()
     {
         currentStage = 0;
-        lastStage = 3;
+        lastStage = 6;
 
         monsterDeadCount = 0;
         expCount = 0;
@@ -51,8 +51,6 @@ public class FieldManager : Singleton<FieldManager>
         {
             player = Instantiate(characterList[GameManager.Instance.playerData.characterNumber]);
             player.transform.parent = playerPos.transform;
-            player.GetComponent<PlayerController>().characterBase =
-                GameManager.Instance.characterInfoList[GameManager.Instance.playerData.characterNumber];
         }
         
         fadeManager = GameObject.FindGameObjectWithTag("FadeCanvas").GetComponent<FadeManager>();
@@ -90,17 +88,36 @@ public class FieldManager : Singleton<FieldManager>
 
         yield return new WaitForSeconds(0.5f);      // 시각적으로 보이는 것 때문에 일부로 딜레이
 
-        int randomIndex = Random.Range(0, startPosList.Count);
-        nowField = startPosList[randomIndex].parent.gameObject;
 
-        //nowField = hiddenStartPosList[0].parent.gameObject;
+        if (currentStage == 5)
+        {
+            int randomIndex = Random.Range(0, 10);
 
+            // 30퍼 (럭비 맵) 
+            if (randomIndex < 3)
+            {
+                nowField = hiddenStartPosList[0].parent.gameObject;
+                player.transform.position = hiddenStartPosList[0].position;
+            }
+            // 70퍼 (펭수 맵)
+            else if (randomIndex < 10)
+            {
+                nowField = hiddenStartPosList[1].parent.gameObject;
+                player.transform.position = hiddenStartPosList[1].position;
+            }
+        }
+        else if(currentStage == 10)
+        {
+            // 보스 방
+        }
+        else
+        {
+            int randomFieldIndex = Random.Range(0, startPosList.Count);
+            nowField = startPosList[randomFieldIndex].parent.gameObject;
+            player.transform.position = startPosList[randomFieldIndex].position;
+        }
+        
         nowField.SetActive(true);
-
-        //player.transform.position = hiddenStartPosList[0].position;
-        //hiddenStartPosList.RemoveAt(0);
-
-        player.transform.position = startPosList[randomIndex].position;
 
         // 포탈 Obj 초기화
         portal = nowField.transform.Find("Portal").gameObject;
@@ -115,12 +132,14 @@ public class FieldManager : Singleton<FieldManager>
             yield return new WaitForSeconds(0.01f);
 
         player.SetActive(true);
-        player.GetComponent<PlayerController>().animator.SetFloat("AtkSpeed", 
+        // 재활성화 시 애니메이션 값이 초기화 됌
+        player.GetComponent<PlayerController>().animator.SetFloat("AtkSpeed",
             player.GetComponent<PlayerController>().characterBase.atkSpeed);
 
         fadeManager.FadeIn();
         SpawnManager.Instance.MonsterAllSetActive();
-        stageTextAnimation.StageAnimationStart(currentStage.ToString());
+
+        stageTextAnimation.StageAnimationStart(currentStage.ToString() + " - Stage");
     }
 
     // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.
@@ -141,6 +160,9 @@ public class FieldManager : Singleton<FieldManager>
             BattleFieldEnd(true);
             return;
         }
+        
+        //플레이어 체력 회복 시킴 전체 체력의 퍼센트(10 or 20퍼)
+        player.GetComponent<PlayerController>().PlayerHill(10f);
 
         portal.SetActive(true);
         portal.transform.GetChild(0).GetComponent<Animator>().SetBool("Clear", true);

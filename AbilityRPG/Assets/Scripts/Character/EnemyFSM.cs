@@ -81,7 +81,10 @@ public class EnemyFSM : EnemyBase
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("ATK1"))
             animator.SetInteger("animation", 11);
 
+        // 공격하면서 이동 방지
+        navAgent.SetDestination(this.gameObject.transform.position);
         monsterAtkSphere.SetActive(true);
+
         yield return new WaitForSeconds(0.2f);
         monsterAtkSphere.SetActive(false);
 

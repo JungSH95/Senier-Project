@@ -8,10 +8,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public List<Transform> points;
     public List<GameObject> monsterList;
-
-    private int maxMonsterCount;
-    private int nowMonsterCount;
-
+    
     public bool isSpawnEnd;
     public bool isMonsterClear;
 
@@ -33,25 +30,33 @@ public class SpawnManager : Singleton<SpawnManager>
     // 여기서 몬스터를 꺼내오기 때문에 몬스터의 종류를 어떻게 정해서 꺼내올 것인가?
     IEnumerator CreateMonster()
     {
-        maxMonsterCount = points.Count;
-        nowMonsterCount = 0;
-
-        //yield return new WaitForSeconds(0.5f);
-
-        while (nowMonsterCount < maxMonsterCount)
+        for(int monsterCount = 0; monsterCount < points.Count; monsterCount++)
         {
-            int randomIndex = Random.Range(1, 3);
-            GameObject newMonster = ObjectPool.Instance.PopFromPool("Monster" + randomIndex.ToString());
-            newMonster.transform.parent = points[nowMonsterCount].transform;
-            newMonster.transform.position = points[nowMonsterCount].position;
+            GameObject newMonster = GetMonsterObject(points[monsterCount].tag);
+            newMonster.transform.parent = points[monsterCount].transform;
+            newMonster.transform.position = points[monsterCount].position;
             newMonster.transform.Find("Character").gameObject.transform.position = newMonster.transform.position;
-            nowMonsterCount += 1;
             monsterList.Add(newMonster.transform.Find("Character").gameObject);
         }
 
         isSpawnEnd = true;
         isMonsterClear = false;
         yield return null;
+    }
+
+    public GameObject GetMonsterObject(string type)
+    {
+        switch(type)
+        {
+            case "MonsterType0":
+                return ObjectPool.Instance.PopFromPool("Monster0");
+            case "MonsterType1":
+                return ObjectPool.Instance.PopFromPool("Monster1");
+            case "MonsterType2":
+                return ObjectPool.Instance.PopFromPool("Monster2");
+            default:
+                return ObjectPool.Instance.PopFromPool("Monster0");
+        }
     }
 
     public void MonsterAllSetActive()

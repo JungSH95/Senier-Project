@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 8756727859084607882}
   m_Layer: 0
   m_Name: Spawn
-  m_TagString: MonsterSpawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1767,7 +1767,7 @@ GameObject:
   - component: {fileID: 3338811411311275672}
   m_Layer: 0
   m_Name: Point (2)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1976,7 +1976,7 @@ GameObject:
   - component: {fileID: 8000701256538476191}
   m_Layer: 0
   m_Name: Point (1)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2032,7 +2032,7 @@ GameObject:
   - component: {fileID: 6628047147154217274}
   m_Layer: 0
   m_Name: Point (4)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2075,7 +2075,7 @@ GameObject:
   - component: {fileID: 2348531211401982218}
   m_Layer: 0
   m_Name: Point
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2144,7 +2144,7 @@ GameObject:
   - component: {fileID: 5191621646038544548}
   m_Layer: 0
   m_Name: Point (3)
-  m_TagString: Untagged
+  m_TagString: MonsterType1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28830,27 +28830,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4676988773137362, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+    - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4676988773137362, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+    - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4676988773137362, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+    - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+    - target: {fileID: 4676988773137362, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+    - target: {fileID: 4676988773137362, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 4030297250174432, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
+    - target: {fileID: 4676988773137362, guid: b8cd47ec0ed55ef4a81e264386f6aee5, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
@@ -29295,6 +29295,10 @@ PrefabInstance:
     - target: {fileID: 1432977942592268, guid: c44928e7737eb974695c038f3bff9fda, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432977942592268, guid: c44928e7737eb974695c038f3bff9fda, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4600501338861520, guid: c44928e7737eb974695c038f3bff9fda, type: 3}
       propertyPath: m_LocalPosition.x

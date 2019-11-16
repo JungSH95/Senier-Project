@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4632209394003602176}
   m_Layer: 0
   m_Name: Point (2)
-  m_TagString: Untagged
+  m_TagString: MonsterType0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4506102891557931210}
   m_Layer: 0
-  m_Name: BaseDarkField
+  m_Name: BattleDarkField1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1417,7 +1417,7 @@ GameObject:
   - component: {fileID: 2243997529047053950}
   m_Layer: 0
   m_Name: Spawn
-  m_TagString: MonsterSpawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1520,7 +1520,7 @@ GameObject:
   - component: {fileID: 9048029242544935074}
   m_Layer: 0
   m_Name: Point
-  m_TagString: Untagged
+  m_TagString: MonsterType0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1618,7 +1618,7 @@ GameObject:
   - component: {fileID: 7200664833088656284}
   m_Layer: 0
   m_Name: Point (1)
-  m_TagString: Untagged
+  m_TagString: MonsterType0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3129,19 +3129,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1821706433743786, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1972116244351748, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 1432146673702066, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132410015256230, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -3150,6 +3138,18 @@ PrefabInstance:
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1688091781953640, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1132410015256230, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1972116244351748, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821706433743786, guid: 3bfc6ea068c5de043b3245865ec6ed69, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}

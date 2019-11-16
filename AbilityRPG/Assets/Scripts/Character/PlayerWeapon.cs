@@ -12,6 +12,9 @@ public class PlayerWeapon : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.velocity = transform.forward * 5f;
         damage = dmg;
+
+        // 삭제 안될 경우 방지
+        StartCoroutine(CoWeaponDestroy());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -23,5 +26,11 @@ public class PlayerWeapon : MonoBehaviour
             
             ObjectPool.Instance.PushToPool(gameObject.name, this.gameObject);
         }
+    }
+
+    IEnumerator CoWeaponDestroy()
+    {
+        yield return new WaitForSeconds(3f);
+        ObjectPool.Instance.PushToPool(gameObject.name, this.gameObject);
     }
 }

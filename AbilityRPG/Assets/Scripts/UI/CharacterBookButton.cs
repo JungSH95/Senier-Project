@@ -24,5 +24,6 @@ public class CharacterBookButton : MonoBehaviour
     {
         MainFieldManager.Instance.PlayerInfoOpen(buttonNumber);
         this.gameObject.transform.parent.gameObject.SetActive(false);
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 }

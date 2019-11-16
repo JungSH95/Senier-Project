@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3909756166132727805}
   - component: {fileID: 3919245257151916077}
   - component: {fileID: 3906808932725476031}
+  - component: {fileID: 9210949106795704526}
   m_Layer: 0
   m_Name: NextFieldPortal
   m_TagString: Untagged
@@ -91,3 +92,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.74306107, y: 0.56054974, z: 0.4775777}
   m_Center: {x: 0, y: -0.3, z: -0.16708636}
+--- !u!65 &9210949106795704526
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905710771242870597}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8136982, y: 1.2799999, z: 0.17028843}
+  m_Center: {x: 0, y: 0, z: 0.046083264}

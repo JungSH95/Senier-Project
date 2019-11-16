@@ -94,6 +94,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
     {
         option.SetActive(false);
         player.GetComponent<PlayerController>().isPopup = false;
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 
     public void GameEndOpen()
@@ -105,6 +106,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
 
     public void GameEndClose()
     {
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
         player.GetComponent<PlayerController>().isPopup = false;
         gameEnd.SetActive(false);
     }

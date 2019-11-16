@@ -81,6 +81,7 @@ public class PlayerInfoUI : MonoBehaviour
         weaponObjects[currentNumber].SetActive(false);
 
         camera.SetActive(false);
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 
     public void ConExpUpClick()
@@ -106,6 +107,7 @@ public class PlayerInfoUI : MonoBehaviour
         }
 
         conSlider.value = GameManager.Instance.characterInfoList[currentNumber].conExp / conMax;
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 
     public void StrExpUpClick()
@@ -131,6 +133,7 @@ public class PlayerInfoUI : MonoBehaviour
         }
 
         strSlider.value = GameManager.Instance.characterInfoList[currentNumber].strExp / strMax;
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 
     public void DexExpUpClick()
@@ -166,6 +169,7 @@ public class PlayerInfoUI : MonoBehaviour
         }
 
         dexSlider.value = GameManager.Instance.characterInfoList[currentNumber].dexExp / dexMax;
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 
     public void WeaponExpUpClick()
@@ -191,5 +195,6 @@ public class PlayerInfoUI : MonoBehaviour
         }
 
         weaponSlider.value = GameManager.Instance.characterInfoList[currentNumber].weaponExp / weaponMax;
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 }

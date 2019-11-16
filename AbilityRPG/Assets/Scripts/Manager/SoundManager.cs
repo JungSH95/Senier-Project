@@ -12,6 +12,8 @@ public class SoundManager : Singleton<SoundManager>
     public AudioClip[] PlayerEFXSounds;
     public AudioClip MonsterEFXSounds;
 
+    public AudioClip[] UiEFXSounds;
+
     private void Start()
     {
         if(GameManager.Instance != null)

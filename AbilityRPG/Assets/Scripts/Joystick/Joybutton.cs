@@ -25,21 +25,25 @@ public class Joybutton : MonoBehaviour
     public void PlayerInfoButton()
     {
         MainFieldManager.Instance.PlayerInfoOpen(GameManager.Instance.playerData.characterNumber);
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 
     public void CharacterBookButton()
     {
         MainFieldManager.Instance.CharacterBookOpen();
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 
     public void OptionButton()
     {
         MainFieldManager.Instance.OptionOpen();
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
     // -----------------------------------------------------
 
     public void BattleExitButton()
     {
         FieldManager.Instance.exitPanel.ExitPanelOpen();
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 }

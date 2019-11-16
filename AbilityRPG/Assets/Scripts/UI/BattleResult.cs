@@ -73,6 +73,8 @@ public class BattleResult : MonoBehaviour
 
     public void BackButtonClick()
     {
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
+
         SceneLoadManager.Instance.LoadScene("1_MainField");
         backButton.enabled = false;
     }

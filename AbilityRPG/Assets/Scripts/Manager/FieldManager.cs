@@ -27,7 +27,7 @@ public class FieldManager : Singleton<FieldManager>
     public bool isClear;
 
     private FadeManager fadeManager;
-    public StageTextAnimation stageAnimation;
+    public StageTextAnimation stageTextAnimation;
 
     [Header("UI")]
     public BattleExitPanel exitPanel;
@@ -101,7 +101,6 @@ public class FieldManager : Singleton<FieldManager>
         //hiddenStartPosList.RemoveAt(0);
 
         player.transform.position = startPosList[randomIndex].position;
-        //startPosList.RemoveAt(randomIndex);
 
         // 포탈 Obj 초기화
         portal = nowField.transform.Find("Portal").gameObject;
@@ -121,7 +120,7 @@ public class FieldManager : Singleton<FieldManager>
 
         fadeManager.FadeIn();
         SpawnManager.Instance.MonsterAllSetActive();
-        stageAnimation.StageAnimationStart(currentStage.ToString());
+        stageTextAnimation.StageAnimationStart(currentStage.ToString());
     }
 
     // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.

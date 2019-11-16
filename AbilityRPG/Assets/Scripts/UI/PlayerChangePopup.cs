@@ -66,6 +66,8 @@ public class PlayerChangePopup : MonoBehaviour
 
     void YesClick()
     {
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
+
         popupWindow.SetActive(false);
         joystick.gameObject.SetActive(true);
 
@@ -74,6 +76,8 @@ public class PlayerChangePopup : MonoBehaviour
 
     void NoClick()
     {
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
+
         popupWindow.SetActive(false);
         joystick.gameObject.SetActive(true);
         playerController.isPopup = false;

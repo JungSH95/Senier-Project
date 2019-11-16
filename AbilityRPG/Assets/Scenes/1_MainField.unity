@@ -6660,6 +6660,8 @@ MonoBehaviour:
   PlayerEFXSounds:
   - {fileID: 8300000, guid: 3966c3a876666eb4b9b2f0435203ea2f, type: 3}
   MonsterEFXSounds: {fileID: 0}
+  UiEFXSounds:
+  - {fileID: 8300000, guid: 987e056633a32c5458cd8e34b4785a98, type: 3}
 --- !u!82 &971760790
 AudioSource:
   m_ObjectHideFlags: 0

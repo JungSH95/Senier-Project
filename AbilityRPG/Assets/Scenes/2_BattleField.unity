@@ -3332,7 +3332,7 @@ MonoBehaviour:
   monsterDeadCount: 0
   expCount: 0
   isClear: 0
-  stageAnimation: {fileID: 1018198095}
+  stageTextAnimation: {fileID: 1018198095}
   exitPanel: {fileID: 324015340}
   battleResult: {fileID: 487470306}
 --- !u!114 &941035342
@@ -7678,6 +7678,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 15abc3489a0ddf3459065486de96f712, type: 3}
   - {fileID: 8300000, guid: 4cb39e5547f771046ab4cb9256195f1f, type: 3}
   MonsterEFXSounds: {fileID: 8300000, guid: c7c09cb17e3e29d4fb63142bf3ff3833, type: 3}
+  UiEFXSounds:
+  - {fileID: 8300000, guid: 987e056633a32c5458cd8e34b4785a98, type: 3}
 --- !u!82 &2046535493
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9293,11 +9295,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4498061019339657492, guid: 5912fed28451a20418d65234dd47451b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -21
-      objectReference: {fileID: 0}
     - target: {fileID: 4383320880410899953, guid: 5912fed28451a20418d65234dd47451b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9353,15 +9350,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4496927707211338424, guid: 5912fed28451a20418d65234dd47451b,
+    - target: {fileID: 4498061019339657492, guid: 5912fed28451a20418d65234dd47451b,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_LocalPosition.z
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 6926569241130333955, guid: 5912fed28451a20418d65234dd47451b,
         type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496927707211338424, guid: 5912fed28451a20418d65234dd47451b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5912fed28451a20418d65234dd47451b, type: 3}

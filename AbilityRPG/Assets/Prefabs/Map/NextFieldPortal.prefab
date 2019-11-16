@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3919245257151916077}
   - component: {fileID: 3906808932725476031}
   - component: {fileID: 9210949106795704526}
+  - component: {fileID: 8107300709007300185}
+  - component: {fileID: 549788559465047514}
   m_Layer: 0
   m_Name: NextFieldPortal
   m_TagString: Untagged
@@ -88,7 +90,7 @@ BoxCollider:
   m_GameObject: {fileID: 3905710771242870597}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.74306107, y: 0.56054974, z: 0.4775777}
   m_Center: {x: 0, y: -0.3, z: -0.16708636}
@@ -105,3 +107,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8136982, y: 1.2799999, z: 0.17028843}
   m_Center: {x: 0, y: 0, z: 0.046083264}
+--- !u!95 &8107300709007300185
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905710771242870597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63c743d331ce5a54cb371878091ab5a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &549788559465047514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905710771242870597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154d35deb72457a4eab7ae2ed90b03ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

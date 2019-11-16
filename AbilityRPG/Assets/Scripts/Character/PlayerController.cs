@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     protected Joybutton joybutton;
     
     public Animator animator;
+    public new Rigidbody rigidbody;
 
     protected NavMeshAgent navAgent;
     public LayerMask layerMask;
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public PlayerTargeting playerTargeting;
 
-    public new Rigidbody rigidbody;
+    
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         joybutton = FindObjectOfType<Joybutton>();
 
         animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
 
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.stoppingDistance = 0.7f;
@@ -54,8 +56,6 @@ public class PlayerController : MonoBehaviour
         navAgent.speed = characterBase.speed;
 
         animator.SetFloat("AtkSpeed", characterBase.atkSpeed);
-
-        rigidbody = GetComponent<Rigidbody>();
     }
 
     public void FixedUpdate()

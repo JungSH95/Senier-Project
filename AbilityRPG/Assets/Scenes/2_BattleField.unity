@@ -3331,6 +3331,7 @@ MonoBehaviour:
   player: {fileID: 0}
   currentStage: 0
   lastStage: 0
+  hiddenStageNumber: 0
   monsterDeadCount: 0
   expCount: 0
   isClear: 0
@@ -9260,6 +9261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109613481721925101, guid: c51845f964e6c6d4597d927d6f214191,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c51845f964e6c6d4597d927d6f214191, type: 3}

@@ -59,7 +59,8 @@ public class BattleResult : MonoBehaviour
     public IEnumerator CoResultOpen()
     {
         yield return new WaitForSeconds(0.5f);
-        
+        Time.timeScale = 1f;
+
         animator.SetBool("Open", true);
 
         if (SoundManager.Instance.backgroundAudio.volume != 0f)

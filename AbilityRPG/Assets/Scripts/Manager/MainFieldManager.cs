@@ -39,6 +39,9 @@ public class MainFieldManager : Singleton<MainFieldManager>
         if (Application.platform == RuntimePlatform.Android)
             if (Input.GetKey(KeyCode.Escape))
                 GameEndOpen();
+
+        if (Input.GetKey(KeyCode.Q))
+            GameEndOpen();
     }
 
     public void PlayerInfoOpen(int number)
@@ -46,8 +49,8 @@ public class MainFieldManager : Singleton<MainFieldManager>
         if (joystickCanvas == null || mainCamera == null || playerInfo == null)
             return;
 
-        player.GetComponent<PlayerController>().isNpcTarget = false;
-        player.SetActive(false);
+        player.GetComponent<PlayerController>().isPopup = true;
+
         joystickCanvas.SetActive(false);
         mainCamera.SetActive(false);
 
@@ -60,7 +63,8 @@ public class MainFieldManager : Singleton<MainFieldManager>
         if (joystickCanvas == null || mainCamera == null || playerInfo == null)
             return;
 
-        player.SetActive(true);
+        player.GetComponent<PlayerController>().isPopup = false;
+
         joystickCanvas.SetActive(true);
         mainCamera.SetActive(true);
         
@@ -71,18 +75,37 @@ public class MainFieldManager : Singleton<MainFieldManager>
     public void CharacterBookOpen()
     {
         characterBook.SetActive(true);
-        player.GetComponent<PlayerController>().isNpcTarget = false;
+        player.GetComponent<PlayerController>().isPopup = true;
+    }
+
+    public void CharacterBookClose()
+    {
+        characterBook.SetActive(false);
+        player.GetComponent<PlayerController>().isPopup = false;
     }
 
     public void OptionOpen()
     {
         option.SetActive(true);
-        player.GetComponent<PlayerController>().isNpcTarget = false;
+        player.GetComponent<PlayerController>().isPopup = true;
+    }
+
+    public void OptionClose()
+    {
+        option.SetActive(false);
+        player.GetComponent<PlayerController>().isPopup = false;
     }
 
     public void GameEndOpen()
     {
         gameEnd.transform.Find("YesButton").GetComponent<Button>().onClick.AddListener(Application.Quit);
+        player.GetComponent<PlayerController>().isPopup = true;
         gameEnd.SetActive(true);
+    }
+
+    public void GameEndClose()
+    {
+        player.GetComponent<PlayerController>().isPopup = false;
+        gameEnd.SetActive(false);
     }
 }

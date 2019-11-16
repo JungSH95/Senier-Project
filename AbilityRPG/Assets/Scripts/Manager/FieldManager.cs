@@ -149,8 +149,6 @@ public class FieldManager : Singleton<FieldManager>
 
     public void BattleFieldEnd(bool clear)
     {
-        Time.timeScale = 1f;
-
         battleResult.SetResultUI(clear);
         battleResult.StartCoroutine(battleResult.CoResultOpen());
     }

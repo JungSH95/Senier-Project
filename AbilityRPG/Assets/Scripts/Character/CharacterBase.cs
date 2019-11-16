@@ -54,6 +54,8 @@ public class CharacterBase
             dexLevel = 10;
             conLevel = 10;
             weaponLevel = 50;
+
+            SetStatus();
         }
     }
 
@@ -62,7 +64,7 @@ public class CharacterBase
         strExp = 0;
         strLevel += 1;
 
-        damage += (strLevel - 1) * 0.1f;
+        SetStatus();
     }
 
     public void DexLevelUp()
@@ -70,7 +72,7 @@ public class CharacterBase
         dexExp = 0;
         dexLevel += 1;
 
-        atkSpeed = 1.5f + dexLevel * 0.1f;
+        SetStatus();
     }
 
     public void ConLevelUp()
@@ -78,7 +80,7 @@ public class CharacterBase
         conExp = 0;
         conLevel += 1;
 
-        maxHp += (conLevel - 1) * 1f;
+        SetStatus();
     }
 
     public void WeaponLevelUp()
@@ -86,6 +88,13 @@ public class CharacterBase
         weaponExp = 0;
         weaponLevel += 1;
 
-        damage += (weaponLevel - 1) * 1f;
+        SetStatus();
+    }
+
+    public void SetStatus()
+    {
+        maxHp += (conLevel - 1) * 1f;
+        atkSpeed = 1.5f + dexLevel * 0.1f;
+        damage += (strLevel - 1) * 0.1f + (weaponLevel - 1) * 1f;
     }
 }

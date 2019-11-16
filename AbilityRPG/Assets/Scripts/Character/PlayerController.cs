@@ -53,8 +53,14 @@ public class PlayerController : MonoBehaviour
     public void FixedUpdate()
     {
         // 팝업창이 떠있는 경우
-        if (isPopup || isDead)
+        if (isDead)
             return;
+
+        if(isPopup)
+        {
+            isNpcTarget = false;
+            navAgent.SetDestination(this.transform.position);
+        }
 
         if (IsPlayerMoving())
         {

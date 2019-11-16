@@ -7674,11 +7674,12 @@ MonoBehaviour:
   effectAudio: {fileID: 2046535493}
   BGMSounds: []
   PlayerEFXSounds:
-  - {fileID: 8300000, guid: 3966c3a876666eb4b9b2f0435203ea2f, type: 3}
-  - {fileID: 8300000, guid: 29956d98121d24a418aaa4cad95edae6, type: 3}
+  - {fileID: 8300000, guid: 89d8a95b08286054386d371f6f7260fa, type: 3}
+  - {fileID: 8300000, guid: 89d8a95b08286054386d371f6f7260fa, type: 3}
   - {fileID: 8300000, guid: 0e6e0c8f7569c7c43afd8cb6fbaf0fc7, type: 3}
   - {fileID: 8300000, guid: 15abc3489a0ddf3459065486de96f712, type: 3}
   - {fileID: 8300000, guid: 4cb39e5547f771046ab4cb9256195f1f, type: 3}
+  - {fileID: 8300000, guid: 61e73f3e692c640eb9f9c7ee724ac862, type: 3}
   MonsterEFXSounds: {fileID: 8300000, guid: c7c09cb17e3e29d4fb63142bf3ff3833, type: 3}
   UiEFXSounds:
   - {fileID: 8300000, guid: 987e056633a32c5458cd8e34b4785a98, type: 3}
@@ -7694,7 +7695,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3966c3a876666eb4b9b2f0435203ea2f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.4
   m_Pitch: 1.2
   Loop: 0
   Mute: 0
@@ -7790,7 +7791,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0021591f9faa10049b9148b7d1b7911a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

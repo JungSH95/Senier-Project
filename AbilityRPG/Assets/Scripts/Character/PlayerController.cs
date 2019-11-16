@@ -178,6 +178,7 @@ public class PlayerController : MonoBehaviour
     {
         playerHpBar.Hill(characterBase.maxHp * (percent * 0.01f));
         Instantiate(EffectSet.Instance.PlayerHillEffect, playerTargeting.attackPoint.position, Quaternion.Euler(0, 0, 0));
+        SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.PlayerEFXSounds[5]);
     }
 
     private void OnTriggerEnter(Collider other)

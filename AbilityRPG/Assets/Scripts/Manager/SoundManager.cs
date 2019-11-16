@@ -19,7 +19,7 @@ public class SoundManager : Singleton<SoundManager>
         if(GameManager.Instance != null)
         {
             if (GameManager.Instance.optionData.BgmOn)
-                backgroundAudio.volume = 0.8f;
+                backgroundAudio.volume = 0.6f;
             else
                 backgroundAudio.volume = 0f;
 
@@ -54,7 +54,7 @@ public class SoundManager : Singleton<SoundManager>
 
         if (backgroundAudio.volume == 0.0f)
         {
-            backgroundAudio.volume = 1.0f;
+            backgroundAudio.volume = 0.6f;
             BackGoundPlay(backgroundAudio.clip);
         }
         else
@@ -70,7 +70,7 @@ public class SoundManager : Singleton<SoundManager>
             return;
 
         if (effectAudio.volume == 0.0f)
-            effectAudio.volume = 1.0f;
+            effectAudio.volume = 0.4f;
         else
             effectAudio.volume = 0.0f;
     }

@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     public PlayerTargeting playerTargeting;
 
+    public new Rigidbody rigidbody;
+
     void Start()
     {
         PlayerSetting();
@@ -52,6 +54,8 @@ public class PlayerController : MonoBehaviour
         navAgent.speed = characterBase.speed;
 
         animator.SetFloat("AtkSpeed", characterBase.atkSpeed);
+
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     public void FixedUpdate()
@@ -77,7 +81,9 @@ public class PlayerController : MonoBehaviour
 
             navAgent.SetDestination(this.transform.position);
 
-            transform.Translate(Vector3.forward * characterBase.speed * Time.deltaTime);
+            //transform.Translate(Vector3.forward * characterBase.speed * Time.deltaTime);
+            Vector3 moveVector = new Vector3(joystick.Horizontal, 0.0f, joystick.Vertical);
+            rigidbody.position += moveVector * characterBase.speed * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(joystick.Horizontal, joystick.Vertical) * Mathf.Rad2Deg, 0f);
         }
         else if (isNpcTarget)
@@ -202,5 +208,8 @@ public class PlayerController : MonoBehaviour
             if(playerHpBar.currentHp <= 0)
                 PlayerDead();
         }
+
+        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().isKinematic = false;
     }
 }

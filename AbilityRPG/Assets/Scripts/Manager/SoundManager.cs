@@ -24,7 +24,7 @@ public class SoundManager : Singleton<SoundManager>
                 backgroundAudio.volume = 0f;
 
             if (GameManager.Instance.optionData.EfxOn)
-                effectAudio.volume = 0.4f;
+                effectAudio.volume = 0.3f;
             else
                 effectAudio.volume = 0f;
         }
@@ -70,7 +70,7 @@ public class SoundManager : Singleton<SoundManager>
             return;
 
         if (effectAudio.volume == 0.0f)
-            effectAudio.volume = 0.4f;
+            effectAudio.volume = 0.3f;
         else
             effectAudio.volume = 0.0f;
     }

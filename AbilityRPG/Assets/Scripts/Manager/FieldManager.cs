@@ -20,6 +20,7 @@ public class FieldManager : Singleton<FieldManager>
 
     public int currentStage;
     public int lastStage;
+    public int hiddenStageNumber;
 
     public int monsterDeadCount;
     public int expCount;
@@ -37,6 +38,7 @@ public class FieldManager : Singleton<FieldManager>
     {
         currentStage = 0;
         lastStage = 6;
+        hiddenStageNumber = -1;
 
         monsterDeadCount = 0;
         expCount = 0;
@@ -88,7 +90,6 @@ public class FieldManager : Singleton<FieldManager>
 
         yield return new WaitForSeconds(0.5f);      // 시각적으로 보이는 것 때문에 일부로 딜레이
 
-
         if (currentStage == 5)
         {
             int randomIndex = Random.Range(0, 10);
@@ -96,12 +97,16 @@ public class FieldManager : Singleton<FieldManager>
             // 30퍼 (럭비 맵) 
             if (randomIndex < 3)
             {
+                hiddenStageNumber = 0;
+
                 nowField = hiddenStartPosList[0].parent.gameObject;
                 player.transform.position = hiddenStartPosList[0].position;
             }
             // 70퍼 (펭수 맵)
             else if (randomIndex < 10)
             {
+                hiddenStageNumber = 1;
+
                 nowField = hiddenStartPosList[1].parent.gameObject;
                 player.transform.position = hiddenStartPosList[1].position;
             }
@@ -109,9 +114,12 @@ public class FieldManager : Singleton<FieldManager>
         else if(currentStage == 10)
         {
             // 보스 방
+            hiddenStageNumber = -1;
         }
         else
         {
+            hiddenStageNumber = -1;
+
             int randomFieldIndex = Random.Range(0, startPosList.Count);
             nowField = startPosList[randomFieldIndex].parent.gameObject;
             player.transform.position = startPosList[randomFieldIndex].position;
@@ -139,7 +147,12 @@ public class FieldManager : Singleton<FieldManager>
         fadeManager.FadeIn();
         SpawnManager.Instance.MonsterAllSetActive();
 
-        stageTextAnimation.StageAnimationStart(currentStage.ToString() + " - Stage");
+        if (hiddenStageNumber == 0 || hiddenStageNumber == 1)
+            stageTextAnimation.StageAnimationStart(currentStage.ToString() + " - Hidden Stage");
+        else if( currentStage == lastStage)
+            stageTextAnimation.StageAnimationStart(currentStage.ToString() + " - Last Stage");
+        else
+            stageTextAnimation.StageAnimationStart(currentStage.ToString() + " - Stage");
     }
 
     // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.
@@ -151,18 +164,23 @@ public class FieldManager : Singleton<FieldManager>
         // 플래이어가 배틀 진입 후 기존에 있던 작은 방의 문이 닫히거나
         // 큐브로 막혀서 못 이동하게 설정 및 애니메이션 효과 추가
     }
-
+     
     // 포탈 나옴 (포탈 관련 효과 및 애니메이션 재생 필요)
     public void StageClear()
     {
-        if(lastStage == currentStage)
+        if (lastStage == currentStage)
         {
             BattleFieldEnd(true);
             return;
         }
-        
+
         //플레이어 체력 회복 시킴 전체 체력의 퍼센트(10 or 20퍼)
         player.GetComponent<PlayerController>().PlayerHill(10f);
+
+        // 히든 스테이지 클리어 시 캐릭터 해금
+        if (hiddenStageNumber == 0 || hiddenStageNumber == 1)
+            if (GameManager.Instance != null)
+                GameManager.Instance.playerData.characterUsed[hiddenStageNumber + 1] = true;
 
         portal.SetActive(true);
         portal.transform.GetChild(0).GetComponent<Animator>().SetBool("Clear", true);

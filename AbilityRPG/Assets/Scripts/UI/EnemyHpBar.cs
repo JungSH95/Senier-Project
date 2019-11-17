@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyHpBar : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class EnemyHpBar : MonoBehaviour
 
     public Slider hpSlider;
     public Slider backHpSlider;
+
+    public TextMeshProUGUI hpText;
+
     public bool backHpHit = false;
 
     public float maxHp = 100f;
@@ -23,8 +27,9 @@ public class EnemyHpBar : MonoBehaviour
     {
         transform.position = enemy.position;
         hpSlider.value = Mathf.Lerp(hpSlider.value, currentHp / maxHp, Time.deltaTime * 5f);
+        hpText.text = ((int)currentHp).ToString();
 
-        if(backHpHit)
+        if (backHpHit)
         {
             backHpSlider.value = Mathf.Lerp(backHpSlider.value, hpSlider.value, Time.deltaTime * 10f);
             // 따라 잡으면

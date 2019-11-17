@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHpBar : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerHpBar : MonoBehaviour
 
     public Slider hpSlider;
     public Slider backHpSlider;
+
+    public TextMeshProUGUI hpText;
+
     public bool backHpHit = false;
 
     public float maxHp = 1f;
@@ -26,6 +30,7 @@ public class PlayerHpBar : MonoBehaviour
 
         transform.position = player.position;
         hpSlider.value = Mathf.Lerp(hpSlider.value, currentHp / maxHp, Time.deltaTime * 5f);
+        hpText.text = ((int)currentHp).ToString();
 
         if (backHpHit)
         {

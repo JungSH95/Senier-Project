@@ -16,6 +16,8 @@ public class BattleResult : MonoBehaviour
     public TextMeshProUGUI expCountText;
     public TextMeshProUGUI resultText;
 
+    public Image hiddenCharacterImage;
+
     public Button backButton;
 
     public List<Sprite> characterSprites;
@@ -25,12 +27,18 @@ public class BattleResult : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void SetResultUI(bool clear)
+    public void SetResultUI()
     {
         int characterNumber = 0;
 
         if (GameManager.Instance != null)
+        {
             characterNumber = GameManager.Instance.playerData.characterNumber;
+
+            if (GameManager.Instance.playerData.characterUsed[FieldManager.Instance.hiddenStageType + 1] == false)
+                if (FieldManager.Instance.hiddenStageClear)
+                    hiddenCharacterImage.sprite = characterSprites[FieldManager.Instance.hiddenStageType + 1];
+        }
 
         switch (characterNumber)
         {
@@ -50,7 +58,7 @@ public class BattleResult : MonoBehaviour
         mosterCountText.text = FieldManager.Instance.monsterDeadCount.ToString();
         expCountText.text = FieldManager.Instance.expCount.ToString();
 
-        if (clear)
+        if (FieldManager.Instance.isClear)
             resultText.text = "클 리 어";
         else
             resultText.text = "사 망";
@@ -66,9 +74,19 @@ public class BattleResult : MonoBehaviour
         if (SoundManager.Instance.backgroundAudio.volume != 0f)
             SoundManager.Instance.backgroundAudio.volume = 0.4f;
 
-        // 플레이어 데이터 저장 (expCount)
-        GameManager.Instance.playerData.resourceExp += FieldManager.Instance.expCount;
+        if (GameManager.Instance != null)
+        {
+            // 플레이어 데이터 저장 (expCount)
+            GameManager.Instance.playerData.resourceExp += FieldManager.Instance.expCount;
 
+            // 히든 스테이지 클리어 시 캐릭터 해금
+            if (FieldManager.Instance.hiddenStageClear &&
+                GameManager.Instance.playerData.characterUsed[FieldManager.Instance.hiddenStageType + 1] == false)
+            {
+                GameManager.Instance.playerData.characterUsed[FieldManager.Instance.hiddenStageType + 1] = true;
+                animator.SetBool("HiddenClear", true);
+            }
+        }
     }
 
     public void BackButtonClick()

@@ -6658,7 +6658,7 @@ MonoBehaviour:
   effectAudio: {fileID: 971760790}
   BGMSounds: []
   PlayerEFXSounds:
-  - {fileID: 8300000, guid: 89d8a95b08286054386d371f6f7260fa, type: 3}
+  - {fileID: 8300000, guid: b66f1536837187748881658260868379, type: 3}
   MonsterEFXSounds: {fileID: 0}
   UiEFXSounds:
   - {fileID: 8300000, guid: 987e056633a32c5458cd8e34b4785a98, type: 3}

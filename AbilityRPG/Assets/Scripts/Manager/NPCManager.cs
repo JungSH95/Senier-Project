@@ -17,6 +17,8 @@ public class NPCManager : Singleton<NPCManager>
             else
                 npcObjList[i].SetActive(false);
         }
+
+        Debug.Log("Test : NPCManager");
     }
 
     public void CharacterChange(int nowNumber, int newNumber)

@@ -56,6 +56,10 @@ public class PlayerHpBar : MonoBehaviour
     public void Dmg(float atk)
     {
         currentHp -= atk;
+
+        if (currentHp <= 0)
+            currentHp = 0;
+
         Invoke("BackHpStart", 0.5f);
     }
 

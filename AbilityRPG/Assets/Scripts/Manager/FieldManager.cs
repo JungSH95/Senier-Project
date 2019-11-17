@@ -28,6 +28,7 @@ public class FieldManager : Singleton<FieldManager>
     public int monsterDeadCount;
     public int expCount;
 
+    public bool isBattle;
     public bool isClear;
 
     private FadeManager fadeManager;
@@ -134,6 +135,7 @@ public class FieldManager : Singleton<FieldManager>
         }
         
         nowField.SetActive(true);
+        isBattle = false;
 
         // 포탈 Obj 초기화
         portal = nowField.transform.Find("Portal").gameObject;
@@ -166,8 +168,12 @@ public class FieldManager : Singleton<FieldManager>
     // 이 과정을 통해서 플레이어 몬스터 리스트는 스폰매니저의 몬스터 리스트를 참조한다.
     public void BattleStart()
     {
+        if (isBattle == true)
+            return;
+
         SpawnManager.Instance.MonsterAIStart();
         player.GetComponent<PlayerTargeting>().monsterList = SpawnManager.Instance.monsterList;
+        isBattle = true;
 
         // 플래이어가 배틀 진입 후 기존에 있던 작은 방의 문이 닫히거나
         // 큐브로 막혀서 못 이동하게 설정 및 애니메이션 효과 추가

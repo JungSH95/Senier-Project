@@ -18,7 +18,8 @@ public class EnemyFrog : EnemyFSM
 
         haveExp = 1;
 
-        navAgent.stoppingDistance = 0.45f;
+        attackRange = 0.55f;
+        navAgent.stoppingDistance = 0.5f;
 
         attackCoolTime = 3f;
         attackCoolTimeCacl = 3f;

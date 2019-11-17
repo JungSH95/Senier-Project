@@ -18,8 +18,8 @@ public class EnemyLion : EnemyFSM
 
         haveExp = 1;
 
-        attackRange = 2f;
-        navAgent.stoppingDistance = 2f;
+        attackRange = 0.55f;
+        navAgent.stoppingDistance = 0.5f;
 
         attackCoolTime = 3f;
         attackCoolTimeCacl = 3f;

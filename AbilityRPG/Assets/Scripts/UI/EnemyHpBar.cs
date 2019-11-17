@@ -27,6 +27,7 @@ public class EnemyHpBar : MonoBehaviour
     {
         transform.position = enemy.position;
         hpSlider.value = Mathf.Lerp(hpSlider.value, currentHp / maxHp, Time.deltaTime * 5f);
+
         hpText.text = ((int)currentHp).ToString();
 
         if (backHpHit)
@@ -50,6 +51,10 @@ public class EnemyHpBar : MonoBehaviour
     public void Dmg(float atk)
     {
         currentHp -= atk;
+
+        if (currentHp <= 0)
+            currentHp = 0;
+
         Invoke("BackHpStart", 0.5f);
     }
 

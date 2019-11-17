@@ -108,6 +108,8 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("MOVE", false);
             animator.SetBool("THROW", false);
             animator.SetBool("IDLE", true);
+
+            rigidbody.velocity = Vector3.zero;
         }
 
         // 전투 중이 아닐 경우에만

@@ -22,7 +22,7 @@ public class EnemyFSM : EnemyBase
         InitMonster();
 
         while(true)
-        {            
+        {
             if (currentHp <= 0)
                 currentState = State.Dead;
 

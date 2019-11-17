@@ -17,6 +17,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
     public GameObject characterBook;
     public GameObject option;
     public GameObject gameEnd;
+    public StageTextAnimation textAnimation;
 
     private void Awake()
     {
@@ -31,6 +32,11 @@ public class MainFieldManager : Singleton<MainFieldManager>
             player.GetComponent<PlayerController>().characterBase =
                 GameManager.Instance.characterInfoList[GameManager.Instance.playerData.characterNumber];
         }
+    }
+
+    private void Start()
+    {
+        textAnimation.StageAnimationStart("마 을");
     }
 
     private void Update()

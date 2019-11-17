@@ -9,7 +9,7 @@ public class StageTextAnimation : MonoBehaviour
 
     public TextMeshProUGUI text;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }

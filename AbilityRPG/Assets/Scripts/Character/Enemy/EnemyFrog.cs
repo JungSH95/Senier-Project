@@ -3,15 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyLion : EnemyFSM
+public class EnemyFrog : EnemyFSM
 {
-    // 사거리 표시
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
-
     private new void Start()
     {
         base.Start();

@@ -3082,6 +3082,18 @@ MonoBehaviour:
     nPoolCount: 10
     poolList: []
     tfParent: {fileID: 0}
+  - strPoolName: Monster2
+    gPrefab: {fileID: 4106899430497377485, guid: 3549e668463434b4cb63b8d47d990e8e,
+      type: 3}
+    nPoolCount: 3
+    poolList: []
+    tfParent: {fileID: 0}
+  - strPoolName: Monster3
+    gPrefab: {fileID: 882968306379942909, guid: 020ee72d2aac8f441880a0af9cc1d983,
+      type: 3}
+    nPoolCount: 3
+    poolList: []
+    tfParent: {fileID: 0}
 --- !u!1 &867616055
 GameObject:
   m_ObjectHideFlags: 0

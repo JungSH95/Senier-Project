@@ -20,6 +20,7 @@ TagManager:
   - MonsterType0
   - MonsterType1
   - MonsterType2
+  - MonsterType3
   layers:
   - Default
   - TransparentFX

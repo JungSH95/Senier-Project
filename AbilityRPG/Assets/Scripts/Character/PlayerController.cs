@@ -26,8 +26,6 @@ public class PlayerController : MonoBehaviour
 
     public PlayerTargeting playerTargeting;
 
-    
-
     void Start()
     {
         PlayerSetting();

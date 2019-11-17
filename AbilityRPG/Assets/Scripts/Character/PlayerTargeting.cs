@@ -22,32 +22,6 @@ public class PlayerTargeting : MonoBehaviour
 
     // 총알 발사 관련
     public Transform attackPoint;
-    
-
-    // 시각적 표현 (에디터에서)
-    private void OnDrawGizmos()
-    {
-        if (monsterList == null)
-            return;
-
-        for (int i = 0; i < monsterList.Count; i++)
-        {
-            RaycastHit hit;
-            bool isHit = Physics.Raycast(transform.position, monsterList[i].transform.position - transform.position,
-                out hit, 20f, layerMask);
-
-            if (isHit && hit.transform.CompareTag("Monster"))
-            {
-                Gizmos.color = Color.green;
-            }
-            else
-            {
-                Gizmos.color = Color.red;
-            }
-
-            Gizmos.DrawRay(transform.position, monsterList[i].transform.position - transform.position);
-        }
-    }
 
     private void Start()
     {

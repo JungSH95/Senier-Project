@@ -1,17 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class EnemyFrog : EnemyFSM
+public class EnemyRugby : EnemyFSM
 {
-    // 사거리 표시
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
-
     private new void Start()
     {
         base.Start();
@@ -31,4 +23,10 @@ public class EnemyFrog : EnemyFSM
         maxHp = 100f;
         currentHp = maxHp;
     }
+
+    //protected override IEnumerator Attack()
+    //{
+    //    Debug.Log("호롤롤");
+    //    yield return new WaitForSeconds(0.2f);
+    //}
 }

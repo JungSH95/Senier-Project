@@ -54,6 +54,8 @@ public class SpawnManager : Singleton<SpawnManager>
                 return ObjectPool.Instance.PopFromPool("Monster1");
             case "MonsterType2":
                 return ObjectPool.Instance.PopFromPool("Monster2");
+            case "MonsterType3":
+                return ObjectPool.Instance.PopFromPool("Monster3");
             default:
                 return ObjectPool.Instance.PopFromPool("Monster0");
         }

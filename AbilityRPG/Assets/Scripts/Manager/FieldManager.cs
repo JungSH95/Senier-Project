@@ -41,9 +41,9 @@ public class FieldManager : Singleton<FieldManager>
     private void Awake()
     {
         currentStage = 0;
-        lastStage = 3;
+        lastStage = 5;
 
-        hiddenStage = 2;
+        hiddenStage = 3;
         hiddenStageType = -1;
         hiddenStageClear = false;
 

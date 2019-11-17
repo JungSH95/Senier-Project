@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4175797499355468}
   - component: {fileID: 33235111210149352}
   - component: {fileID: 23874696224731434}
+  - component: {fileID: 3890512708795356919}
   m_Layer: 0
   m_Name: ForestTreePineShort
   m_TagString: Obstacle
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &3890512708795356919
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852941587909970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8710852
+  m_Height: 2.3236728
+  m_Direction: 1
+  m_Center: {x: -0.000015258789, y: 0.10731715, z: -0.00000011920929}

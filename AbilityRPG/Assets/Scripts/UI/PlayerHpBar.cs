@@ -30,7 +30,8 @@ public class PlayerHpBar : MonoBehaviour
 
         transform.position = player.position;
         hpSlider.value = Mathf.Lerp(hpSlider.value, currentHp / maxHp, Time.deltaTime * 5f);
-        hpText.text = ((int)currentHp).ToString();
+
+        hpText.text = string.Format("{0:0.##}", currentHp);
 
         if (backHpHit)
         {

@@ -25,7 +25,7 @@ public class EnemyFSM : EnemyBase
         {
             if (currentHp <= 0)
                 currentState = State.Dead;
-
+            Debug.Log(currentState + " : " + currentHp.ToString());
             yield return StartCoroutine(currentState.ToString());
         }
     }

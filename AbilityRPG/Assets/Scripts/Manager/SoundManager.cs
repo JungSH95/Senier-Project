@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// https://mentum.tistory.com/221
 public class SoundManager : Singleton<SoundManager>
 {
     public AudioSource backgroundAudio;

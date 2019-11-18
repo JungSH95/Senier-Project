@@ -56,6 +56,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
             return;
 
         player.GetComponent<PlayerController>().isPopup = true;
+        player.SetActive(false);
 
         joystickCanvas.SetActive(false);
         mainCamera.SetActive(false);
@@ -69,6 +70,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
         if (joystickCanvas == null || mainCamera == null || playerInfo == null)
             return;
 
+        player.SetActive(true);
         player.GetComponent<PlayerController>().isPopup = false;
 
         joystickCanvas.SetActive(true);

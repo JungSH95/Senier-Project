@@ -13,6 +13,12 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
-            FieldManager.Instance.NextField();
+        {
+            if (GameManager.Instance != null)
+                if (GameManager.Instance.currentScene != "3_TutorialField")
+                    FieldManager.Instance.NextStage();
+                else
+                    TutorialManager.Instance.NextStage();
+        }
     }
 }

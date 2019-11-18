@@ -51,7 +51,7 @@ public class EnemyFSM : EnemyBase
         else
             currentState = State.Move;
 
-        if (FieldManager.Instance.player.GetComponent<PlayerController>().isDead)
+        if (Player.GetComponent<PlayerController>().isDead)
             StopAllCoroutines();
     }
 

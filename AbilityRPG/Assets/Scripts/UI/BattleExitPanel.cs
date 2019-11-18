@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BattleExitPanel : MonoBehaviour
 {
+    public PlayerController player;
+
     void Start()
     {
         SetExitPanel();
@@ -27,10 +29,9 @@ public class BattleExitPanel : MonoBehaviour
     {
         SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
 
-        // 캐릭터 사망처리 후
-        // 결과창 표시
-        FieldManager.Instance.player.GetComponent<PlayerController>().playerHpBar.Dmg(999);
-        FieldManager.Instance.player.GetComponent<PlayerController>().PlayerDead();
+        player.playerHpBar.Dmg(999);
+        player.PlayerDead();
+
         this.gameObject.SetActive(false);
         Time.timeScale = 0.5f;
     }

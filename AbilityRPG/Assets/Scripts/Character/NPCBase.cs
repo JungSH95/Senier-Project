@@ -10,8 +10,8 @@ public class NPCBase : MonoBehaviour
     private DialogueTrigger dialogueTrigger;
 
     public bool isAutoSentence;
-
     public bool isChangeCharacter;
+    public bool isTutorialCharacter;
 
     public Vector3 startRotation;
 
@@ -40,6 +40,9 @@ public class NPCBase : MonoBehaviour
                 if (isChangeCharacter)
                     popupWindow.OpenPopupWindows(dialogueTrigger.dialogue.name);
 
+                // 튜토리얼에 사용하는 NPC일 경우
+                if (isTutorialCharacter)
+                    TutorialManager.Instance.StageStart();
             }
         }
     }

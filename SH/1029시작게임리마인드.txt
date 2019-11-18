@@ -110,4 +110,3 @@ BattleField 기능
 1. Lobby -> MainField <-> BattleField  : 씬 이동간 효과 추가? 
 2. 조이스틱 이동이 가능하게 할 것인가?
 3. 튜토리얼 맵 생성
-4. 마을 표시 / NPC 이름 표시

@@ -41,9 +41,9 @@ public class FieldManager : Singleton<FieldManager>
     private void Awake()
     {
         currentStage = 0;
-        lastStage = 3;
+        lastStage = 5;
 
-        hiddenStage = 2;
+        hiddenStage = 3;
         hiddenStageType = -1;
         hiddenStageClear = false;
 
@@ -65,6 +65,7 @@ public class FieldManager : Singleton<FieldManager>
         }
         
         fadeManager = GameObject.FindGameObjectWithTag("FadeCanvas").GetComponent<FadeManager>();
+        exitPanel.player = player.GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -74,7 +75,7 @@ public class FieldManager : Singleton<FieldManager>
                 exitPanel.ExitPanelOpen();
     }
 
-    public void NextField()
+    public void NextStage()
     {
         currentStage++;
 
@@ -82,10 +83,10 @@ public class FieldManager : Singleton<FieldManager>
         if (currentStage > lastStage)
             return;
         
-        StartCoroutine(CoNextField());
+        StartCoroutine(CoNextStage());
     }
 
-    IEnumerator CoNextField()
+    IEnumerator CoNextStage()
     {
         fadeManager.FadeOut();
 

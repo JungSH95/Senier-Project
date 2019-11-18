@@ -12,12 +12,16 @@ public class GameManager : Singleton<GameManager>
 
     private bool isPaused;
 
+    public string currentScene;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 40;
+
+        currentScene = SceneManager.GetActiveScene().name;
     }
 
     private void Start()
@@ -36,7 +40,7 @@ public class GameManager : Singleton<GameManager>
         {
             isPaused = true;
 
-            if(SceneManager.GetActiveScene().name == "2_BattleField")
+            if(currentScene == "2_BattleField")
                 FieldManager.Instance.exitPanel.ExitPanelOpen();
         }
         else

@@ -8,7 +8,7 @@ public class LobbyManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneLoadManager.Instance.WorldMapScene();
+            SceneLoadManager.Instance.LoadScene("1_MainField");
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Joybutton : MonoBehaviour
 {
@@ -12,8 +11,9 @@ public class Joybutton : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.Instance != null && SceneManager.GetActiveScene().name == "1_MainField")
-            playerInfoImage.sprite = characterSprite[GameManager.Instance.playerData.characterNumber];
+        if (GameManager.Instance != null)
+            if (GameManager.Instance.currentScene == "1_MainField")
+                playerInfoImage.sprite = characterSprite[GameManager.Instance.playerData.characterNumber];
     }
 
     // MainField -------------------------------------------
@@ -43,7 +43,11 @@ public class Joybutton : MonoBehaviour
 
     public void BattleExitButton()
     {
-        FieldManager.Instance.exitPanel.ExitPanelOpen();
+        if (GameManager.Instance.currentScene == "2_BattleField")
+            FieldManager.Instance.exitPanel.ExitPanelOpen();
+        else
+            TutorialManager.Instance.exitPanel.ExitPanelOpen();
+
         SoundManager.Instance.effectAudio.PlayOneShot(SoundManager.Instance.UiEFXSounds[0]);
     }
 }

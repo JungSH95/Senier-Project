@@ -176,7 +176,13 @@ public class PlayerController : MonoBehaviour
         joystick.gameObject.SetActive(false);
         isDead = true;
 
-        FieldManager.Instance.BattleFieldEnd(false);
+        if(GameManager.Instance != null)
+        {
+            if (GameManager.Instance.currentScene == "2_BattleField")
+                FieldManager.Instance.BattleFieldEnd(false);
+            else
+                TutorialManager.Instance.TutorialFieldEnd(false);
+        }
     }
 
     // 체력 회복
@@ -189,8 +195,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.CompareTag("NextScene"))
-            SceneLoadManager.Instance.LoadScene("2_BattleField");
+        if (other.transform.CompareTag("NextScene"))
+        {
+            if (GameManager.Instance.playerData.tutorialClear)
+                SceneLoadManager.Instance.BattleScene();
+            else
+                SceneLoadManager.Instance.TutorialScene();
+        }
 
         if (other.transform.CompareTag("BattleStart"))
             FieldManager.Instance.BattleStart();
@@ -208,8 +219,5 @@ public class PlayerController : MonoBehaviour
             if(playerHpBar.currentHp <= 0)
                 PlayerDead();
         }
-
-        GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<Rigidbody>().isKinematic = false;
     }
 }

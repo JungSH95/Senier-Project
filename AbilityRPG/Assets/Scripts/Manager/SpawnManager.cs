@@ -80,12 +80,25 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         monsterList.Remove(monster);
 
-        FieldManager.Instance.monsterDeadCount++;
-        FieldManager.Instance.expCount += monster.GetComponent<EnemyBase>().haveExp;
+        if (GameManager.Instance != null)
+        {
+            if (GameManager.Instance.currentScene == "2_BattleField")
+            {
+                FieldManager.Instance.monsterDeadCount++;
+                FieldManager.Instance.expCount += monster.GetComponent<EnemyBase>().haveExp;
 
-        // 남아있는 몬스터의 수가 없으면 스테이지 클리어
-        if (monsterList.Count == 0)
-            FieldManager.Instance.StageClear();
+                // 남아있는 몬스터의 수가 없으면 스테이지 클리어
+                if (monsterList.Count == 0)
+                    FieldManager.Instance.StageClear();
+            }
+            else
+            {
+                if (monsterList.Count == 0)
+                    TutorialManager.Instance.TutorialFieldEnd(true);
+            }
+        }
+
+        
     }
 
     // 다음 스테이지로 넘어가기전에 Points에 몬스터가 남아있다면 전부 다 반환

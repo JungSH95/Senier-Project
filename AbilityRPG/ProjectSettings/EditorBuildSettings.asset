@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2_BattleField.unity
     guid: 227fd6799796b5b4090b4c954cae1161
+  - enabled: 1
+    path: Assets/Scenes/3_TutorialField.unity
+    guid: fa6c905ebd2628347aecc6577fcf246b
   m_configObjects: {}

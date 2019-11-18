@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using LitJson;
 using System.Text;
 
 // https://wergia.tistory.com/164
-
 [System.Serializable]
 public class PlayerData
 {
@@ -18,11 +16,14 @@ public class PlayerData
 
     public int resourceExp;
 
+    public bool tutorialClear;
+
     public PlayerData()
     {
         characterNumber = 0;
         resourceExp = 10;
         characterUsed = new bool[] { true, true, false };
+        tutorialClear = false;
     }
 
     public void Print()

@@ -307,6 +307,7 @@ MonoBehaviour:
   BGMSounds: []
   PlayerEFXSounds: []
   MonsterEFXSounds: {fileID: 0}
+  UiEFXSounds: []
 --- !u!82 &539440304
 AudioSource:
   m_ObjectHideFlags: 0
@@ -559,6 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
+  fadeManager: {fileID: 0}
 --- !u!1 &800121154
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,10 +754,12 @@ MonoBehaviour:
     characterNumber: 0
     characterUsed: 
     resourceExp: 10
+    tutorialClear: 0
   optionData:
     BgmOn: 0
     EfxOn: 0
   characterInfoList: []
+  currentScene: 
 --- !u!4 &1067394126
 Transform:
   m_ObjectHideFlags: 0

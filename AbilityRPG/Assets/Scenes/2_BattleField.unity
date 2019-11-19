@@ -1341,6 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a29788d4999a044abecbac557c5257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &335101532
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,7 +3090,7 @@ MonoBehaviour:
     poolList: []
     tfParent: {fileID: 0}
   - strPoolName: Monster3
-    gPrefab: {fileID: 882968306379942909, guid: 020ee72d2aac8f441880a0af9cc1d983,
+    gPrefab: {fileID: 7900439024573099716, guid: 364064ad23eef284982092a4d1fab8d6,
       type: 3}
     nPoolCount: 3
     poolList: []
@@ -3539,6 +3540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
+  fadeManager: {fileID: 0}
 --- !u!1001 &946078607
 PrefabInstance:
   m_ObjectHideFlags: 0

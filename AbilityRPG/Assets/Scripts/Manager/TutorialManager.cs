@@ -30,7 +30,7 @@ public class TutorialManager : Singleton<TutorialManager>
     private void Awake()
     {
         currentStage = 0;
-        lastStage = 3;
+        lastStage = 2;
 
         isClear = false;
 

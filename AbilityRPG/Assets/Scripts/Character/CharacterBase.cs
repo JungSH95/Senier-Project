@@ -93,8 +93,8 @@ public class CharacterBase
 
     public void SetStatus()
     {
-        maxHp += (conLevel - 1) * 1f;
+        maxHp = 100f + (conLevel - 1) * 1f;
         atkSpeed = 1.5f + dexLevel * 0.1f;
-        damage += (strLevel - 1) * 0.1f + (weaponLevel - 1) * 1f;
+        damage = 10f + (strLevel - 1) * 0.1f + (weaponLevel - 1) * 1f;
     }
 }

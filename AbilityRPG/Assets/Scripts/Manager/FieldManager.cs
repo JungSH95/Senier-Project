@@ -105,21 +105,25 @@ public class FieldManager : Singleton<FieldManager>
             int randomIndex = Random.Range(0, 10);
 
             // 30퍼 (럭비 맵) 
-            if (randomIndex < 3)
+            //if (randomIndex < 3)
             {
-                hiddenStageType = 0;
+                hiddenStageType = 1;
 
                 nowField = hiddenStartPosList[0].parent.gameObject;
                 player.transform.position = hiddenStartPosList[0].position;
             }
+
+            /*
             // 70퍼 (펭수 맵)
             else if (randomIndex < 10)
             {
-                hiddenStageType = 1;
+                hiddenStageType = 0;
 
                 nowField = hiddenStartPosList[1].parent.gameObject;
                 player.transform.position = hiddenStartPosList[1].position;
             }
+            */
+
         }
         else if(currentStage == lastStage)
         {

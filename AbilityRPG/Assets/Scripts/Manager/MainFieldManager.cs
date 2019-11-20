@@ -36,6 +36,7 @@ public class MainFieldManager : Singleton<MainFieldManager>
 
     private void Start()
     {
+        Time.timeScale = 1f;
         textAnimation.StageAnimationStart("마 을");
     }
 

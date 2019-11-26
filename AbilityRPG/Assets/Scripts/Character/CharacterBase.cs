@@ -24,7 +24,7 @@ public class CharacterBase
     public float atkSpeed;
     public float speed;
 
-    public CharacterBase(string weaponName, bool master)
+    public CharacterBase(string weaponName)
     {
         strLevel = 1;
         dexLevel = 1;
@@ -48,15 +48,7 @@ public class CharacterBase
         atkSpeed = 1.5f;
         speed = 2f;
 
-        if(master)
-        {
-            strLevel = 10;
-            dexLevel = 10;
-            conLevel = 10;
-            weaponLevel = 50;
-
-            SetStatus();
-        }
+        SetStatus();
     }
 
     public void StrLevelUp()

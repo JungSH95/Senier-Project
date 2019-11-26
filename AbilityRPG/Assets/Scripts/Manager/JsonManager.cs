@@ -142,14 +142,14 @@ public class JsonManager : Singleton<JsonManager>
     {
         string fileName = "Character" + number.ToString();
         string weapon = "Weapon" + number.ToString();
-                       
+
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             if (File.Exists(Application.dataPath + "/" + fileName + ".json"))
                 GameManager.Instance.characterInfoList.Add(LoadJsonFile<CharacterBase>(Application.dataPath, fileName));
             else
             {
-                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon, false));
+                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon));
 
                 string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
                 CreateJsonFile(Application.dataPath, fileName, jsonData);
@@ -161,11 +161,8 @@ public class JsonManager : Singleton<JsonManager>
                 GameManager.Instance.characterInfoList.Add(LoadJsonFile<CharacterBase>(Application.persistentDataPath, fileName));
             else
             {
-                if (number == 1)
-                    GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon, true));
-                else
-                    GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon, false));
-                
+                GameManager.Instance.characterInfoList.Add(new CharacterBase(weapon));
+
                 string jsonData = JsonUtility.ToJson(GameManager.Instance.characterInfoList[number]);
                 CreateJsonFile(Application.persistentDataPath, fileName, jsonData);
             }

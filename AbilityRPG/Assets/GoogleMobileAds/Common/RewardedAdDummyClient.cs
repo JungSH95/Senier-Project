@@ -52,11 +52,6 @@ namespace GoogleMobileAds.Common
         public void LoadAd(AdRequest request)
         {
             Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
-
-            if (OnAdLoaded != null)
-            {
-                OnAdLoaded(this, EventArgs.Empty);
-            }
         }
 
         public bool IsLoaded()

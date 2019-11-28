@@ -21,7 +21,8 @@ public class AdmobManager : MonoBehaviour
     private void RequestBanner()
     {
 #if UNITY_ANDROID
-        string AdUnitId = "ca-app-pub-3940256099942544/6300978111";
+        string AdUnitId = "ca-app-pub-9788866295273918/9638727232";
+        //string AdUnitId = "ca-app-pub-3940256099942544/6300978111";
 #else
         string AdUnitId = "unDefind";
 #endif
@@ -38,7 +39,11 @@ public class AdmobManager : MonoBehaviour
         // Called when the ad click caused the user to leave the application.
         banner.OnAdLeavingApplication += HandleOnAdLeavingApplication_banner;
 
-        AdRequest request = new AdRequest.Builder().Build();
+        //AdRequest request = new AdRequest.Builder().Build();
+
+        AdRequest request = new AdRequest.Builder().
+            AddTestDevice(AdRequest.TestDeviceSimulator).
+            AddTestDevice("D1CEC1EC30FD8678").Build();
 
         banner.LoadAd(request);
     }

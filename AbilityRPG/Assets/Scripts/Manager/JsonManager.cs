@@ -22,7 +22,7 @@ public class PlayerData
     {
         characterNumber = 0;
         resourceExp = 10;
-        characterUsed = new bool[] { true, true, false };
+        characterUsed = new bool[] { true, false, false };
         tutorialClear = false;
     }
 

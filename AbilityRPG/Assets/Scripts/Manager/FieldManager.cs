@@ -154,9 +154,9 @@ public class FieldManager : Singleton<FieldManager>
         // 재활성화 시 애니메이션 값이 초기화 됌
         player.GetComponent<PlayerController>().animator.SetFloat("AtkSpeed",
             player.GetComponent<PlayerController>().characterBase.atkSpeed);
-
-        fadeManager.FadeIn();
+        
         SpawnManager.Instance.MonsterAllSetActive();
+        fadeManager.FadeIn();
 
         if (hiddenStage == currentStage)
             stageTextAnimation.StageAnimationStart(currentStage.ToString() + " - Hidden Stage");

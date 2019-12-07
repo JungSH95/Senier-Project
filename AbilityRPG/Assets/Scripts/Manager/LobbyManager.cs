@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
 {
+    bool nextScene;
+
+    private void Awake()
+    {
+        nextScene = false;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneLoadManager.Instance.LoadScene("1_MainField");
+            if (!nextScene)
+            {
+                SceneLoadManager.Instance.LoadScene("1_MainField");
+                nextScene = true;
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ public class SpawnManager : Singleton<SpawnManager>
     public bool isSpawnEnd;
     public bool isMonsterClear;
 
-    // 문제 발생 왜 포인트를 미친듯이 잡아내는가?
+
     public void SetSpawnTransform(GameObject fieldObj)
     {
         spawnTransform = fieldObj.transform.Find("Spawn").transform;
@@ -35,7 +35,8 @@ public class SpawnManager : Singleton<SpawnManager>
             GameObject newMonster = GetMonsterObject(points[monsterCount].tag);
             newMonster.transform.parent = points[monsterCount].transform;
             newMonster.transform.position = points[monsterCount].position;
-            newMonster.transform.Find("Character").gameObject.transform.position = newMonster.transform.position;
+            newMonster.transform.Find("Character").gameObject.
+                transform.position = newMonster.transform.position;
             monsterList.Add(newMonster.transform.Find("Character").gameObject);
         }
 
